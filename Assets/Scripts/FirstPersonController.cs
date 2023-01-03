@@ -14,7 +14,6 @@ public class FirstPersonController : MonoBehaviour
 
     private CharacterController characterController;
     private bool isSprinting = false;
-    private float jumpTimer = 0;
 
     void Start()
     {
@@ -51,28 +50,14 @@ public class FirstPersonController : MonoBehaviour
         verticalVelocity += Physics.gravity.y * Time.deltaTime;
 
         if (characterController.isGrounded && Input.GetButton("Jump"))
-    {
-        if (jumpTimer > 0 && jumpTimer < 0.2f)
         {
-            // Space key was pressed quickly, reduce jump height
-            verticalVelocity = jumpForce * 0.5f;
-        }
-        else
-        {
-            // Space key was pressed normally, full jump height
             verticalVelocity = jumpForce;
         }
-        jumpTimer = 0;
-    }
-
-    jumpTimer += Time.deltaTime;
 
         Vector3 speed = new Vector3(sideSpeed, verticalVelocity, forwardSpeed);
 
         speed = transform.rotation * speed;
 
         characterController.Move(speed * Time.deltaTime);
-
-        
     }
 }

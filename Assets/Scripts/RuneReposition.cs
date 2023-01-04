@@ -6,11 +6,13 @@ public class RuneReposition : MonoBehaviour
 {
     private FirstPersonController firstPersonController;
     private Camera mainCamera;
+    private CharacterController characterController;
 
     void Start()
     {
         firstPersonController = GetComponent<FirstPersonController>();
         mainCamera = Camera.main;
+        characterController = GetComponent<CharacterController>();
     }
 
     void Update()
@@ -22,10 +24,13 @@ public class RuneReposition : MonoBehaviour
             {
                 GameObject target = hit.transform.gameObject;
                 if (target.CompareTag("Rune"))
-                {
+                {   
+
+                    characterController.enabled = false;
                     firstPersonController.enabled = false;
                     transform.position = target.transform.position;
                     firstPersonController.enabled = true;
+                    characterController.enabled = true;
                 }
             }
         }

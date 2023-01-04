@@ -5,14 +5,13 @@ using UnityEngine;
 public class StoneStance : MonoBehaviour
 {
     public bool stoned = false;
+    private FirstPersonController firstPersonController;
     
-    // Start is called before the first frame update
     void Start()
     {
-        
+        firstPersonController = GetComponent<FirstPersonController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown("r"))

@@ -22,10 +22,13 @@ public class RuneReposition : MonoBehaviour
             {
                 GameObject target = hit.transform.gameObject;
                 if (target.CompareTag("Rune"))
-                {
+                {   
+
+                    //characterController.enabled = false;
                     firstPersonController.enabled = false;
                     transform.position = target.transform.position;
                     firstPersonController.enabled = true;
+                    //characterController.enabled = true;
                 }
             }
         }

@@ -28,7 +28,7 @@ public class RuneReposition : MonoBehaviour
 
                     characterController.enabled = false;
                     firstPersonController.enabled = false;
-                    transform.position = target.transform.GetChild(0).transform.position;
+                    transform.position = target.transform.position;
                     firstPersonController.enabled = true;
                     characterController.enabled = true;
                 }

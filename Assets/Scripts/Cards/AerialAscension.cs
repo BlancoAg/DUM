@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AerialAscension : MonoBehaviour
 {
-    public float levitate = 20.0f;
-    public float defaultJumpForce = 10.0f;
-    public FirstPersonController firstPersonController;
+    public float levitate = 15.0f;
+    public float defaultJumpForce = 5.0f;
+    private FirstPersonController firstPersonController;
 
     void Start()
     {

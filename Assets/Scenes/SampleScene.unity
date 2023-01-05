@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18037711, g: 0.4745123, b: 0.4962732, a: 1}
+  m_IndirectSpecularColor: {r: 0.18037756, g: 0.47451296, b: 0.4962749, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1095,8 +1095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levitate: 20
-  defaultJumpForce: 10
-  firstPersonController: {fileID: 0}
+  defaultJumpForce: 5
 --- !u!114 &708923048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,6 +1122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stoned: 0
+  downForce: 1
 --- !u!114 &708923050
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Damageable : MonoBehaviour
 {
     public float maxHealth = 100;
     public float currentHealth;
+    public GameObject gameOverPanel;
+    public GameObject Crosshair;
+    private FirstPersonController firstPersonController;
 
     void Start()
     {
         currentHealth = maxHealth;
+        firstPersonController = GetComponent<FirstPersonController>();
     }
 
     public void ApplyDamage(float damage)
@@ -25,7 +28,11 @@ public class Damageable : MonoBehaviour
 
     public void Die()
     {
-     int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-     SceneManager.LoadScene(currentSceneIndex - 1);   // Do something when the character dies, such as play a death animation or destroy the game object
+     gameOverPanel.SetActive(true);
+     firstPersonController.enabled = false;
+     Cursor.lockState = CursorLockMode.None;
+     Cursor.visible = true;
+     Crosshair.SetActive(false);
+
     }
 }

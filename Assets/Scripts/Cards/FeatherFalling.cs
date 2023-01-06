@@ -6,21 +6,24 @@ public class FeatherFalling : MonoBehaviour
 {
     public float reducedGravity = 4.905f;
 
-void Update()
-{
-    // Check if Ctrl key is held down
-    if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+    private Vector3 currentPosition;
+    private Vector3 previousPosition;
+
+    void Update()
     {
-        // Set gravity to reduced value
-        Physics.gravity = new Vector3(0, -reducedGravity, 0);
-    }
-    else
-    {
-        // Set gravity to normal value
-        Physics.gravity = new Vector3(0, -9.81f, 0);
+        previousPosition = currentPosition;
+        currentPosition = transform.position;
+
+        if (currentPosition.y < previousPosition.y && Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+        {
+            // Y direction is decreasing and Ctrl key is held down
+            Physics.gravity = new Vector3(0, -reducedGravity, 0);
+        }
+        else
+        {
+            // Y direction is not decreasing or Ctrl key is not held down
+            Physics.gravity = new Vector3(0, -9.81f, 0);
+        }
     }
 }
 
-
-
-}

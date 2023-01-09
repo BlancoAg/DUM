@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scorch_Shield : MonoBehaviour
+public class ScorchShield : MonoBehaviour
 {
     public bool shielded = false;
     

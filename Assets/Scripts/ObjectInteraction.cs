@@ -8,18 +8,18 @@ public class ObjectInteraction : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider != null && hit.collider.tag == "Card")
-                {
-                    Destroy(hit.collider.gameObject);
-                    counter++;
-                }
-            }
-        }
-    }
-}
+    //     if (Input.GetMouseButtonDown(0))
+    //     {
+    //         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    //         RaycastHit hit;
+    //         if (Physics.Raycast(ray, out hit))
+    //         {
+    //             if (hit.collider != null && hit.collider.tag == "Card")
+    //             {
+    //                 Destroy(hit.collider.gameObject);
+    //                 counter++;
+    //             }
+    //         }
+    //     }
+     }
+} 

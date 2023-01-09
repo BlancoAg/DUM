@@ -654,7 +654,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7847060688403592120, guid: 57cb60a8ce869344484c39c9d6ed0b51, type: 3}
   m_PrefabInstance: {fileID: 1518188199}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &481207308
+--- !u!114 &481207312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -663,10 +663,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 481207306}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aa9d75071846f54e9526aed4c64ef3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 539e05f697845124f9dc806ecf63c52d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damageInterval: 2
+  scorchShield: {fileID: 708923078}
 --- !u!1 &519796356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,19 +1107,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levitate: 15
   defaultJumpForce: 5
---- !u!114 &708923048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708923018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e81b178880c7a4479a8ff88a1adc43f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shielded: 0
 --- !u!114 &708923049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1204,6 +1192,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   gameOverPanel: {fileID: 1902988628}
+  Crosshair: {fileID: 1387070518}
 --- !u!114 &708923070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1217,6 +1206,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reducedGravity: 1.905
+--- !u!114 &708923078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708923018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4b3c035f337fb344b1ecac84bea0337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shielded: 0
 --- !u!4 &713389611 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6864308072293235883, guid: ce728e0bdc7bb9b42bf0e500dff49e6e, type: 3}
@@ -1934,13 +1936,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1329303709}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1329303714}
+        m_TargetAssemblyTypeName: RestartButton, Assembly-CSharp
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2009,7 +2011,7 @@ GameObject:
   - component: {fileID: 1387070521}
   - component: {fileID: 1387070520}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2482,10 +2484,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1802881707}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aa9d75071846f54e9526aed4c64ef3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 539e05f697845124f9dc806ecf63c52d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damageInterval: 2
+  scorchShield: {fileID: 708923078}
 --- !u!1 &1818460229
 GameObject:
   m_ObjectHideFlags: 0
@@ -2695,7 +2698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1902988629
 RectTransform:
   m_ObjectHideFlags: 0

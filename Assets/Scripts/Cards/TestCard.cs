@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestCard : MonoBehaviour
+public class TestCard : MonoBehaviour, ICard
 {
     private bool status;
     private bool ready;

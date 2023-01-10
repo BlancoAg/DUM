@@ -16,7 +16,6 @@ public class Hand : MonoBehaviour
 
     void Update()
     {   
-
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -29,7 +28,6 @@ public class Hand : MonoBehaviour
                 {
                     cardsInHand.Add(objectHit);
                     hit.collider.gameObject.SetActive(false);
-                    //hit.collider.gameObject.GetComponent<Renderer>().enabled = false;
                     Debug.Log("Added " + objectHit.name + " to hand.");
                 }
             }
@@ -68,37 +66,29 @@ public class Hand : MonoBehaviour
 
         }
 
-        //if(Input.GetMouseButtonDown(1))
-        //{
-            // Check if there are any cards in the hand
         if (cardsInHand.Count > 0)
         {
-            // Check if the current card has a .prepare_card method
-        if (cardsInHand[currentCardIndex].GetComponent<TestCard>() != null)
+            ICard currentCard = cardsInHand[currentCardIndex].GetComponent<ICard>();
+            if (currentCard != null)
             {
-                // Call the .prepare_card method
-                //cardsInHand[currentCardIndex].GetComponent<TestCard>().prepare_card();
-            
-            if (!Input.GetMouseButton(1) && ready){
-                ready = false;
-                cardsInHand[currentCardIndex].GetComponent<TestCard>().card_preparation(false);
-            }
-
-            if (Input.GetMouseButton(1) && !ready){
-                ready = true;
-                cardsInHand[currentCardIndex].GetComponent<TestCard>().card_preparation(true);
-            }
-            
-
-            if(Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) && ready)
-            {
-                // Call the .cast_card method
-                cardsInHand[currentCardIndex].GetComponent<TestCard>().cast_card();
+                if (!Input.GetMouseButton(1) && ready)
+                {
+                    ready = false;
+                    currentCard.card_preparation(false);
+                }
+                if (Input.GetMouseButton(1) && !ready)
+                {
+                    ready = true;
+                    currentCard.card_preparation(true);
+                
+                }
+                if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) && ready)
+                {
+                    CharacterController characterController = cardsInHand[currentCardIndex].AddComponent<CharacterController>();
+                    FirstPersonController firstPersonController = cardsInHand[currentCardIndex].AddComponent<FirstPersonController>();
+                    currentCard.cast_card();
+                }
             }
         }
     }
-    
-    }    
-        
-    
-}
+}    

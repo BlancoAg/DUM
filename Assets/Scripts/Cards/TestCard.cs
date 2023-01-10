@@ -28,9 +28,7 @@ public class TestCard : MonoBehaviour
     public void cast_card(){
         if(ready){
         Debug.Log("Card " + gameObject.name + " Played");
-
         //bla bla bla
-
         ready = false;
         }
     }

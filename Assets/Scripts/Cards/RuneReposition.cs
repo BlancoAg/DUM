@@ -15,13 +15,22 @@ public class RuneReposition : MonoBehaviour
         characterController = GetComponent<CharacterController>();
     }
 
-    void prepare_card(){
-        ready = true;
+    public void card_preparation(bool status){
+    Debug.Log("estatus: " + status);
+    if(!status){
+        Debug.Log("despreparacion");
+        ready = false;
+
+        // bla bla bla 
+        
+        return; 
     }
 
-    
-    void unprepare_card(){
-        ready = false;
+        ready = status;
+        Debug.Log("Card "+ gameObject.name +" is ready");
+         //bla bla bla 
+        return;
+       
     }
 
     void cast_card(){
@@ -39,6 +48,7 @@ public class RuneReposition : MonoBehaviour
                     transform.position = target.transform.position;
                     firstPersonController.enabled = true;
                     characterController.enabled = true;
+                    ready = false;
                 }
             }
         }

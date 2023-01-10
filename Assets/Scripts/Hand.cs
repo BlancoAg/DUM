@@ -28,8 +28,8 @@ public class Hand : MonoBehaviour
                 if (objectHit.tag == "Card")
                 {
                     cardsInHand.Add(objectHit);
-                    hit.collider.gameObject.GetComponent<Collider>().enabled = false;
-                    hit.collider.gameObject.GetComponent<Renderer>().enabled = false;
+                    hit.collider.gameObject.SetActive(false);
+                    //hit.collider.gameObject.GetComponent<Renderer>().enabled = false;
                     Debug.Log("Added " + objectHit.name + " to hand.");
                 }
             }

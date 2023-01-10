@@ -7,7 +7,7 @@ public class RuneReposition : MonoBehaviour
     private FirstPersonController firstPersonController;
     private Camera mainCamera;
     private CharacterController characterController;
-
+    private bool ready ;
     void Start()
     {
         firstPersonController = GetComponent<FirstPersonController>();
@@ -15,9 +15,17 @@ public class RuneReposition : MonoBehaviour
         characterController = GetComponent<CharacterController>();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
+    void prepare_card(){
+        ready = true;
+    }
+
+    
+    void unprepare_card(){
+        ready = false;
+    }
+
+    void cast_card(){
+        if(ready)
         {
             RaycastHit hit;
             if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit))
@@ -36,4 +44,3 @@ public class RuneReposition : MonoBehaviour
         }
     }
 }
-

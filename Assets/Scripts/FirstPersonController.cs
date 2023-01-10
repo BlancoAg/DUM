@@ -55,15 +55,15 @@ public class FirstPersonController : MonoBehaviour
 
         if (characterController.isGrounded && Input.GetButton("Jump"))
         {
-            if (stoneStance.stoned)
-            {
+            //if (stoneStance.stoned)
+            //{
 
-               verticalVelocity = 1.0f;
-            }
-            else
-            {
+              // verticalVelocity = 1.0f;
+            //}
+            //else
+            //{
             verticalVelocity = jumpForce;
-            }
+            //}
         }
 
         Vector3 speed = new Vector3(sideSpeed, verticalVelocity, forwardSpeed);

@@ -12,12 +12,12 @@ public class ObjectInteraction : MonoBehaviour
          {
              Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
              RaycastHit hit;
-             if (Physics.Raycast(ray, out hit))
+             if (Physics.Raycast(ray, out hit,2))
              {
                  if (hit.collider != null && hit.collider.tag == "Card")
                  {
-                     hit.collider.gameObject.GetComponent<Collider>().enabled = false;
-                     hit.collider.gameObject.GetComponent<Renderer>().enabled = false;
+                     //hit.collider.gameObject.GetComponent<Collider>().enabled = false;
+                     //hit.collider.gameObject.GetComponent<Renderer>().enabled = false;
                      counter++;
                  }
              }

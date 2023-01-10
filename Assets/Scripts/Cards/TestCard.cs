@@ -4,17 +4,34 @@ using UnityEngine;
 
 public class TestCard : MonoBehaviour
 {
+    private bool status;
     private bool ready;
-    public void prepare_card(){
+
+    public void card_preparation(bool status){
+    Debug.Log("estatus: " + status);
+    if(!status){
+        Debug.Log("despreparacion");
+        ready = false;
+
+        // bla bla bla 
+        
+        return; 
+    }
+
+        ready = status;
         Debug.Log("Card "+ gameObject.name +" is ready");
-        ready = true;
+         //bla bla bla 
+        return;
+       
     }
 
     public void cast_card(){
         if(ready){
-        Debug.Log("Card" + gameObject.name + "Played");
+        Debug.Log("Card " + gameObject.name + " Played");
+
+        //bla bla bla
+
         ready = false;
         }
     }
-
 }

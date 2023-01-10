@@ -33,7 +33,7 @@ public class RuneReposition : MonoBehaviour
        
     }
 
-    void cast_card(){
+    public void cast_card(){
         if(ready)
         {
             RaycastHit hit;

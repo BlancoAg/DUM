@@ -7,7 +7,6 @@ public class RuneReposition : MonoBehaviour
     private FirstPersonController firstPersonController;
     private Camera mainCamera;
     private CharacterController characterController;
-    private bool ready ;
     void Start()
     {
         firstPersonController = GetComponent<FirstPersonController>();
@@ -15,26 +14,9 @@ public class RuneReposition : MonoBehaviour
         characterController = GetComponent<CharacterController>();
     }
 
-    public void card_preparation(bool status){
-    Debug.Log("estatus: " + status);
-    if(!status){
-        Debug.Log("despreparacion");
-        ready = false;
-
-        // bla bla bla 
-        
-        return; 
-    }
-
-        ready = status;
-        Debug.Log("Card "+ gameObject.name +" is ready");
-         //bla bla bla 
-        return;
-       
-    }
-
-    public void cast_card(){
-        if(ready)
+     void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
         {
             RaycastHit hit;
             if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit))
@@ -48,7 +30,6 @@ public class RuneReposition : MonoBehaviour
                     transform.position = target.transform.position;
                     firstPersonController.enabled = true;
                     characterController.enabled = true;
-                    ready = false;
                 }
             }
         }

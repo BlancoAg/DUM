@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class PuppetController : MonoBehaviour
 {
-    public GameObject player; 
-    public GameObject puppet; 
+    public GameObject player;  
     public Camera playerCamera; 
-    public Camera puppetCamera; 
 
     void Start()
     {
         // Make sure both cameras are enabled
         playerCamera.enabled = true;
-        puppetCamera.enabled = false;
+        //Search "Puppet" objects
+        GameObject[] puppetObjects = GameObject.FindGameObjectsWithTag("Puppet");
+
+        // Disable the cameras of all the found objects
+        foreach (GameObject puppet in puppetObjects)
+        {
+            puppet.GetComponentInChildren<Camera>().enabled = false;
+        }
     }
+    
 
     void Update()
     {
@@ -26,16 +32,16 @@ public class PuppetController : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.gameObject == puppet)
+                if (hit.collider.tag == "Puppet")
                 {
-                    // Disable player camera and enable puppet camera
+                    // Disable player camera and enable puppets cameras
                     playerCamera.enabled = false;
-                    puppetCamera.enabled = true;
+                    hit.collider.gameObject.GetComponentInChildren<Camera>().enabled = true;
                     // Disable player's movement script
                     player.GetComponent<FirstPersonController>().enabled = false;
 
                     // Enable puppet's movement script
-                    puppet.GetComponent<FirstPersonController>().enabled = true;
+                    hit.collider.gameObject.GetComponent<FirstPersonController>().enabled = true;
                 }
             }
         }

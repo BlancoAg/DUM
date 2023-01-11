@@ -15,7 +15,6 @@ public class FirstPersonController : MonoBehaviour
     private CharacterController characterController;
     //private StoneStance stoneStance;
     private bool isSprinting = false;
-    public Camera mainCamera;
 
 
     void Start()
@@ -24,7 +23,6 @@ public class FirstPersonController : MonoBehaviour
         //stoneStance = GetComponent<StoneStance>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        mainCamera = Camera.main;
 
     }
 
@@ -36,7 +34,7 @@ public class FirstPersonController : MonoBehaviour
 
         verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
         verticalRotation = Mathf.Clamp(verticalRotation, -90, 90);
-        mainCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+        Camera.main.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
 
         // Handle movement
         float forwardSpeed = Input.GetAxis("Vertical") * movementSpeed;

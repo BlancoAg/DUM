@@ -13,14 +13,14 @@ public class FirstPersonController : MonoBehaviour
     private float verticalVelocity = 0;
 
     private CharacterController characterController;
-    private StoneStance stoneStance;
+    //private StoneStance stoneStance;
     private bool isSprinting = false;
 
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        stoneStance = GetComponent<StoneStance>();
+        //stoneStance = GetComponent<StoneStance>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 

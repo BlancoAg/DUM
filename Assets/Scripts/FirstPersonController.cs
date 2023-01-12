@@ -8,7 +8,7 @@ public class FirstPersonController : MonoBehaviour
     public float mouseSensitivity = 2.0f;
     public float jumpForce = 10.0f;
     public float sprintMultiplier = 2.0f;
-
+    public bool ready;
     private float verticalRotation = 0;
     private float verticalVelocity = 0;
 
@@ -23,6 +23,25 @@ public class FirstPersonController : MonoBehaviour
         //stoneStance = GetComponent<StoneStance>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+    }
+
+    public void card_preparation(bool status)
+    {
+        Debug.Log("estatus: " + status);
+        if (!status)
+        {
+            Debug.Log("despreparacion");
+            ready = false;
+            return; 
+        }
+        ready = status;
+        Debug.Log("Card "+ gameObject.name +" is ready");
+        return; 
+    }
+        public void cast_card()
+    {
+
 
     }
 

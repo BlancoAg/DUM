@@ -12,6 +12,7 @@ public class RuneReposition : MonoBehaviour, ICard
 
     void Start()
     {
+        player = GameObject.Find("Player");
         firstPersonController = player.GetComponent<FirstPersonController>();
         mainCamera = Camera.main;
         characterController = player.GetComponent<CharacterController>();

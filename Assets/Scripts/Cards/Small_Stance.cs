@@ -7,13 +7,13 @@ public class Small_Stance : MonoBehaviour
     bool big = true;
     bool biggering = false;
     bool shrinking = false;
-
+    public GameObject player;
     public float smallsize;
     public float bigsize;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -27,21 +27,21 @@ public class Small_Stance : MonoBehaviour
         else if(Input.GetKeyDown("e") && (!big) && (!biggering) && (!shrinking)){
             biggering = true;
             //Debug.Log("test");
-            //gameObject.transform.position = gameObject.transform.position + new Vector3(0,1,0);
-            //gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            //player.transform.position = player.transform.position + new Vector3(0,1,0);
+            //player.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             //big = true;
         }
         if(biggering){
-            if(gameObject.transform.localScale.x <= bigsize){
-                gameObject.transform.localScale =  gameObject.transform.localScale + new Vector3(0.01f, 0.01f, 0.01f);
+            if(player.transform.localScale.x <= bigsize){
+                player.transform.localScale =  player.transform.localScale + new Vector3(0.01f, 0.01f, 0.01f);
             }else{
                 biggering = false;
                 big = true;
             }
         }
         if(shrinking){
-            if(gameObject.transform.localScale.x >= smallsize){
-                gameObject.transform.localScale =  gameObject.transform.localScale - new Vector3(0.01f, 0.01f, 0.01f);
+            if(player.transform.localScale.x >= smallsize){
+                player.transform.localScale =  player.transform.localScale - new Vector3(0.01f, 0.01f, 0.01f);
             }else{
                 shrinking = false;
                 big = false;

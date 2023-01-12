@@ -84,8 +84,6 @@ public class Hand : MonoBehaviour
                 }
                 if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) && ready)
                 {
-                    CharacterController characterController = cardsInHand[currentCardIndex].AddComponent<CharacterController>();
-                    FirstPersonController firstPersonController = cardsInHand[currentCardIndex].AddComponent<FirstPersonController>();
                     currentCard.cast_card();
                 }
             }

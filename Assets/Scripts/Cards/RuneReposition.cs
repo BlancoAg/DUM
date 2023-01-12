@@ -8,12 +8,13 @@ public class RuneReposition : MonoBehaviour, ICard
     private Camera mainCamera;
     private CharacterController characterController;
     private bool ready;
+    public GameObject player;
 
     void Start()
     {
-        firstPersonController = GetComponent<FirstPersonController>();
+        firstPersonController = player.GetComponent<FirstPersonController>();
         mainCamera = Camera.main;
-        characterController = GetComponent<CharacterController>();
+        characterController = player.GetComponent<CharacterController>();
     }
 
     public void card_preparation(bool status)
@@ -41,11 +42,11 @@ public class RuneReposition : MonoBehaviour, ICard
                 if (target.CompareTag("Rune"))
                 {   
                     Debug.Log("Card " + gameObject.name + " Played");
-                    characterController.enabled = false;
-                    firstPersonController.enabled = false;
-                    transform.position = target.transform.position;
-                    firstPersonController.enabled = true;
-                    characterController.enabled = true;
+                    player.GetComponent<CharacterController>().enabled = false;
+                    player.GetComponent<FirstPersonController>().enabled = false;
+                    player.transform.position = target.transform.position;
+                    player.GetComponent<FirstPersonController>().enabled = true;
+                    player.GetComponent<CharacterController>().enabled = true;
                     ready = false;
                 }
             }

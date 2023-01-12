@@ -5544,7 +5544,8 @@ GameObject:
   m_Component:
   - component: {fileID: 335110149288721524}
   - component: {fileID: 999569116980428926}
-  - component: {fileID: 4906353912346108536}
+  - component: {fileID: 4661526327129494371}
+  - component: {fileID: 861112796282656770}
   m_Layer: 0
   m_Name: Card Test
   m_TagString: Card
@@ -5583,7 +5584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2080c65ae92abf04a9bff83f289da583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4906353912346108536
+--- !u!114 &4661526327129494371
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5592,6 +5593,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 7890895650259201588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ee9cbd7172e1044ada8c1951a98aa2, type: 3}
+  m_Script: {fileID: 11500000, guid: a28c8db8b3efbfc4990e17bca2f83690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &861112796282656770
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7890895650259201588}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}

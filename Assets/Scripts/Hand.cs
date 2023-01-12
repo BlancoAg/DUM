@@ -1,72 +1,94 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Reflection;
+
 public class Hand : MonoBehaviour
-{   
-    public int counter;
-    private int y = 0;
-    private int i = 0;
-    public GameObject placehold;
-    public List<GameObject> Cards = new List<GameObject>();
-    //public List<int> test = new List<int>{0,1,2,3,4,5,6,7,8,9,10};
-    // Start is called before the first frame update
+{
+    public List<GameObject> cardsInHand;
+    public int currentCardIndex;
+    private bool ready = true;
+
     void Start()
     {
-        Cards.Add(placehold);
-        Debug.Log(placehold.name);
+        cardsInHand = new List<GameObject>();
+        currentCardIndex = 0;
+
     }
 
-    // Update is called once per frame
     void Update()
-    {
+    {   
         if (Input.GetMouseButtonDown(0))
-         {
-             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-             RaycastHit hit;
-             if (Physics.Raycast(ray, out hit, 2))
-             {
-                 if (hit.collider != null && hit.collider.tag == "Card")
-                 {
-                     Cards.Add(hit.collider.gameObject);
-                     hit.collider.gameObject.SetActive(false);
-                 }
-             }
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit,2))
+            {
+                GameObject objectHit = hit.transform.gameObject;
+                if (objectHit.tag == "Card")
+                {
+                    cardsInHand.Add(objectHit);
+                    hit.collider.gameObject.SetActive(false);
+                    Debug.Log("Added " + objectHit.name + " to hand.");
+                }
+            }
         }
 
-        if(Input.GetAxis("Mouse ScrollWheel")> 0f || Input.GetKeyDown(KeyCode.Q)){
-            Debug.Log("Scrol Up");
-            y = y+1;    
-        }
-        if(Input.GetAxis("Mouse ScrollWheel") < 0f || Input.GetKeyDown(KeyCode.Q)){
-            Debug.Log("Scrol Down");
-            y = y -1;            
-        }
-
-        if(Cards.Count>0){
-            if( y<0 ){
-                y = Cards.Count - 1;
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f || Input.GetKeyDown("e")) // forward
+        {
+            if (currentCardIndex + 1 >= cardsInHand.Count)
+            {
+                currentCardIndex = 0;
             }
-            if(y >= Cards.Count){
-                y = 0;
+            else
+            {
+                currentCardIndex++;
             }
-
-            if (Input.GetMouseButtonDown(1)){
-                //Cards[y].prepare_card();
-                //placehold.prepare_card();
-            }
-            if (Input.GetMouseButtonDown(1) && Input.GetMouseButtonDown(0)){
-                //Cards[y].cast_card();
-
-                //placehold.GetComponent(typeof())();
-            }
-
-        }
-    
-    }
+            if (cardsInHand.Count > 0)
+{
+    Debug.Log("Selected " + cardsInHand[currentCardIndex].name);
 }
-    
-        
 
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f || Input.GetKeyDown("q") ) // backwards
+        {
+            if (currentCardIndex <= 0)
+            {
+                currentCardIndex = cardsInHand.Count - 1;
+            }
+            else
+            {
+                currentCardIndex--;
+            }
+            if (cardsInHand.Count > 0)
+            {
+                Debug.Log("Selected " + cardsInHand[currentCardIndex].name);
+            }
 
+        }
+
+        if (cardsInHand.Count > 0)
+        {
+            ICard currentCard = cardsInHand[currentCardIndex].GetComponent<ICard>();
+            if (currentCard != null)
+            {
+                if (!Input.GetMouseButton(1) && ready)
+                {
+                    ready = false;
+                    currentCard.card_preparation(false);
+                }
+                if (Input.GetMouseButton(1) && !ready)
+                {
+                    ready = true;
+                    currentCard.card_preparation(true);
+                
+                }
+                if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) && ready)
+                {
+                    CharacterController characterController = cardsInHand[currentCardIndex].AddComponent<CharacterController>();
+                    FirstPersonController firstPersonController = cardsInHand[currentCardIndex].AddComponent<FirstPersonController>();
+                    currentCard.cast_card();
+                }
+            }
+        }
+    }
+}    

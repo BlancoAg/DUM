@@ -785,7 +785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageInterval: 2
-  scorchShield: {fileID: 5067400560003462261}
+  scorchShield: {fileID: 0}
 --- !u!1 &519796356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,7 +1090,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4147744787529679650, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5923062365474998441, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
       propertyPath: m_Name
@@ -1152,7 +1152,13 @@ PrefabInstance:
       propertyPath: puppetCamera
       value: 
       objectReference: {fileID: 1362296463}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2395059350449291954, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
+    - {fileID: 1319505109840476012, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
+    - {fileID: 4077044995950862213, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
+    - {fileID: 7397823045759566651, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
+    - {fileID: 2641610359172903249, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
+    - {fileID: 8611965330301105402, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
 --- !u!1 &682960906
 GameObject:
@@ -2210,6 +2216,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 1902988628}
+--- !u!1 &1355751643 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 450544021555967661, guid: f78e0b7901901cf44a8164b6a81848aa, type: 3}
+  m_PrefabInstance: {fileID: 1578544992}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1355751647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355751643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31904ebf81ba9d746a6b284a73626db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 3239608698174120793}
 --- !u!20 &1362296463 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 6031176834085084496, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
@@ -2767,7 +2791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageInterval: 2
-  scorchShield: {fileID: 5067400560003462261}
+  scorchShield: {fileID: 0}
 --- !u!1 &1818460229
 GameObject:
   m_ObjectHideFlags: 0
@@ -3225,7 +3249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4147744787529679650, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5923062365474998441, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
       propertyPath: m_Name
@@ -3283,7 +3307,13 @@ PrefabInstance:
       propertyPath: puppetCamera
       value: 
       objectReference: {fileID: 1047759795}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2395059350449291954, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
+    - {fileID: 1319505109840476012, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
+    - {fileID: 4077044995950862213, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
+    - {fileID: 7397823045759566651, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
+    - {fileID: 2641610359172903249, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
+    - {fileID: 8611965330301105402, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
 --- !u!1 &2063174141
 GameObject:
@@ -3703,17 +3733,6 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 6031176834085084496, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
   m_PrefabInstance: {fileID: 9135436552526130160}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5067400560003462261 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4077044995950862213, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
-  m_PrefabInstance: {fileID: 9135436552526130160}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3239608698174120793}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4b3c035f337fb344b1ecac84bea0337, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6803526825535825858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3943,5 +3962,11 @@ PrefabInstance:
       propertyPath: puppetCamera
       value: 
       objectReference: {fileID: 1047759795}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2395059350449291954, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
+    - {fileID: 1319505109840476012, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
+    - {fileID: 4077044995950862213, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
+    - {fileID: 7397823045759566651, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
+    - {fileID: 2641610359172903249, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
+    - {fileID: 8611965330301105402, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}

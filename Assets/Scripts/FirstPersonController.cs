@@ -2,19 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FirstPersonController : MonoBehaviour
+public class FirstPersonController : MonoBehaviour, IDataPersistence
 {
     public float movementSpeed = 5.0f;
     public float mouseSensitivity = 2.0f;
     public float jumpForce = 10.0f;
     public float sprintMultiplier = 2.0f;
-    public bool ready;
     private float verticalRotation = 0;
     private float verticalVelocity = 0;
 
     private CharacterController characterController;
     //private StoneStance stoneStance;
     private bool isSprinting = false;
+
+    public void LoadData(GameData data)
+    {
+    this.transform.position = data.playerPosition;
+    }
+
+    public void SaveData(GameData data)
+    {
+    data.playerPosition = this.transform.position;
+    }
 
 
     void Start()
@@ -23,25 +32,6 @@ public class FirstPersonController : MonoBehaviour
         //stoneStance = GetComponent<StoneStance>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-    }
-
-    public void card_preparation(bool status)
-    {
-        Debug.Log("estatus: " + status);
-        if (!status)
-        {
-            Debug.Log("despreparacion");
-            ready = false;
-            return; 
-        }
-        ready = status;
-        Debug.Log("Card "+ gameObject.name +" is ready");
-        return; 
-    }
-        public void cast_card()
-    {
-
 
     }
 

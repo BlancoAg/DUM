@@ -11,12 +11,12 @@ public class TextTrigger : MonoBehaviour
 
     void Start()
     {
-        objectInteraction = GetComponent<ObjectInteraction>();
+        
     }
 
     void Update()
     {
-        int counter = objectInteraction.counter;
+        
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -24,7 +24,7 @@ public class TextTrigger : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider != null && hit.collider.gameObject == targetObject && counter == 5)
+                if (hit.collider != null && hit.collider.gameObject == targetObject)
                 {
                     textUI.SetActive(true);
                 }

@@ -6,12 +6,12 @@ public class Hand : MonoBehaviour
     public List<GameObject> cardsInHand;
     public int currentCardIndex;
     private bool ready = true;
+    
 
     void Start()
     {
         cardsInHand = new List<GameObject>();
         currentCardIndex = 0;
-
     }
 
     void Update()

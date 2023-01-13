@@ -2,9 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectInteraction : MonoBehaviour
+public class ObjectInteraction : MonoBehaviour, IDataPersistence
 {
-    public int counter;
+    private int cardCount = 0;
+    public void LoadData(GameData data)
+    {
+        this.cardCount = data.cardCount;
+    }
+    public void SaveData(GameData data)
+    {
+        data.cardCount = this.cardCount;
+    }
 
     void Update()
     {
@@ -18,7 +26,7 @@ public class ObjectInteraction : MonoBehaviour
                  {
                      //hit.collider.gameObject.GetComponent<Collider>().enabled = false;
                      //hit.collider.gameObject.GetComponent<Renderer>().enabled = false;
-                     counter++;
+                     cardCount++;
                  }
              }
          }

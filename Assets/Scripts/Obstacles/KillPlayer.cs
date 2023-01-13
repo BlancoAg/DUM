@@ -6,17 +6,18 @@ public class KillPlayer : MonoBehaviour
 {
     public float damageInterval = 2.0f;
     private float elapsedTime = 0.0f;
-    public ScorchShield scorchShield;
-
+    //public ScorchShield scorchShield;
+    public GameObject player;
     private void OnTriggerStay(Collider other)
     {
+        player = GameObject.Find("Player");
         if (other.gameObject.tag == "Player" && gameObject.tag == "Fire")
         {
             elapsedTime += Time.deltaTime;
             if (elapsedTime >= damageInterval)
             {
-                Damageable damageable = other.GetComponent<Damageable>();
-            if (damageable != null && !scorchShield.shielded)
+                PlayerMainScript damageable = other.GetComponent<PlayerMainScript>();
+            if (damageable != null && !player.GetComponent<PlayerMainScript>().shielded)
             {
                 damageable.Die();
             }

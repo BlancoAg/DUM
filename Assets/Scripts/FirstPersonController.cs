@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FirstPersonController : MonoBehaviour, IDataPersistence
+public class FirstPersonController : MonoBehaviour
 {
     public float movementSpeed = 5.0f;
     public float mouseSensitivity = 2.0f;
@@ -15,24 +15,39 @@ public class FirstPersonController : MonoBehaviour, IDataPersistence
     //private StoneStance stoneStance;
     private bool isSprinting = false;
 
-    public void LoadData(GameData data)
-    {
-    this.transform.position = data.playerPosition;
-    }
-
-    public void SaveData(GameData data)
-    {
-    data.playerPosition = this.transform.position;
-    }
-
-
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         //stoneStance = GetComponent<StoneStance>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        LoadPlayerPosition();
 
+    }
+
+    void SavePlayerPosition()
+    {
+        PlayerPrefs.SetFloat("PlayerPosX", transform.position.x);
+        PlayerPrefs.SetFloat("PlayerPosY", transform.position.y);
+        PlayerPrefs.SetFloat("PlayerPosZ", transform.position.z);
+        PlayerPrefs.Save();
+    }
+
+    void LoadPlayerPosition()
+    {
+        if (PlayerPrefs.HasKey("PlayerPosX"))
+        {
+            float x = PlayerPrefs.GetFloat("PlayerPosX");
+            float y = PlayerPrefs.GetFloat("PlayerPosY");
+            float z = PlayerPrefs.GetFloat("PlayerPosZ");
+    
+            transform.position = new Vector3(x, y, z);
+        }
+    }
+
+    void OnApplicationQuit()
+    {
+        SavePlayerPosition();
     }
 
     void Update()

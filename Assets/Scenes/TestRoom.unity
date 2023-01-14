@@ -1098,7 +1098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5923062365474998441, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5923062365474998441, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
       propertyPath: m_TagString
@@ -2064,7 +2064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1198457533
 Transform:
   m_ObjectHideFlags: 0
@@ -3847,11 +3847,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3239608698174120793}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bceca559ef87c794182feb4f8c7100c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardCount: 0
+--- !u!114 &3239608698174120816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3239608698174120793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29481a5912e5b94ab20604a4cf2aafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardsInHand: []
+  currentCardIndex: 0
 --- !u!20 &3275414648371066528 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 6031176834085084496, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
@@ -4064,7 +4079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4147744787529679650, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5923062365474998441, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
       propertyPath: m_Name
@@ -4093,4 +4108,5 @@ PrefabInstance:
     - {fileID: 7397823045759566651, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
     - {fileID: 2641610359172903249, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
     - {fileID: 8611965330301105402, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
+    - {fileID: 4147744787529679650, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}

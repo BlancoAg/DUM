@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectInteraction : MonoBehaviour, IDataPersistence
+public class ObjectInteraction : MonoBehaviour
 {
-    private int cardCount = 0;
-    public void LoadData(GameData data)
+    public int cardCount = 0;
+
+    void Start()
     {
-        this.cardCount = data.cardCount;
-    }
-    public void SaveData(GameData data)
-    {
-        data.cardCount = this.cardCount;
+        LoadGame();
     }
 
     void Update()
@@ -24,11 +21,30 @@ public class ObjectInteraction : MonoBehaviour, IDataPersistence
              {
                  if (hit.collider != null && hit.collider.tag == "Card")
                  {
-                     //hit.collider.gameObject.GetComponent<Collider>().enabled = false;
-                     //hit.collider.gameObject.GetComponent<Renderer>().enabled = false;
+                     hit.collider.gameObject.GetComponent<Collider>().enabled = false;
+                     hit.collider.gameObject.GetComponent<Renderer>().enabled = false;
                      cardCount++;
                  }
              }
          }
      }
+
+    void SaveGame()
+    {
+        PlayerPrefs.SetInt("CardCount", cardCount);
+        PlayerPrefs.Save();
+    }
+
+    void LoadGame()
+    {
+        if (PlayerPrefs.HasKey("CardCount"))
+        {
+            cardCount = PlayerPrefs.GetInt("CardCount");
+        }
+    }
+
+    void OnApplicationQuit()
+    {
+        SaveGame();
+    }
 }

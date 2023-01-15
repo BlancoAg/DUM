@@ -2,33 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AerialAscension : MonoBehaviour
+public class AerialAscension : MonoBehaviour, ICard
 {
-
-    [SerializeField] private string id;
-
-    [ContextMenu("Generate guid for id")]
-    private void GenerateGuid() 
-    {
-        id = System.Guid.NewGuid().ToString();
-    }
-
     public float levitate = 15.0f;
     public float defaultJumpForce = 5.0f;
     private FirstPersonController firstPersonController;
 
+    private bool ready;
+    public GameObject player;
+
     void Start()
     {
-        firstPersonController = GetComponent<FirstPersonController>();
+        player = GameObject.Find("Player");
+        firstPersonController = player.GetComponent<FirstPersonController>();
     }
 
-    void Update()
+    public void card_preparation(bool status)
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        Debug.Log("estatus: " + status);
+        if (!status)
+        {
+            Debug.Log("despreparacion");
+            ready = false;
+            return; 
+        }
+        ready = status;
+        Debug.Log("Card "+ gameObject.name +" is ready");
+        return; 
+    }
+
+    public void cast_card()
+    {
+        if (ready)
         {
             firstPersonController.jumpForce = levitate;
             StartCoroutine(ResetJumpForce());
         }
+        
     }
 
     IEnumerator ResetJumpForce()

@@ -37,6 +37,5 @@ public class PlayerMainScript : MonoBehaviour
      Cursor.lockState = CursorLockMode.None;
      Cursor.visible = true;
      Crosshair.SetActive(false);
-
     }
 }

@@ -1,17 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Hand : MonoBehaviour
 {
     public List<GameObject> cardsInHand;
     public int currentCardIndex;
     private bool ready = true;
-    
-
     void Start()
     {
         cardsInHand = new List<GameObject>();
         currentCardIndex = 0;
+
     }
 
     void Update()
@@ -27,7 +27,7 @@ public class Hand : MonoBehaviour
                 if (objectHit.tag == "Card")
                 {
                     cardsInHand.Add(objectHit);
-                    hit.collider.gameObject.SetActive(false);
+                    //hit.collider.gameObject.SetActive(false);
                     Debug.Log("Added " + objectHit.name + " to hand.");
                 }
             }
@@ -44,9 +44,9 @@ public class Hand : MonoBehaviour
                 currentCardIndex++;
             }
             if (cardsInHand.Count > 0)
-{
-    Debug.Log("Selected " + cardsInHand[currentCardIndex].name);
-}
+            {
+                Debug.Log("Selected " + cardsInHand[currentCardIndex].name);
+            }
 
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0f || Input.GetKeyDown("q") ) // backwards
@@ -89,4 +89,4 @@ public class Hand : MonoBehaviour
             }
         }
     }
-} 
+}    

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7358211635226007783}
   - component: {fileID: 3656927627929370296}
   m_Layer: 0
-  m_Name: Card FF
+  m_Name: Card StoneStance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -700,7 +700,7 @@ GameObject:
   - component: {fileID: 1570948652482556542}
   - component: {fileID: 2996774516565298679}
   m_Layer: 0
-  m_Name: Quad FF
+  m_Name: Quad RR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -749,7 +749,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 19167c3f6698fa64cb45fc792478b6cc, type: 2}
+  - {fileID: 2100000, guid: df589f9dbeada9e46b5a473399583cde, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

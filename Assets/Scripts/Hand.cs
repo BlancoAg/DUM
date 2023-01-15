@@ -27,7 +27,7 @@ public class Hand : MonoBehaviour
                 if (objectHit.tag == "Card")
                 {
                     cardsInHand.Add(objectHit);
-                    //hit.collider.gameObject.SetActive(false);
+                    hit.collider.gameObject.SetActive(false);
                     Debug.Log("Added " + objectHit.name + " to hand.");
                 }
             }

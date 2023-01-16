@@ -498,6 +498,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2511039047916035961, guid: f4e5eff47b9467f448c7076b0e27eee6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 2511039047916035963, guid: f4e5eff47b9467f448c7076b0e27eee6, type: 3}
       propertyPath: m_Name
       value: Rune
@@ -1212,6 +1216,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4421859100610667706, guid: 942c874f13b2fc547a0419116169bb94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 7890895650259201588, guid: 942c874f13b2fc547a0419116169bb94, type: 3}
       propertyPath: m_Name
       value: Card Small Stance
@@ -2186,6 +2194,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4421859100610667706, guid: 34e494affadf86e449ff6e3f37a3264b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 7890895650259201588, guid: 34e494affadf86e449ff6e3f37a3264b, type: 3}
       propertyPath: m_Name
       value: Card AA
@@ -4058,6 +4070,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1146176830358722276, guid: 49d636112d78a5f46b64c2cd328f3385, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 2449022906793250079, guid: 49d636112d78a5f46b64c2cd328f3385, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4370,6 +4386,10 @@ PrefabInstance:
       propertyPath: smallsize
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2028392657316801638, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 2641610359172903249, guid: 10d298dd0bce988498e2f8537551b3f5, type: 3}
       propertyPath: reducedGravity
       value: 1.905

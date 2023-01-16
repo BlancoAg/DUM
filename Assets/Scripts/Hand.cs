@@ -6,6 +6,8 @@ public class Hand : MonoBehaviour
 {
     public List<GameObject> cardsInHand;
     public int currentCardIndex;
+
+    public GameObject collection;
     private bool ready = true;
     void Start()
     {
@@ -87,6 +89,15 @@ public class Hand : MonoBehaviour
                     currentCard.cast_card();
                 }
             }
+        }
+
+        if (Input.GetKey(KeyCode.Tab))
+        {
+            collection.SetActive(true);
+        }
+        else
+        {
+            collection.SetActive(false);
         }
     }
 }    

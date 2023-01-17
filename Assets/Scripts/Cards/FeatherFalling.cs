@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class FeatherFalling : MonoBehaviour, ICard
 {
-    public float reducedGravity = 1.905f;
+    public float reducedGravity = 2.905f;
 
     private Vector3 currentPosition;
     private Vector3 previousPosition;
     private bool ready;
-
+    private bool isFeatherFalling;
+    
     public void card_preparation(bool status)
     {
-        Debug.Log("estatus: " + status);
         if (!status)
         {
-            Debug.Log("despreparacion");
+            Physics.gravity = new Vector3(0, -9.81f, 0);
             ready = false;
             return; 
         }
@@ -27,20 +27,8 @@ public class FeatherFalling : MonoBehaviour, ICard
     {
         if (ready)
         {
-            previousPosition = currentPosition;
-            currentPosition = transform.position;
-    
-            if (currentPosition.y < previousPosition.y)
-            {
-                // Y direction is decreasing and Ctrl key is held down
-                Physics.gravity = new Vector3(0, -reducedGravity, 0);
-            }
-            else
-            {
-                // Y direction is not decreasing or Ctrl key is not held down
-                Physics.gravity = new Vector3(0, -9.81f, 0);
-            }
-        }    
-    }
+            Physics.gravity = new Vector3(0, -reducedGravity, 0);
+        }
+        
+    }   
 }
-

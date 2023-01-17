@@ -68,13 +68,15 @@ public class PlayerMainScript : MonoBehaviour
             growing = true;
         }
     }
-    public void shield_status(bool status){
-        shielded = status;
-        ScorchShieldIcon.SetActive(shielded);   
+    public void shield_status(bool status)
+    {
+         shielded = status;
+         ScorchShieldIcon.SetActive(shielded);   
     }
 
-    public void back_to_normal(){
-    shielded = false;
-    ScorchShieldIcon.SetActive(shielded);
+    public void back_to_normal()
+    {
+         shielded = false;
+         ScorchShieldIcon.SetActive(shielded);
     }
 }

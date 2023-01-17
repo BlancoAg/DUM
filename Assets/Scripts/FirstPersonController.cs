@@ -6,19 +6,17 @@ public class FirstPersonController : MonoBehaviour
 {
     public float movementSpeed = 5.0f;
     public float mouseSensitivity = 2.0f;
-    public float jumpForce = 10.0f;
+    public float jumpForce = 5.0f;
     public float sprintMultiplier = 2.0f;
     private float verticalRotation = 0;
     private float verticalVelocity = 0;
 
     private CharacterController characterController;
-    //private StoneStance stoneStance;
     private bool isSprinting = false;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        //stoneStance = GetComponent<StoneStance>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         //LoadPlayerPosition();
@@ -79,15 +77,7 @@ public class FirstPersonController : MonoBehaviour
 
         if (characterController.isGrounded && Input.GetButton("Jump"))
         {
-            //if (stoneStance.stoned)
-            //{
-
-              // verticalVelocity = 1.0f;
-            //}
-            //else
-            //{
             verticalVelocity = jumpForce;
-            //}
         }
 
         Vector3 speed = new Vector3(sideSpeed, verticalVelocity, forwardSpeed);

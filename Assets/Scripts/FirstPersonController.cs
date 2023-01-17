@@ -21,7 +21,7 @@ public class FirstPersonController : MonoBehaviour
         //stoneStance = GetComponent<StoneStance>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        LoadPlayerPosition();
+        //LoadPlayerPosition();
 
     }
 

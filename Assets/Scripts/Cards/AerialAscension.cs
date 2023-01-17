@@ -23,6 +23,7 @@ public class AerialAscension : MonoBehaviour, ICard
         if (!status)
         {
             Debug.Log("despreparacion");
+            firstPersonController.jumpForce = defaultJumpForce;
             ready = false;
             return; 
         }
@@ -36,15 +37,18 @@ public class AerialAscension : MonoBehaviour, ICard
         if (ready)
         {
             firstPersonController.jumpForce = levitate;
-            StartCoroutine(ResetJumpForce());
+            //StartCoroutine(ResetJumpForce());
+            ready = false;   
         }
+
         
+
     }
 
-    IEnumerator ResetJumpForce()
-    {
-        yield return new WaitForSeconds(2);
-        firstPersonController.jumpForce = defaultJumpForce;
-    }
+    //IEnumerator ResetJumpForce()
+    //{
+    //    yield return new WaitForSeconds(2);
+    //    
+    //}
 
 }

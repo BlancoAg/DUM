@@ -7,12 +7,15 @@ public class ScorchShield : MonoBehaviour, ICard
     public bool shielded = false;
     public PlayerMainScript player;
     private bool ready;
+    public GameObject ScorchShieldIcon;
+
     public void card_preparation(bool status)
     {
         Debug.Log("estatus: " + status);
         if (!status)
         {
             Debug.Log("despreparacion");
+            player.shield_status(false);
             ready = false;
             return; 
         }
@@ -29,7 +32,8 @@ public class ScorchShield : MonoBehaviour, ICard
            if(ready)
            {
               Debug.Log("Card" + gameObject.name + "Played");
-              player.shielded = !player.shielded;
+              //player.shielded = !player.shielded;
+              player.shield_status(true);
               ready = false;
            } 
         }

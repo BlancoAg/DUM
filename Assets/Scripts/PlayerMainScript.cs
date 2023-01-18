@@ -17,13 +17,26 @@ public class PlayerMainScript : MonoBehaviour
     public GameObject ScorchShieldIcon;
     private FirstPersonController firstPersonController;
 
+    //Wind variables
+    public float windForce = 5.0f;
+    public float windDuration = 5.0f;
+    public bool isWindBlowing = false;
+
     void Start()
     {
         currentHealth = maxHealth;
         firstPersonController = GetComponent<FirstPersonController>();
+        
     }
     void Update()
     {
+        //Wind checks
+        if (isWindBlowing)
+        {
+            ApplyWindForce();
+        }
+        
+
     if(gameObject.transform.localScale.x <= bigsize){
             Debug.Log("estas grande");
         }else{
@@ -78,5 +91,25 @@ public class PlayerMainScript : MonoBehaviour
     {
          shielded = false;
          ScorchShieldIcon.SetActive(shielded);
+    }
+
+    //Wind methods
+    public void StartWind()
+    {
+        isWindBlowing = true;
+        
+    }
+    
+    public void ApplyWindForce()
+    {
+        firstPersonController.movementSpeed = firstPersonController.movementSpeed - windForce;
+        StartCoroutine(StopWindAfterDuration());
+    }
+    
+    IEnumerator StopWindAfterDuration()
+    {
+        yield return new WaitForSeconds(windDuration);
+        isWindBlowing = false;
+        firstPersonController.movementSpeed = firstPersonController.movementSpeed + windForce;
     }
 }

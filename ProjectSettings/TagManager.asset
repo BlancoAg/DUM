@@ -8,6 +8,7 @@ TagManager:
   - Rune
   - Fire
   - Puppet
+  - Wind
   layers:
   - Default
   - TransparentFX

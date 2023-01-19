@@ -119,22 +119,22 @@ public class PlayerMainScript : MonoBehaviour
     }
 
    //Water methods
-   void OnTriggerEnter(Collider other)
-   {
-       if (other.CompareTag("Water"))
-       {
-           GetComponent<CharacterController>().enabled = false;
-           firstPersonController.enabled = false;
-           GetComponent<CharacterMovement>().enabled = true;
-       }
-   }
-   void OnTriggerExit(Collider other)
-   {
-       if (other.CompareTag("Water"))
-       {
-           GetComponent<CharacterController>().enabled = true;
-           firstPersonController.enabled = true;
-           GetComponent<CharacterMovement>().enabled = false;
-       }
-   }
+   //void OnTriggerEnter(Collider other)
+   //{
+   //    if (other.CompareTag("Water"))
+   //    {
+   //        GetComponent<CharacterController>().enabled = false;
+   //        firstPersonController.enabled = false;
+   //        GetComponent<CharacterMovement>().enabled = true;
+   //    }
+   //}
+   //void OnTriggerExit(Collider other)
+   //{
+   //    if (other.CompareTag("Water"))
+   //    {
+   //        GetComponent<CharacterController>().enabled = true;
+   //        firstPersonController.enabled = true;
+   //        GetComponent<CharacterMovement>().enabled = false;
+   //    }
+   //}
 }

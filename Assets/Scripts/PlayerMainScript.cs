@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Fusion.Fluid;
 public class PlayerMainScript : MonoBehaviour
 {
     public float bigsize;
@@ -16,43 +16,48 @@ public class PlayerMainScript : MonoBehaviour
     public GameObject Crosshair;
     public GameObject ScorchShieldIcon;
     private FirstPersonController firstPersonController;
+    private CharacterController characterController;
+    //private CharacterMovement characterMovement;
 
     //Wind variables
     public float windForce = 5.0f;
     public float windDuration = 5.0f;
     public bool isWindBlowing = false;
+    
 
     void Start()
     {
         currentHealth = maxHealth;
         firstPersonController = GetComponent<FirstPersonController>();
+        characterController = GetComponent<CharacterController>();
+        //characterMovement = GetComponent<CharacterMovement>();
         
     }
-    void Update()
-    {
-        //Wind checks
-        if (isWindBlowing)
-        {
-            ApplyWindForce();
-        }
-        
-
-    if(gameObject.transform.localScale.x <= bigsize){
-            Debug.Log("estas grande");
-        }else{
-            growing = false;
-            big = true;
-        }
-
-    if(gameObject.transform.localScale.x >= smallsize){
-            Debug.Log("toy chiquito");
-            }else{
-                shrinking = false;
-                big = false;
-            }
-    if(shrinking){gameObject.transform.localScale =  gameObject.transform.localScale - new Vector3(0.01f, 0.01f, 0.01f);}
-    if(growing){gameObject.transform.localScale =  gameObject.transform.localScale + new Vector3(0.01f, 0.01f, 0.01f);}
-    }
+    //void Update()
+    //{
+    //    //Wind checks
+    //    if (isWindBlowing)
+    //    {
+    //        ApplyWindForce();
+    //    }
+    //    
+//
+    //if(gameObject.transform.localScale.x <= bigsize){
+    //        Debug.Log("estas grande");
+    //    }else{
+    //        growing = false;
+    //        big = true;
+    //    }
+//
+    //if(gameObject.transform.localScale.x >= smallsize){
+    //        Debug.Log("toy chiquito");
+    //        }else{
+    //            shrinking = false;
+    //            big = false;
+    //        }
+    //if(shrinking){gameObject.transform.localScale =  gameObject.transform.localScale - new Vector3(0.01f, 0.01f, 0.01f);}
+    //if(growing){gameObject.transform.localScale =  gameObject.transform.localScale + new Vector3(0.01f, 0.01f, 0.01f);}
+    //}
     public void ApplyDamage(float damage)
     {
         currentHealth -= damage;
@@ -112,4 +117,24 @@ public class PlayerMainScript : MonoBehaviour
         isWindBlowing = false;
         firstPersonController.movementSpeed = firstPersonController.movementSpeed + windForce;
     }
+
+   //Water methods
+   void OnTriggerEnter(Collider other)
+   {
+       if (other.CompareTag("Water"))
+       {
+           GetComponent<CharacterController>().enabled = false;
+           firstPersonController.enabled = false;
+           GetComponent<CharacterMovement>().enabled = true;
+       }
+   }
+   void OnTriggerExit(Collider other)
+   {
+       if (other.CompareTag("Water"))
+       {
+           GetComponent<CharacterController>().enabled = true;
+           firstPersonController.enabled = true;
+           GetComponent<CharacterMovement>().enabled = false;
+       }
+   }
 }

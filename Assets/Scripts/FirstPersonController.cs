@@ -23,6 +23,7 @@ public class FirstPersonController : MonoBehaviour
 
     }
 
+    //Save and Load System
     void SavePlayerPosition()
     {
         PlayerPrefs.SetFloat("PlayerPosX", transform.position.x);
@@ -48,6 +49,7 @@ public class FirstPersonController : MonoBehaviour
         SavePlayerPosition();
     }
 
+    //First Person Movement System 
     void Update()
     {
         // Handle rotation

@@ -17,7 +17,7 @@ public class PlayerMainScript : MonoBehaviour
     public GameObject ScorchShieldIcon;
     private FirstPersonController firstPersonController;
     private CharacterController characterController;
-    //private CharacterMovement characterMovement;
+    private CharacterMovement characterMovement;
 
     //Wind variables
     public float windForce = 5.0f;
@@ -30,7 +30,7 @@ public class PlayerMainScript : MonoBehaviour
         currentHealth = maxHealth;
         firstPersonController = GetComponent<FirstPersonController>();
         characterController = GetComponent<CharacterController>();
-        //characterMovement = GetComponent<CharacterMovement>();
+        characterMovement = GetComponent<CharacterMovement>();
         
     }
     //void Update()
@@ -119,22 +119,25 @@ public class PlayerMainScript : MonoBehaviour
     }
 
    //Water methods
-   //void OnTriggerEnter(Collider other)
-   //{
-   //    if (other.CompareTag("Water"))
-   //    {
-   //        GetComponent<CharacterController>().enabled = false;
-   //        firstPersonController.enabled = false;
-   //        GetComponent<CharacterMovement>().enabled = true;
-   //    }
-   //}
-   //void OnTriggerExit(Collider other)
-   //{
-   //    if (other.CompareTag("Water"))
-   //    {
-   //        GetComponent<CharacterController>().enabled = true;
-   //        firstPersonController.enabled = true;
-   //        GetComponent<CharacterMovement>().enabled = false;
-   //    }
-   //}
+   void OnTriggerEnter(Collider other)
+   {
+       if (other.CompareTag("Water"))
+       {
+           GetComponent<CharacterController>().enabled = false;
+           firstPersonController.enabled = false;
+           GetComponent<CharacterMovement>().enabled = true;
+           GetComponent<ComplexFluidInteractor>().enabled = true;
+       }
+   }
+   void OnTriggerExit(Collider other)
+   {
+       if (other.CompareTag("Water"))
+       {
+           GetComponent<CharacterController>().enabled = true;
+           firstPersonController.enabled = true;
+           GetComponent<CharacterMovement>().enabled = false;
+           GetComponent<ComplexFluidInteractor>().enabled = false;
+
+       }
+   }
 }

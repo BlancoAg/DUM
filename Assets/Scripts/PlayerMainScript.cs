@@ -123,20 +123,18 @@ public class PlayerMainScript : MonoBehaviour
    {
        if (other.CompareTag("Water"))
        {
-           GetComponent<CharacterController>().enabled = false;
+           characterController.enabled = false;
            firstPersonController.enabled = false;
            GetComponent<CharacterMovement>().enabled = true;
-           GetComponent<ComplexFluidInteractor>().enabled = true;
        }
    }
    void OnTriggerExit(Collider other)
    {
        if (other.CompareTag("Water"))
        {
-           GetComponent<CharacterController>().enabled = true;
+           characterController.enabled = true;
            firstPersonController.enabled = true;
            GetComponent<CharacterMovement>().enabled = false;
-           GetComponent<ComplexFluidInteractor>().enabled = false;
 
        }
    }

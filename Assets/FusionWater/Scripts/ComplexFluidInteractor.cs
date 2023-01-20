@@ -22,6 +22,7 @@ namespace Fusion.Fluid {
 
         public override void FluidUpdate()
         {
+            if (fluid == null) return;
             foreach (Transform floater in floaters)
             {
                 float difference = floater.position.y - fluid.transform.position.y;
@@ -64,6 +65,12 @@ namespace Fusion.Fluid {
                 Gizmos.DrawSphere(floater.position, .1f);
             }
         }
+
+        //private void OnTriggerExit(Collider other)
+        //{
+        //    Fluid fluid = other.GetComponent<Fluid>();
+        //    if(fluid != null)  ExitFluid(fluid); // check if fluid is not null before accessing it
+        //}
 
         #region Functions
 

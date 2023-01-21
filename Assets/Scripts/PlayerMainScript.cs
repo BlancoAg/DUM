@@ -99,24 +99,26 @@ public class PlayerMainScript : MonoBehaviour
     }
 
     //Wind methods
-    public void StartWind()
-    {
-        isWindBlowing = true;
-        
-    }
+    //public void StartWind()
+    //{
+    //    isWindBlowing = true;
+    //    
+    //}
     
-    public void ApplyWindForce()
-    {
-        firstPersonController.movementSpeed = firstPersonController.movementSpeed - windForce;
-        StartCoroutine(StopWindAfterDuration());
-    }
+    //public void ApplyWindForce()
+    //{
+    //    Vector3 move = new Vector3(-5, 0, 0);
+    //        characterController.Move(move);
+    //    //firstPersonController.movementSpeed = firstPersonController.movementSpeed - windForce;
+    //    StartCoroutine(StopWindAfterDuration());
+    //}
     
-    IEnumerator StopWindAfterDuration()
-    {
-        yield return new WaitForSeconds(windDuration);
-        isWindBlowing = false;
-        firstPersonController.movementSpeed = firstPersonController.movementSpeed + windForce;
-    }
+    //IEnumerator StopWindAfterDuration()
+    //{
+    //    yield return new WaitForSeconds(windDuration);
+    //    isWindBlowing = false;
+    //    //firstPersonController.movementSpeed = firstPersonController.movementSpeed + windForce;
+    //}
 
    //Water methods
    void OnTriggerEnter(Collider other)

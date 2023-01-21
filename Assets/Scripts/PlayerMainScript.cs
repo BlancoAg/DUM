@@ -33,31 +33,25 @@ public class PlayerMainScript : MonoBehaviour
         characterMovement = GetComponent<CharacterMovement>();
         
     }
-    //void Update()
-    //{
-    //    //Wind checks
-    //    if (isWindBlowing)
-    //    {
-    //        ApplyWindForce();
-    //    }
-    //    
-//
-    //if(gameObject.transform.localScale.x <= bigsize){
-    //        Debug.Log("estas grande");
-    //    }else{
-    //        growing = false;
-    //        big = true;
-    //    }
-//
-    //if(gameObject.transform.localScale.x >= smallsize){
-    //        Debug.Log("toy chiquito");
-    //        }else{
-    //            shrinking = false;
-    //            big = false;
-    //        }
-    //if(shrinking){gameObject.transform.localScale =  gameObject.transform.localScale - new Vector3(0.01f, 0.01f, 0.01f);}
-    //if(growing){gameObject.transform.localScale =  gameObject.transform.localScale + new Vector3(0.01f, 0.01f, 0.01f);}
-    //}
+    void Update()
+    {  
+
+    if(gameObject.transform.localScale.x <= bigsize){
+            Debug.Log("estas grande");
+        }else{
+            growing = false;
+            big = true;
+        }
+
+    if(gameObject.transform.localScale.x >= smallsize){
+            Debug.Log("toy chiquito");
+            }else{
+                shrinking = false;
+                big = false;
+            }
+    if(shrinking){gameObject.transform.localScale =  gameObject.transform.localScale - new Vector3(0.01f, 0.01f, 0.01f);}
+    if(growing){gameObject.transform.localScale =  gameObject.transform.localScale + new Vector3(0.01f, 0.01f, 0.01f);}
+    }
     public void ApplyDamage(float damage)
     {
         currentHealth -= damage;
@@ -97,28 +91,6 @@ public class PlayerMainScript : MonoBehaviour
          shielded = false;
          ScorchShieldIcon.SetActive(shielded);
     }
-
-    //Wind methods
-    //public void StartWind()
-    //{
-    //    isWindBlowing = true;
-    //    
-    //}
-    
-    //public void ApplyWindForce()
-    //{
-    //    Vector3 move = new Vector3(-5, 0, 0);
-    //        characterController.Move(move);
-    //    //firstPersonController.movementSpeed = firstPersonController.movementSpeed - windForce;
-    //    StartCoroutine(StopWindAfterDuration());
-    //}
-    
-    //IEnumerator StopWindAfterDuration()
-    //{
-    //    yield return new WaitForSeconds(windDuration);
-    //    isWindBlowing = false;
-    //    //firstPersonController.movementSpeed = firstPersonController.movementSpeed + windForce;
-    //}
 
    //Water methods
    void OnTriggerEnter(Collider other)

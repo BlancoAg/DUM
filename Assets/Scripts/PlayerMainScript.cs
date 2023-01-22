@@ -36,22 +36,30 @@ public class PlayerMainScript : MonoBehaviour
     void Update()
     {  
 
-    if(gameObject.transform.localScale.x <= bigsize){
-            Debug.Log("estas grande");
-        }else{
-            growing = false;
-            big = true;
+        //Growing or Shrinking check
+        if(growing)
+        {
+            if(gameObject.transform.localScale.x <= bigsize){
+                gameObject.transform.localScale =  gameObject.transform.localScale + new Vector3(0.01f, 0.01f, 0.01f);
+                Debug.Log("Creciendo");
+            }else{
+                growing = false;
+                big = true;
+            }
         }
-
-    if(gameObject.transform.localScale.x >= smallsize){
-            Debug.Log("toy chiquito");
+        if(shrinking)
+        {
+            if(gameObject.transform.localScale.x >= smallsize){
+                gameObject.transform.localScale =  gameObject.transform.localScale - new Vector3(0.01f, 0.01f, 0.01f);
+                Debug.Log("Encogiendo");
             }else{
                 shrinking = false;
                 big = false;
             }
-    if(shrinking){gameObject.transform.localScale =  gameObject.transform.localScale - new Vector3(0.01f, 0.01f, 0.01f);}
-    if(growing){gameObject.transform.localScale =  gameObject.transform.localScale + new Vector3(0.01f, 0.01f, 0.01f);}
+        }
     }
+
+    //Player death method
     public void ApplyDamage(float damage)
     {
         currentHealth -= damage;
@@ -71,6 +79,7 @@ public class PlayerMainScript : MonoBehaviour
      Crosshair.SetActive(false);
     }
 
+    //Small stance method
     public void change_size()
     {
         if(!shrinking && !growing && big){
@@ -80,6 +89,8 @@ public class PlayerMainScript : MonoBehaviour
             growing = true;
         }
     }
+
+    //Scorch Shield method
     public void shield_status(bool status)
     {
          shielded = status;

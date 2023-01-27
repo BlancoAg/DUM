@@ -12,12 +12,18 @@ public class PlayerMainScript : MonoBehaviour
     public bool shrinking;
     public float maxHealth = 100;
     public float currentHealth;
+
     public GameObject gameOverPanel;
     public GameObject Crosshair;
+
     public GameObject ScorchShieldIcon;
+    public GameObject StoneStanceIcon;
+    
     private FirstPersonController firstPersonController;
     private CharacterController characterController;
     private CharacterMovement characterMovement;
+    
+    public bool stoned = false;
 
     //Wind variables
     public float windForce = 5.0f;
@@ -96,10 +102,18 @@ public class PlayerMainScript : MonoBehaviour
          shielded = status;
          ScorchShieldIcon.SetActive(shielded);   
     }
+    //Stone Stance method
+    public void stond_status(bool status)
+    {
+         stoned = status;
+         StoneStanceIcon.SetActive(stoned);   
+    }
 
     public void back_to_normal()
     {
+         stoned = false;
          shielded = false;
+         StoneStanceIcon.SetActive(stoned);   
          ScorchShieldIcon.SetActive(shielded);
     }
 

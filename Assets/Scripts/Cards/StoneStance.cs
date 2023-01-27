@@ -9,6 +9,7 @@ public class StoneStance : MonoBehaviour, ICard
     private FirstPersonController firstPersonController;
     private CharacterController characterController;
     public GameObject player;
+    public PlayerMainScript player_script;
     private bool ready;
     
     
@@ -38,6 +39,7 @@ public class StoneStance : MonoBehaviour, ICard
     {
         if (ready)
         {
+            player_script = player.GetComponent<PlayerMainScript>();
             stoned = !stoned;
             if(stoned)
             {

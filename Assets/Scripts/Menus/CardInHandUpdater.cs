@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardImageUpdater : MonoBehaviour
+public class CardInHandUpdater : MonoBehaviour
 {
     public Hand handScript;
     public Image cardImage;

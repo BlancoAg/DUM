@@ -3,9 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class RestartButton : MonoBehaviour
 {
-    public GameObject gameOverPanel;
     public void RestartGame()
-    {
+    {   GameObject gameOverPanel = GameObject.Find("gameOverPanel");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         gameOverPanel.SetActive(false);
     }

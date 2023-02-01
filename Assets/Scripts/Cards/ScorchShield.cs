@@ -5,7 +5,6 @@ using UnityEngine;
 public class ScorchShield : MonoBehaviour, ICard
 {
     public bool shielded = false;
-    public PlayerMainScript player;
     private bool ready;
     public GameObject ScorchShieldIcon;
 
@@ -15,6 +14,7 @@ public class ScorchShield : MonoBehaviour, ICard
         if (!status)
         {
             Debug.Log("despreparacion");
+            var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
             player.shield_status(false);
             ready = false;
             return; 
@@ -28,7 +28,7 @@ public class ScorchShield : MonoBehaviour, ICard
     {      
         if(ready)
         {
-           player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
+           var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
            if(ready)
            {
               Debug.Log("Card" + gameObject.name + "Played");
@@ -37,7 +37,5 @@ public class ScorchShield : MonoBehaviour, ICard
               ready = false;
            } 
         }
-        
     }
 }
-

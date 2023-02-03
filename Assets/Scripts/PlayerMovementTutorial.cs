@@ -13,6 +13,8 @@ public class PlayerMovementTutorial : MonoBehaviour
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
+    public float mouseSensitivity = 2.0f;
+    private float verticalRotation = 0;
     bool readyToJump;
 
     [HideInInspector] public float walkSpeed;
@@ -24,12 +26,13 @@ public class PlayerMovementTutorial : MonoBehaviour
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
-    bool grounded;
+    public bool grounded;
 
     public Transform orientation;
 
     float horizontalInput;
     float verticalInput;
+
 
     Vector3 moveDirection;
 
@@ -41,6 +44,10 @@ public class PlayerMovementTutorial : MonoBehaviour
         rb.freezeRotation = true;
 
         readyToJump = true;
+
+        //mouse cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Update()
@@ -56,6 +63,14 @@ public class PlayerMovementTutorial : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+        
+        //mouse look
+        float rotLeftRight = Input.GetAxis("Mouse X") * mouseSensitivity;
+        transform.Rotate(0, rotLeftRight, 0);
+
+        verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
+        verticalRotation = Mathf.Clamp(verticalRotation, -90, 90);
+        Camera.main.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
     }
 
     private void FixedUpdate()

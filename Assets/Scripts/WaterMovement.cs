@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CharacterMovement : MonoBehaviour
+public class WaterMovement : MonoBehaviour
 {
     public float movementSpeed = 5.0f;
     public float mouseSensitivity = 2.0f;

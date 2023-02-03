@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Wind : MonoBehaviour
 {
-    public float windForce = 5.0f;
-    public float smoothness = 0.1f;
-    private StoneStance stoneSt;
-    public GameObject stoneCard;
-    private PlayerMainScript Player;
+    //public float windForce = 5.0f;
+    //public float smoothness = 0.1f;
+    //private StoneStance stoneSt;
+    //public GameObject stoneCard;
+    private PlayerMainScript player;
 
     private float eulerAngX;
     private float eulerAngZ;
@@ -19,6 +19,7 @@ public class Wind : MonoBehaviour
         eulerAngX = transform.eulerAngles.x;
         eulerAngY = transform.eulerAngles.y;
         eulerAngZ = transform.eulerAngles.z;
+        player = GetComponent<PlayerMainScript>();
     }
     
     private void OnTriggerStay(Collider other)
@@ -32,11 +33,18 @@ public class Wind : MonoBehaviour
         //     Vector3 windVelocity = windDirection * windForce;
         //     characterController.Move(windVelocity * smoothness);
         // }
-        if(other.GetComponent<ConstantForce>()){
-            other.GetComponent<ConstantForce>().force = new Vector3(0,25,0);
+        if (other.tag == "Player" && other.GetComponent<PlayerMainScript>().stoned == false)
+        {
+           if(other.GetComponent<ConstantForce>()){
+           other.GetComponent<ConstantForce>().force = new Vector3(0,25,0);
+           }
+        }
+        else if(other.GetComponent<ConstantForce>() && !other.gameObject.CompareTag("Player")){
+        other.GetComponent<ConstantForce>().force = new Vector3(0,25,0);
         }
     }
-    private void OnTriggerExit(Collider other) {
+    private void OnTriggerExit(Collider other) 
+    {
         // //stoneSt = stoneCard.GetComponent<StoneStance>();
         // Player = GetComponent<PlayerMainScript>();
         // if (!Player.stoned && other.CompareTag("Player"))
@@ -51,3 +59,4 @@ public class Wind : MonoBehaviour
         }
     }
 }
+

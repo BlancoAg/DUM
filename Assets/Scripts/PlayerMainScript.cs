@@ -12,6 +12,9 @@ public class PlayerMainScript : MonoBehaviour
     public bool shrinking;
     public float maxHealth = 100;
     public float currentHealth;
+    //stone stance variables
+    public bool stoned = false;
+    public float massChangeSpeed = 0.5f;
 
     public GameObject gameOverPanel;
     public GameObject Crosshair;
@@ -19,11 +22,13 @@ public class PlayerMainScript : MonoBehaviour
     public GameObject ScorchShieldIcon;
     public GameObject StoneStanceIcon;
     
-    private FirstPersonController firstPersonController;
-    private CharacterController characterController;
-    private CharacterMovement characterMovement;
+    private PlayerMovementTutorial playerMovementTutorial;
+    private WaterMovement waterMovement;
+    private ComplexFluidInteractor complexFluidInteractor;
+
+    Rigidbody rb;
     
-    public bool stoned = false;
+    
 
     //Wind variables
     public float windForce = 5.0f;
@@ -34,17 +39,23 @@ public class PlayerMainScript : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        firstPersonController = GetComponent<FirstPersonController>();
-        characterController = GetComponent<CharacterController>();
-        characterMovement = GetComponent<CharacterMovement>();
+        rb = GetComponent<Rigidbody>();
+        playerMovementTutorial = GetComponent<PlayerMovementTutorial>();
+        waterMovement = GetComponent<WaterMovement>();
         
     }
     void Update()
     {  
-        if(stoned){
-            Debug.Log("stoned");
-            gameObject.GetComponent<ConstantForce>().force = new Vector3(0,-50f,0);
-        }
+        //if(stoned && !playerMovementTutorial.grounded){
+        //    Debug.Log("stoned");
+        //    gameObject.GetComponent<ConstantForce>().force = new Vector3(0,-50f,0);
+        //    if (waterMovement.enabled) {
+        //        rb.mass = 25f;   
+        //    }
+        //}
+        //else{
+        //    back_to_normal();
+        //}
         //Growing or Shrinking check
         if(growing)
         {
@@ -82,7 +93,7 @@ public class PlayerMainScript : MonoBehaviour
     public void Die()
     {
      gameOverPanel.SetActive(true);
-     firstPersonController.enabled = false;
+     playerMovementTutorial.enabled = false;
      Cursor.lockState = CursorLockMode.None;
      Cursor.visible = true;
      Crosshair.SetActive(false);
@@ -109,16 +120,38 @@ public class PlayerMainScript : MonoBehaviour
     public void stone_status(bool status)
     {
          stoned = status;
-         StoneStanceIcon.SetActive(stoned);   
+         StoneStanceIcon.SetActive(stoned);
+         Debug.Log("stoned");
+        if(stoned){
+            Debug.Log("stoned");
+            gameObject.GetComponent<ConstantForce>().force = new Vector3(0,-50f,0);
+            if (waterMovement.enabled) {
+                rb.mass = 25f;   
+            }
+        }
+        else{
+           gameObject.GetComponent<ConstantForce>().force = new Vector3(0, 0,0); 
+        }
     }
 
     public void back_to_normal()
     {
-        gameObject.GetComponent<ConstantForce>().force = new Vector3(0,0,0);
          stoned = false;
          shielded = false;
          StoneStanceIcon.SetActive(stoned);   
          ScorchShieldIcon.SetActive(shielded);
+         rb.mass = 1f;
+         StartCoroutine(ChangeMassBackToOne());
+    }
+
+    private IEnumerator ChangeMassBackToOne()
+    {
+        while (rb.mass > 1f)
+        {
+            rb.mass -= massChangeSpeed * Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+        rb.mass = 1f;
     }
 
    //Water methods
@@ -126,19 +159,16 @@ public class PlayerMainScript : MonoBehaviour
    {
        if (other.CompareTag("Water"))
        {
-           characterController.enabled = false;
-           firstPersonController.enabled = false;
-           GetComponent<CharacterMovement>().enabled = true;
+          waterMovement.enabled = true;
+          playerMovementTutorial.enabled = false;
        }
    }
    void OnTriggerExit(Collider other)
    {
        if (other.CompareTag("Water"))
        {
-           characterController.enabled = true;
-           firstPersonController.enabled = true;
-           GetComponent<CharacterMovement>().enabled = false;
-
+           waterMovement.enabled = false;
+           playerMovementTutorial.enabled = true;
        }
    }
 }

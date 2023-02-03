@@ -4,30 +4,18 @@ using UnityEngine;
 
 public class StoneStance : MonoBehaviour, ICard
 {
-    public bool stoned;
-    public float downForce = 5.0f;
-    private FirstPersonController firstPersonController;
-    private CharacterController characterController;
-    public GameObject player;
-    public PlayerMainScript player_script;
+    public bool stoned = false;
     private bool ready;
-    
-    
-    void Start()
-    {
-        stoned = false;
-        player = GameObject.Find("Player");
-        firstPersonController = player.GetComponent<FirstPersonController>();
-        characterController = player.GetComponent<CharacterController>();
+    public GameObject StoneStanceIcon;
 
-    }
-    
-     public void card_preparation(bool status)
+    public void card_preparation(bool status)
     {
         Debug.Log("estatus: " + status);
         if (!status)
         {
             Debug.Log("despreparacion");
+            var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
+            player.stone_status(false);
             ready = false;
             return; 
         }
@@ -35,25 +23,19 @@ public class StoneStance : MonoBehaviour, ICard
         Debug.Log("Card "+ gameObject.name +" is ready");
         return; 
     }
+
     public void cast_card()
-    {
-        if (ready)
+    {      
+        if(ready)
         {
-            player_script = player.GetComponent<PlayerMainScript>();
-            stoned = !stoned;
-            if(stoned)
-            {
-                firstPersonController.jumpForce = 1.0f;
-                if (stoned && !characterController.isGrounded)
-                {
-                 characterController.Move(Vector3.down * downForce);
-                }
-            }
-            
-            else
-            {
-                firstPersonController.jumpForce = downForce;
-            }
+           var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
+           if(ready)
+           {
+              Debug.Log("Card" + gameObject.name + "Played");
+              //player.shielded = !player.shielded;
+              player.stone_status(true);
+              ready = false;
+           } 
         }
     }
 }

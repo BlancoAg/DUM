@@ -41,7 +41,10 @@ public class PlayerMainScript : MonoBehaviour
     }
     void Update()
     {  
-
+        if(stoned){
+            Debug.Log("stoned");
+            gameObject.GetComponent<ConstantForce>().force = new Vector3(0,-50f,0);
+        }
         //Growing or Shrinking check
         if(growing)
         {
@@ -103,7 +106,7 @@ public class PlayerMainScript : MonoBehaviour
          ScorchShieldIcon.SetActive(shielded);   
     }
     //Stone Stance method
-    public void stond_status(bool status)
+    public void stone_status(bool status)
     {
          stoned = status;
          StoneStanceIcon.SetActive(stoned);   
@@ -111,6 +114,7 @@ public class PlayerMainScript : MonoBehaviour
 
     public void back_to_normal()
     {
+        gameObject.GetComponent<ConstantForce>().force = new Vector3(0,0,0);
          stoned = false;
          shielded = false;
          StoneStanceIcon.SetActive(stoned);   

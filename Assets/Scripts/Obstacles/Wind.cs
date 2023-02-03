@@ -33,7 +33,7 @@ public class Wind : MonoBehaviour
         //     characterController.Move(windVelocity * smoothness);
         // }
         if(other.GetComponent<ConstantForce>()){
-            other.GetComponent<ConstantForce>().force = new Vector3(0,100f,0);
+            other.GetComponent<ConstantForce>().force = new Vector3(0,25,0);
         }
     }
     private void OnTriggerExit(Collider other) {

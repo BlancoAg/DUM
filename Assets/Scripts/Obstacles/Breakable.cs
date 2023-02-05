@@ -11,10 +11,19 @@ public class Breakable : MonoBehaviour
         //player = GetComponent<PlayerMainScript>();
     }
     private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player" && other.GetComponent<PlayerMainScript>().falling == true)
+    {   
+        ParticleSystem particleSystem = GameObject.Find("Shatter").GetComponent<ParticleSystem>();
+        if (other.GetComponent<PlayerMainScript>().falling == true)
         {
-            Destroy(transform.parent.gameObject);
+            transform.GetChild(0).gameObject.SetActive(false);
+            // Find the particle system component in the scene
+
+        // Check if the particle system is not null
+            if (particleSystem != null)
+        {
+            // Play the particle system
+            particleSystem.Play();
+        }
         }
     }
 }

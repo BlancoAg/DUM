@@ -17,7 +17,7 @@ public class CollectUpdate : MonoBehaviour
             handScript = GameObject.Find("GameObjectName").GetComponent<Hand>();
             if (handScript == null)
             {
-                Debug.LogError("Hand script not found");
+                //Debug.LogError("Hand script not found");
             }
         }
     }

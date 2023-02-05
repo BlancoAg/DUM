@@ -10,17 +10,17 @@ public class ScorchShield : MonoBehaviour, ICard
 
     public void card_preparation(bool status)
     {
-        Debug.Log("estatus: " + status);
+        //Debug.Log("estatus: " + status);
         if (!status)
         {
-            Debug.Log("despreparacion");
+            //Debug.Log("despreparacion");
             var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
             player.shield_status(false);
             ready = false;
             return; 
         }
         ready = status;
-        Debug.Log("Card "+ gameObject.name +" is ready");
+        //Debug.Log("Card "+ gameObject.name +" is ready");
         return; 
     }
 
@@ -31,7 +31,7 @@ public class ScorchShield : MonoBehaviour, ICard
            var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
            if(ready)
            {
-              Debug.Log("Card" + gameObject.name + "Played");
+              //Debug.Log("Card" + gameObject.name + "Played");
               //player.shielded = !player.shielded;
               player.shield_status(true);
               ready = false;

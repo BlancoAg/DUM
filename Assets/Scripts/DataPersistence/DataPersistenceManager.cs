@@ -18,7 +18,7 @@ public class DataPersistenceManager : MonoBehaviour
     {
         if (instance != null) 
         {
-            Debug.LogError("Found more than one Data Persistence Manager in the scene.");
+            //Debug.LogError("Found more than one Data Persistence Manager in the scene.");
         }
         instance = this;
     }
@@ -43,7 +43,7 @@ public class DataPersistenceManager : MonoBehaviour
         //if no data can be loaded, initialize to a new game
         if (this.gameData == null) 
         {
-            Debug.Log("No data was found. Initializing data to defaults.");
+            //Debug.Log("No data was found. Initializing data to defaults.");
             NewGame();
         }
 
@@ -52,7 +52,7 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.LoadData(gameData);
         }
-        Debug.Log("Loaded =" + gameData.cardCount);
+        //Debug.Log("Loaded =" + gameData.cardCount);
     }
 
     public void SaveGame()
@@ -65,7 +65,7 @@ public class DataPersistenceManager : MonoBehaviour
 
         //// save that data to a file using the data handler
         dataHandler.Save(gameData);
-        Debug.Log("Saved =" + gameData.cardCount);
+        //Debug.Log("Saved =" + gameData.cardCount);
     }
 
     private void OnApplicationQuit() 

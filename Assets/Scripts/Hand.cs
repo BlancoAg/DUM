@@ -30,7 +30,7 @@ public class Hand : MonoBehaviour
                 {
                     cardsInHand.Add(objectHit);
                     hit.collider.gameObject.SetActive(false);
-                    Debug.Log("Added " + objectHit.name + " to hand.");
+                    //Debug.Log("Added " + objectHit.name + " to hand.");
                 }
             }
         }
@@ -47,7 +47,7 @@ public class Hand : MonoBehaviour
             }
             if (cardsInHand.Count > 0)
             {
-                Debug.Log("Selected " + cardsInHand[currentCardIndex].name);
+                //Debug.Log("Selected " + cardsInHand[currentCardIndex].name);
             }
 
         }
@@ -63,7 +63,7 @@ public class Hand : MonoBehaviour
             }
             if (cardsInHand.Count > 0)
             {
-                Debug.Log("Selected " + cardsInHand[currentCardIndex].name);
+                //Debug.Log("Selected " + cardsInHand[currentCardIndex].name);
             }
 
         }

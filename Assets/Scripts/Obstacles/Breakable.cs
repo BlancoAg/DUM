@@ -14,7 +14,7 @@ public class Breakable : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && other.GetComponent<PlayerMainScript>().falling == true)
         {
-            Destroy(transform.parent.gameObject);
+        //    Destroy(transform.parent.gameObject);
         }
     }
 }

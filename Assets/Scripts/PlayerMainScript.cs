@@ -50,7 +50,7 @@ public class PlayerMainScript : MonoBehaviour
     void Update()
     {  
         //if(stoned && !playerMovementTutorial.grounded){
-        //    Debug.Log("stoned");
+        //    //Debug.Log("stoned");
         //    gameObject.GetComponent<ConstantForce>().force = new Vector3(0,-50f,0);
         //    if (waterMovement.enabled) {
         //        rb.mass = 25f;   
@@ -64,7 +64,7 @@ public class PlayerMainScript : MonoBehaviour
         {
             if(gameObject.transform.localScale.x <= bigsize){
                 gameObject.transform.localScale =  gameObject.transform.localScale + new Vector3(0.01f, 0.01f, 0.01f);
-                Debug.Log("Creciendo");
+                //Debug.Log("Creciendo");
             }else{
                 growing = false;
                 big = true;
@@ -74,7 +74,7 @@ public class PlayerMainScript : MonoBehaviour
         {
             if(gameObject.transform.localScale.x >= smallsize){
                 gameObject.transform.localScale =  gameObject.transform.localScale - new Vector3(0.01f, 0.01f, 0.01f);
-                Debug.Log("Encogiendo");
+                //Debug.Log("Encogiendo");
             }else{
                 shrinking = false;
                 big = false;
@@ -120,13 +120,12 @@ public class PlayerMainScript : MonoBehaviour
          ScorchShieldIcon.SetActive(shielded);   
     }
     //Stone Stance method
-    public void stone_status(bool status)
-{
+    public void stone_status(bool status){
     stoned = status;
     StoneStanceIcon.SetActive(stoned);
     if (stoned)
     {
-        Debug.Log("stoned");
+        //Debug.Log("stoned");
         playerMovementTutorial.jumpForce = 1f;
         if (!playerMovementTutorial.grounded){
             gameObject.GetComponent<ConstantForce>().force = new Vector3(0, -50,0);
@@ -142,11 +141,13 @@ public class PlayerMainScript : MonoBehaviour
         gameObject.GetComponent<ConstantForce>().force = new Vector3(0, 0,0);
         playerMovementTutorial.jumpForce = originalJumpForce;
         StartCoroutine(ChangeMassBackToOne());
+        falling = false;
     }
 }
 
     public void back_to_normal()
     {
+         falling = false;
          stoned = false;
          shielded = false;
          StoneStanceIcon.SetActive(stoned);   

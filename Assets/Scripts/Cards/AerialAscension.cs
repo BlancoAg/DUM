@@ -19,16 +19,16 @@ public class AerialAscension : MonoBehaviour, ICard
 
     public void card_preparation(bool status)
     {
-        Debug.Log("estatus: " + status);
+        ////Debug.Log("estatus: " + status);
         if (!status)
         {
-            Debug.Log("despreparacion");
+            ////Debug.Log("despreparacion");
             firstPersonController.jumpForce = defaultJumpForce;
             ready = false;
             return; 
         }
         ready = status;
-        Debug.Log("Card "+ gameObject.name +" is ready");
+        ////Debug.Log("Card "+ gameObject.name +" is ready");
         return; 
     }
 

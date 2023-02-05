@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class AerialAscension : MonoBehaviour, ICard
 {
-    public float levitate = 15.0f;
-    public float defaultJumpForce = 5.0f;
-    private FirstPersonController firstPersonController;
 
     private bool ready;
     public GameObject player;
@@ -14,7 +11,6 @@ public class AerialAscension : MonoBehaviour, ICard
     void Start()
     {
         player = GameObject.Find("Player");
-        firstPersonController = player.GetComponent<FirstPersonController>();
     }
 
     public void card_preparation(bool status)
@@ -23,32 +19,23 @@ public class AerialAscension : MonoBehaviour, ICard
         if (!status)
         {
             Debug.Log("despreparacion");
-            firstPersonController.jumpForce = defaultJumpForce;
+            var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
+            player.shield_status(false);
             ready = false;
             return; 
         }
         ready = status;
-        Debug.Log("Card "+ gameObject.name +" is ready");
         return; 
     }
 
     public void cast_card()
     {
-        if (ready)
-        {
-            firstPersonController.jumpForce = levitate;
-            //StartCoroutine(ResetJumpForce());
-            ready = false;   
-        }
-
-        
-
+        var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
+           if(ready)
+           {
+              //player.shielded = !player.shielded;
+              player.AerialAscension();
+              ready = false;
+           }
     }
-
-    //IEnumerator ResetJumpForce()
-    //{
-    //    yield return new WaitForSeconds(2);
-    //    
-    //}
-
 }

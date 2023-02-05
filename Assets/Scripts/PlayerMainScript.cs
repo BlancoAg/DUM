@@ -121,29 +121,35 @@ public class PlayerMainScript : MonoBehaviour
     }
     //Stone Stance method
     public void stone_status(bool status)
-{
-    stoned = status;
-    StoneStanceIcon.SetActive(stoned);
-    if (stoned)
     {
-        Debug.Log("stoned");
-        playerMovementTutorial.jumpForce = 1f;
-        if (!playerMovementTutorial.grounded){
-            gameObject.GetComponent<ConstantForce>().force = new Vector3(0, -50,0);
-            falling = true;
-        }
-        if (waterMovement.enabled)
+        stoned = status;
+        StoneStanceIcon.SetActive(stoned);
+        if (stoned)
         {
-            rb.mass = 25f;
+            Debug.Log("stoned");
+            playerMovementTutorial.jumpForce = 1f;
+            if (!playerMovementTutorial.grounded){
+                gameObject.GetComponent<ConstantForce>().force = new Vector3(0, -50,0);
+                falling = true;
+            }
+            if (waterMovement.enabled)
+            {
+                rb.mass = 25f;
+            }
+        }
+        else
+        {
+            gameObject.GetComponent<ConstantForce>().force = new Vector3(0, 0,0);
+            playerMovementTutorial.jumpForce = originalJumpForce;
+            StartCoroutine(ChangeMassBackToOne());
         }
     }
-    else
+
+    //Aerial Ascencion
+    public void AerialAscension()
     {
-        gameObject.GetComponent<ConstantForce>().force = new Vector3(0, 0,0);
-        playerMovementTutorial.jumpForce = originalJumpForce;
-        StartCoroutine(ChangeMassBackToOne());
+        gameObject.GetComponent<ConstantForce>().force = new Vector3(0, 25,0);
     }
-}
 
     public void back_to_normal()
     {

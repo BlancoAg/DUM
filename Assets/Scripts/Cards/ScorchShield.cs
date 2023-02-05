@@ -20,7 +20,6 @@ public class ScorchShield : MonoBehaviour, ICard
             return; 
         }
         ready = status;
-        Debug.Log("Card "+ gameObject.name +" is ready");
         return; 
     }
 

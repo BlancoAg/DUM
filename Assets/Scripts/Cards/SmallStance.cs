@@ -15,19 +15,19 @@ public class SmallStance : MonoBehaviour, ICard
     void Start()
     {
         Player = GameObject.Find("Player");
-        Debug.Log(Player.name);
+        //Debug.Log(Player.name);
         player = Player.GetComponent<PlayerMainScript>();
     }
     public void card_preparation(bool status){
-        Debug.Log("estatus: " + status);
+        //Debug.Log("estatus: " + status);
         if (!status)
         {
-            //Debug.Log("despreparacion");
+            ////Debug.Log("despreparacion");
             ready = false;
             return; 
         }
         ready = status;
-        Debug.Log("Card "+ gameObject.name +" is ready");
+        //Debug.Log("Card "+ gameObject.name +" is ready");
         return; 
     }
 

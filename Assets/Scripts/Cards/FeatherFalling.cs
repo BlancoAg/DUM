@@ -20,7 +20,7 @@ public class FeatherFalling : MonoBehaviour, ICard
             return; 
         }
         ready = status;
-        Debug.Log("Card "+ gameObject.name +" is ready");
+        //Debug.Log("Card "+ gameObject.name +" is ready");
         return; 
     }
     public void cast_card()

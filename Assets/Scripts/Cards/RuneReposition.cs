@@ -20,15 +20,15 @@ public class RuneReposition : MonoBehaviour, ICard
 
     public void card_preparation(bool status)
     {
-        Debug.Log("estatus: " + status);
+        //Debug.Log("estatus: " + status);
         if (!status)
         {
-            Debug.Log("despreparacion");
+            //Debug.Log("despreparacion");
             ready = false;
             return; 
         }
         ready = status;
-        Debug.Log("Card "+ gameObject.name +" is ready");
+        //Debug.Log("Card "+ gameObject.name +" is ready");
         return; 
     }
 
@@ -42,7 +42,7 @@ public class RuneReposition : MonoBehaviour, ICard
                 GameObject target = hit.transform.gameObject;
                 if (target.CompareTag("Rune"))
                 {   
-                    Debug.Log("Card " + gameObject.name + " Played");
+                    //Debug.Log("Card " + gameObject.name + " Played");
                     player.GetComponent<CharacterController>().enabled = false;
                     player.GetComponent<FirstPersonController>().enabled = false;
                     player.transform.position = target.transform.position;

@@ -15,7 +15,7 @@ public class AerialAscension : MonoBehaviour, ICard
 
     public void card_preparation(bool status)
     {
-        Debug.Log("estatus: " + status);
+        ////Debug.Log("estatus: " + status);
         if (!status)
         {
             Debug.Log("despreparacion");

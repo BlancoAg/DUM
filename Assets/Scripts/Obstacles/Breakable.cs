@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour
 {
+    private bool broken = false;
     private void OnTriggerEnter(Collider other)
     {   
         //ParticleSystem particleSystem = GameObject.Find("Shatter").GetComponent<ParticleSystem>();
-        if (other.GetComponent<PlayerMainScript>().falling == true)
+        if (other.GetComponent<PlayerMainScript>().falling == true && !broken)
         {
             transform.GetChild(0).gameObject.SetActive(false);
-        }
+            broken = true;
+        
         // Find the particle system component in the scene
         ParticleSystem particleSystem = GameObject.Find("Shatter").GetComponent<ParticleSystem>();
 
@@ -19,6 +21,7 @@ public class Breakable : MonoBehaviour
         {
             // Play the particle system
             particleSystem.Play();
+        }
         }
     }
 }

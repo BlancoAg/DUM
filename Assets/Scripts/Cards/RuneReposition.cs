@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class RuneReposition : MonoBehaviour, ICard
 {
-    private FirstPersonController firstPersonController;
     private Camera mainCamera;
-    private CharacterController characterController;
-    private bool ready;
-    public GameObject player;
+    private bool ready; 
 
     void Start()
     {
-        player = GameObject.Find("Player");
-        firstPersonController = player.GetComponent<FirstPersonController>();
-        mainCamera = Camera.main;
-        characterController = player.GetComponent<CharacterController>();
+        mainCamera = Camera.main;   
     }
 
     public void card_preparation(bool status)
@@ -34,6 +28,7 @@ public class RuneReposition : MonoBehaviour, ICard
 
     public void cast_card()
     {
+        var player = GameObject.Find("Player");
         if (ready)
         {
             RaycastHit hit;
@@ -42,12 +37,9 @@ public class RuneReposition : MonoBehaviour, ICard
                 GameObject target = hit.transform.gameObject;
                 if (target.CompareTag("Rune"))
                 {   
-                    Debug.Log("Card " + gameObject.name + " Played");
-                    player.GetComponent<CharacterController>().enabled = false;
-                    player.GetComponent<FirstPersonController>().enabled = false;
+                    
                     player.transform.position = target.transform.position;
-                    player.GetComponent<FirstPersonController>().enabled = true;
-                    player.GetComponent<CharacterController>().enabled = true;
+    
                     ready = false;
                 }
             }

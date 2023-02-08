@@ -17,6 +17,10 @@ public class PlayerMainScript : MonoBehaviour
     public float massChangeSpeed = 0.5f;
     private float originalJumpForce;
     public bool falling;
+    //feather falling variables
+    public bool floating;
+    public float slowFallForce = 2.0f;
+    public float defaultFallForce = 9.8f;
 
     public GameObject gameOverPanel;
     public GameObject Crosshair;
@@ -44,7 +48,8 @@ public class PlayerMainScript : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerMovementTutorial = GetComponent<PlayerMovementTutorial>();
         waterMovement = GetComponent<WaterMovement>();
-         originalJumpForce = playerMovementTutorial.jumpForce;
+        originalJumpForce = playerMovementTutorial.jumpForce;
+        
         
     }
     void Update()
@@ -121,29 +126,45 @@ public class PlayerMainScript : MonoBehaviour
     }
     //Stone Stance method
     public void stone_status(bool status)
-{
-    stoned = status;
-    StoneStanceIcon.SetActive(stoned);
-    if (stoned)
     {
-        Debug.Log("stoned");
-        playerMovementTutorial.jumpForce = 1f;
-        if (!playerMovementTutorial.grounded){
-            gameObject.GetComponent<ConstantForce>().force = new Vector3(0, -50,0);
-            falling = true;
-        }
-        if (waterMovement.enabled)
+        stoned = status;
+        StoneStanceIcon.SetActive(stoned);
+        if (stoned)
         {
-            rb.mass = 25f;
+            Debug.Log("stoned");
+            playerMovementTutorial.jumpForce = 1f;
+            if (!playerMovementTutorial.grounded){
+                gameObject.GetComponent<ConstantForce>().force = new Vector3(0, -50,0);
+                falling = true;
+            }
+            if (waterMovement.enabled)
+            {
+                rb.mass = 25f;
+            }
+        }
+        else
+        {
+            gameObject.GetComponent<ConstantForce>().force = new Vector3(0, 0,0);
+            playerMovementTutorial.jumpForce = originalJumpForce;
+            StartCoroutine(ChangeMassBackToOne());
+            falling = false; 
         }
     }
-    else
+    
+    public void feather_falling(bool status)
     {
-        gameObject.GetComponent<ConstantForce>().force = new Vector3(0, 0,0);
-        playerMovementTutorial.jumpForce = originalJumpForce;
-        StartCoroutine(ChangeMassBackToOne());
+        floating = status;
+        if (floating)
+        {
+            rb.drag = slowFallForce;
+        }
+        else
+        {
+            rb.drag = defaultFallForce;
+        }
+            
     }
-}
+
     public void aerial_ascend(){
         Debug.Log("aerial_ascend");
         gameObject.GetComponent<ConstantForce>().force = gameObject.GetComponent<ConstantForce>().force + new Vector3(0, 50,0);

@@ -4,30 +4,35 @@ using UnityEngine;
 
 public class FeatherFalling : MonoBehaviour, ICard
 {
-    public float reducedGravity = 2.905f;
-
-    private Vector3 currentPosition;
-    private Vector3 previousPosition;
+    public float slowFallForce = 2.0f;
+    public float defaultFallForce = 9.8f;
     private bool ready;
-    private bool isFeatherFalling;
+    private Rigidbody playerRigidBody;
     
+    void Start()
+    {
+        playerRigidBody = GetComponent<Rigidbody>();
+    }
+
     public void card_preparation(bool status)
     {
         if (!status)
         {
-            Physics.gravity = new Vector3(0, -9.81f, 0);
+            var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
+            player.feather_falling(false);
             ready = false;
             return; 
         }
         ready = status;
-        Debug.Log("Card "+ gameObject.name +" is ready");
         return; 
     }
     public void cast_card()
     {
+        var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
         if (ready)
         {
-            Physics.gravity = new Vector3(0, -reducedGravity, 0);
+            player.feather_falling(true);
+            ready = false;
         }
         
     }   

@@ -5,19 +5,8 @@ public class ComebackCard : MonoBehaviour, ICard
     public Vector3 savedPosition;
     public bool positionSaved = false;
 
-    public GameObject player;
-
-    private CharacterController characterController;
-    //private FirstPersonController firstPersonController;
 
     private bool ready;
-
-    void Start()
-    {
-        player = GameObject.Find("Player");
-        characterController = player.GetComponent<CharacterController>();
-        //firstPersonController = player.GetComponent<FirstPersonController>();
-    }
 
     public void card_preparation(bool status)
     {
@@ -36,20 +25,15 @@ public class ComebackCard : MonoBehaviour, ICard
 
     public void cast_card()
     {
+        var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
         if (positionSaved)
         {
-            player.GetComponent<CharacterController>().enabled = false;
             player.transform.position = savedPosition;
             positionSaved = false;
-            player.GetComponent<CharacterController>().enabled = true;
         }
         else
         {
-            
-            //player.GetComponent<FirstPersonController>().enabled = false;
             savedPosition = player.transform.position;
-            
-            //player.GetComponent<FirstPersonController>().enabled = true;
             positionSaved = true;
         }
         ready = false;

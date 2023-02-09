@@ -8,32 +8,42 @@ public class FeatherFalling : MonoBehaviour, ICard
     public float defaultFallForce = 9.8f;
     private bool ready;
     private Rigidbody playerRigidBody;
-    
-    void Start()
-    {
-        playerRigidBody = GetComponent<Rigidbody>();
+    private ConstantForce player;
+    private bool ff = false;
+
+    void Start(){
+        player =  GameObject.Find("Player").GetComponent<ConstantForce>();
     }
 
     public void card_preparation(bool status)
     {
         if (!status)
         {
-            var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
-            player.feather_falling(false);
+            // var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
+            // player.feather_falling(false);
+            Debug.Log("despreparacion");
+            if(ff){
+            ff = false;
+            player.force = player.force - new Vector3(0,8f,0);
+            }
             ready = false;
-            return; 
+            return;
         }
         ready = status;
-        return; 
+        return;
     }
     public void cast_card()
     {
-        var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
-        if (ready)
-        {
-            player.feather_falling(true);
-            ready = false;
+        Debug.Log("cast card");
+        Debug.Log(ready);
+        Debug.Log(ff);
+
+        // var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
+        if(!ff){
+            Debug.Log("FF cast");
+            player.force = player.force + new Vector3(0,8f,0);
+            ff = true;
         }
-        
-    }   
+
+    }
 }

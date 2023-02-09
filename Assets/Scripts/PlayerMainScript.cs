@@ -165,10 +165,10 @@ public class PlayerMainScript : MonoBehaviour
             
     }
 
-    public void aerial_ascend(){
-        Debug.Log("aerial_ascend");
-        gameObject.GetComponent<ConstantForce>().force = gameObject.GetComponent<ConstantForce>().force + new Vector3(0, 50,0);
-    }
+    // public void aerial_ascend(){
+    //     Debug.Log("aerial_ascend");
+    //     gameObject.GetComponent<ConstantForce>().force = gameObject.GetComponent<ConstantForce>().force + new Vector3(0, 50,0);
+    // }
 
     public void back_to_normal()
     {

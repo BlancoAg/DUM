@@ -7,7 +7,7 @@ public class AerialAscension : MonoBehaviour, ICard
     public float levitate = 15.0f;
     public float defaultJumpForce = 5.0f;
     private FirstPersonController firstPersonController;
-    private PlayerMovement player;
+    private ConstantForce player;
     private bool ready;
     public GameObject AAIcon;
 //  public GameObject player;
@@ -43,11 +43,12 @@ public class AerialAscension : MonoBehaviour, ICard
         if (ready)
         {
             
-            //Debug.Log("cast card AA");
-            //var  player = GameObject.Find("Player").GetComponent<PlayerMovement>();
-            //player.aerial_ascend();
-            //StartCoroutine(ResetJumpForce());
-            //dddddddddddwready = false;   
+            // Debug.Log("cast card AA");
+            // var  player = GameObject.Find("Player").GetComponent<ConstantForce>();
+            
+            // // player.aerial_ascend();
+            // StartCoroutine(ResetJumpForce());
+            // dddddddddddwready = false;   
             
         }
 

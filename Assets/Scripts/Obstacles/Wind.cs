@@ -22,7 +22,7 @@ public class Wind : MonoBehaviour
         player = GetComponent<PlayerMainScript>();
     }
     
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         // //stoneSt = stoneCard.GetComponent<StoneStance>();
         // Player = GetComponent<PlayerMainScript>();
@@ -36,11 +36,11 @@ public class Wind : MonoBehaviour
         if (other.tag == "Player" && other.GetComponent<PlayerMainScript>().stoned == false)
         {
            if(other.GetComponent<ConstantForce>()){
-           other.GetComponent<ConstantForce>().force = new Vector3(0,25,0);
+           other.GetComponent<ConstantForce>().force = other.GetComponent<ConstantForce>().force + new Vector3(0,25,0);
            }
         }
         else if(other.GetComponent<ConstantForce>() && !other.gameObject.CompareTag("Player")){
-        other.GetComponent<ConstantForce>().force = new Vector3(0,25,0);
+        other.GetComponent<ConstantForce>().force = other.GetComponent<ConstantForce>().force + new Vector3(0,25,0);
         }
     }
     private void OnTriggerExit(Collider other) 
@@ -55,7 +55,7 @@ public class Wind : MonoBehaviour
         //     characterController.Move(windVelocity * smoothness);
         // }
         if(other.GetComponent<ConstantForce>()){
-            other.GetComponent<ConstantForce>().force = new Vector3(0,0,0);
+            other.GetComponent<ConstantForce>().force = other.GetComponent<ConstantForce>().force - new Vector3(0,25,0);
         }
     }
 }

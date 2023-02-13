@@ -10,6 +10,7 @@ TagManager:
   - Puppet
   - Wind
   - Water
+  - Activator
   layers:
   - Default
   - TransparentFX

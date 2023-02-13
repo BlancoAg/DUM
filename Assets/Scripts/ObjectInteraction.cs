@@ -13,17 +13,19 @@ public class ObjectInteraction : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log("test");
          if (Input.GetMouseButtonDown(0))
          {
              Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
              RaycastHit hit;
              if (Physics.Raycast(ray, out hit,2))
+             Debug.Log("Test");
+             //Debug.Log(hit.collider.tag);
              {
-                 if (hit.collider != null && hit.collider.tag == "Card")
+                 if (hit.collider != null && hit.collider.tag == "Activator")
                  {
-                     hit.collider.gameObject.GetComponent<Collider>().enabled = false;
-                     hit.collider.gameObject.GetComponent<Renderer>().enabled = false;
-                     cardCount++;
+                    Debug.Log("Test_tag");
+                    hit.collider.gameObject.GetComponent<Activator>().Execute();
                  }
              }
          }

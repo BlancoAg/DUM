@@ -4971,7 +4971,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 10c791c3dd86ba547989615fa055be69, type: 2}
+  - {fileID: 2100000, guid: 0be2465f772710340aa1dcbb6ebf5241, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5545,6 +5545,7 @@ GameObject:
   - component: {fileID: 335110149288721524}
   - component: {fileID: 999569116980428926}
   - component: {fileID: 52477861460568450}
+  - component: {fileID: 189255561138394493}
   m_Layer: 0
   m_Name: Card AA
   m_TagString: Untagged
@@ -5597,3 +5598,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &189255561138394493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7890895650259201588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c62cc5c2f6788c488ebe1e6ac00baf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levitate: 15
+  defaultJumpForce: 5
+  AAIcon: {fileID: 0}

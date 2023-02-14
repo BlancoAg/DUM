@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2511039047012694779}
   - component: {fileID: 2511039047012694778}
+  - component: {fileID: 4518989036768949533}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -94,6 +95,26 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &4518989036768949533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2511039047012694772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &2511039047724231529
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2511039047916035960}
   - component: {fileID: 2511039047916035961}
-  - component: {fileID: 2511039047916035962}
+  - component: {fileID: 1700185552777563254}
   m_Layer: 0
   m_Name: Rune
   m_TagString: Rune
@@ -266,8 +287,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!135 &2511039047916035962
-SphereCollider:
+--- !u!65 &1700185552777563254
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -277,7 +298,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.345
+  m_Size: {x: 4.3, y: 4.69, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2511039048018262996
 GameObject:
@@ -289,6 +310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2511039048018263003}
   - component: {fileID: 2511039048018263002}
+  - component: {fileID: 2410458468845971854}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -373,3 +395,23 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &2410458468845971854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2511039048018262996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}

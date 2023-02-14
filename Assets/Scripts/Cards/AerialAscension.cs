@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class AerialAscension : MonoBehaviour, ICard
 {
-    public float levitate = 15.0f;
-    public float defaultJumpForce = 5.0f;
-    private FirstPersonController firstPersonController;
-    private ConstantForce player;
     private bool ready;
     public GameObject AAIcon;
 //  public GameObject player;
 
     void Start()
     {
-        //player = GameObject.Find("Player");
-        //firstPersonController = player.GetComponent<FirstPersonController>();
+
     }
 
     public void card_preparation(bool status)
@@ -23,18 +18,17 @@ public class AerialAscension : MonoBehaviour, ICard
         Debug.Log("estatus: " + status);
         if (!status)
         {
-            Debug.Log("despreparacion");
+            //Debug.Log("despreparacion");
             //firstPersonController.jumpForce = defaultJumpForce;
             ready = false;
             AAIcon.SetActive(false);
-            GameObject.Find("Player").GetComponent<PlayerMovement>().jumpForce = 5;
-
+            GameObject.Find("Player").GetComponent<PlayerMovementTutorial>().jumpForce = 5;
             return; 
         }
         ready = status;
         Debug.Log("Card "+ gameObject.name +" is ready");
         AAIcon.SetActive(true);
-        GameObject.Find("Player").GetComponent<PlayerMovement>().jumpForce = 20;
+        
         return; 
     }
 
@@ -42,14 +36,12 @@ public class AerialAscension : MonoBehaviour, ICard
     {
         if (ready)
         {
-            
             // Debug.Log("cast card AA");
-            // var  player = GameObject.Find("Player").GetComponent<ConstantForce>();
-            
-            // // player.aerial_ascend();
+            //var player = GameObject.Find("Player").GetComponent<ConstantForce>();
+            GameObject.Find("Player").GetComponent<PlayerMovementTutorial>().jumpForce = 20;
+            // player.aerial_ascend();
             // StartCoroutine(ResetJumpForce());
             // dddddddddddwready = false;   
-            
         }
 
         

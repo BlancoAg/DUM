@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Card_Rotation : MonoBehaviour
 {
-    private float i = 0.1f;
+    public float i = 0.1f;
     // Start is called before the first frame update
     void Start()
     {

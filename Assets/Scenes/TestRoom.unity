@@ -776,7 +776,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageInterval: 2
-  player: {fileID: 0}
 --- !u!1 &519796356
 GameObject:
   m_ObjectHideFlags: 0
@@ -8023,7 +8022,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageInterval: 2
-  player: {fileID: 0}
 --- !u!1 &1818460229
 GameObject:
   m_ObjectHideFlags: 0

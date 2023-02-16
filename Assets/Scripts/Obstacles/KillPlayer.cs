@@ -7,7 +7,7 @@ public class KillPlayer : MonoBehaviour
     public float damageInterval = 2.0f;
     private float elapsedTime = 0.0f;
     //public ScorchShield scorchShield;
-    public GameObject player;
+    private GameObject player;
     private void OnTriggerStay(Collider other)
     {
         player = GameObject.Find("Player");

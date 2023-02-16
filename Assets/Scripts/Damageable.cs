@@ -7,12 +7,12 @@ public class Damageable : MonoBehaviour
     public float currentHealth;
     public GameObject gameOverPanel;
     public GameObject Crosshair;
-    private FirstPersonController firstPersonController;
+    private PlayerMovementTutorial firstPersonController;
 
     void Start()
     {
         currentHealth = maxHealth;
-        firstPersonController = GetComponent<FirstPersonController>();
+        firstPersonController = GetComponent<PlayerMovementTutorial>();
     }
 
     public void ApplyDamage(float damage)

@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class Hand : MonoBehaviour
 {
+    public AudioSource sourceCC;
+    public AudioClip clip;
+
     public List<GameObject> cardsInHand;
     public int currentCardIndex;
 
@@ -87,6 +90,8 @@ public class Hand : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) && ready)
                 {
                     currentCard.cast_card();
+                    
+
                 }
             }
         }
@@ -99,5 +104,8 @@ public class Hand : MonoBehaviour
         {
             collection.SetActive(false);
         }
+    }
+    public void play_sound(){
+        sourceCC.PlayOneShot(clip);
     }
 }    

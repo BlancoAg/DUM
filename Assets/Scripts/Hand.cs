@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Hand : MonoBehaviour
 {
+    public AudioClip fail_clip;
     public AudioSource sourceCC;
     public AudioClip clip;
     public AudioSource sauce;
@@ -111,6 +112,9 @@ public class Hand : MonoBehaviour
     }
     public void play_sound(){
         sourceCC.PlayOneShot(clip);
+    }
+    public void fail_sound(){
+        sourceCC.PlayOneShot(fail_clip);
     }
 
     public void PlaySound() {

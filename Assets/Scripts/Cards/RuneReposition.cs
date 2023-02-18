@@ -37,8 +37,8 @@ public class RuneReposition : MonoBehaviour, ICard
                 GameObject target = hit.transform.gameObject;
                 if (target.CompareTag("Rune"))
                 {   
-                    
-                    player.transform.position = target.transform.position;
+                    //Debug.Log(target.GetChild(0).name);
+                    player.transform.position = target.gameObject.transform.position;
     
                     ready = false;
                 }

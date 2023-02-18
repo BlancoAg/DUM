@@ -26,7 +26,6 @@ public class SmallStance : MonoBehaviour, ICard
     {
         var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
         if(ready){
-        player.GetComponent<Hand>().play_sound();
         player.change_size();
         ready = false;
         }

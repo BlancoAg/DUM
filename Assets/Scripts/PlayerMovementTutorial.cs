@@ -5,6 +5,7 @@ using TMPro;
 
 public class PlayerMovementTutorial : MonoBehaviour
 {
+    private GameObject player;
     [Header("Movement")]
     public float moveSpeed;
 
@@ -42,7 +43,8 @@ public class PlayerMovementTutorial : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-
+        player = GameObject.Find("Player");
+        playerHeight = player.transform.localScale.y;
         readyToJump = true;
 
         //mouse cursor
@@ -53,6 +55,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     private void Update()
     {
         // ground check
+        playerHeight = player.transform.localScale.y;
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
 
         MyInput();

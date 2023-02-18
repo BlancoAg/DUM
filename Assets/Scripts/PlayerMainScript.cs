@@ -4,6 +4,8 @@ using UnityEngine;
 using Fusion.Fluid;
 public class PlayerMainScript : MonoBehaviour
 {
+    private bool can_grow;
+
     public float bigsize;
     public float smallsize;
     public bool shielded = false;
@@ -69,7 +71,7 @@ public class PlayerMainScript : MonoBehaviour
         {
             if(gameObject.transform.localScale.x <= bigsize){
                 gameObject.transform.localScale =  gameObject.transform.localScale + new Vector3(0.01f, 0.01f, 0.01f);
-                Debug.Log("Creciendo");
+
             }else{
                 growing = false;
                 big = true;
@@ -79,7 +81,6 @@ public class PlayerMainScript : MonoBehaviour
         {
             if(gameObject.transform.localScale.x >= smallsize){
                 gameObject.transform.localScale =  gameObject.transform.localScale - new Vector3(0.01f, 0.01f, 0.01f);
-                Debug.Log("Encogiendo");
             }else{
                 shrinking = false;
                 big = false;
@@ -110,11 +111,15 @@ public class PlayerMainScript : MonoBehaviour
     //Small stance method
     public void change_size()
     {
+        can_grow = Physics.Raycast(transform.position, Vector3.up, bigsize * 0.5f + 0.3f);
         if(!shrinking && !growing && big){
+            gameObject.GetComponent<Hand>().play_sound();
             shrinking = true;
-        }
-        if(!shrinking && !growing && !big){
+        }else if(!can_grow && !shrinking && !growing && !big){
+            gameObject.GetComponent<Hand>().play_sound();
             growing = true;
+        }else{
+            gameObject.GetComponent<Hand>().fail_sound();
         }
     }
 
@@ -131,7 +136,6 @@ public class PlayerMainScript : MonoBehaviour
         StoneStanceIcon.SetActive(stoned);
         if (stoned)
         {
-            Debug.Log("stoned");
             playerMovementTutorial.jumpForce = 1f;
             if (!playerMovementTutorial.grounded){
                 gameObject.GetComponent<ConstantForce>().force = new Vector3(0, -30,0);

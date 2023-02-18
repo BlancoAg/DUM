@@ -8,7 +8,7 @@ public class Breakable : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {   
         //ParticleSystem particleSystem = GameObject.Find("Shatter").GetComponent<ParticleSystem>();
-        if (other.GetComponent<PlayerMainScript>().falling == true && !broken)
+        if (other.tag == "Player" && other.GetComponent<PlayerMainScript>().falling == true && !broken)
         {
             transform.GetChild(0).gameObject.SetActive(false);
             broken = true;

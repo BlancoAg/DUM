@@ -319,7 +319,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   stoned: 0
-  massChangeSpeed: 0.5
+  massChangeSpeed: 8
   falling: 0
   floating: 0
   slowFallForce: 2

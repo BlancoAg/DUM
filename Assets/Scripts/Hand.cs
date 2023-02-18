@@ -6,6 +6,9 @@ public class Hand : MonoBehaviour
 {
     public AudioSource sourceCC;
     public AudioClip clip;
+    public AudioSource sauce;
+
+    public AudioClip clop;
 
     public List<GameObject> cardsInHand;
     public int currentCardIndex;
@@ -16,6 +19,7 @@ public class Hand : MonoBehaviour
     {
         cardsInHand = new List<GameObject>();
         currentCardIndex = 0;
+        sauce = GetComponent<AudioSource>();
 
     }
 
@@ -108,4 +112,9 @@ public class Hand : MonoBehaviour
     public void play_sound(){
         sourceCC.PlayOneShot(clip);
     }
+
+    public void PlaySound() {
+    sauce.PlayOneShot(clop);
+    }
+
 }    

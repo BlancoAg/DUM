@@ -134,7 +134,7 @@ public class PlayerMainScript : MonoBehaviour
             Debug.Log("stoned");
             playerMovementTutorial.jumpForce = 1f;
             if (!playerMovementTutorial.grounded){
-                gameObject.GetComponent<ConstantForce>().force = new Vector3(0, -50,0);
+                gameObject.GetComponent<ConstantForce>().force = new Vector3(0, -30,0);
                 falling = true;
             }
             if (waterMovement.enabled)

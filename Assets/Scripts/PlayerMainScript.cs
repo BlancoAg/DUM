@@ -56,6 +56,13 @@ public class PlayerMainScript : MonoBehaviour
     }
     void Update()
     {  
+        if (playerMovementTutorial.grounded && stoned){
+                falling = false;
+            }
+
+        if (!playerMovementTutorial.grounded && stoned){
+                falling = true;
+            }
         //if(stoned && !playerMovementTutorial.grounded){
         //    Debug.Log("stoned");
         //    gameObject.GetComponent<ConstantForce>().force = new Vector3(0,-50f,0);
@@ -136,11 +143,9 @@ public class PlayerMainScript : MonoBehaviour
         StoneStanceIcon.SetActive(stoned);
         if (stoned)
         {
-            playerMovementTutorial.jumpForce = 1f;
-            if (!playerMovementTutorial.grounded){
-                gameObject.GetComponent<ConstantForce>().force = new Vector3(0, -30,0);
-                falling = true;
-            }
+            gameObject.GetComponent<ConstantForce>().force = gameObject.GetComponent<ConstantForce>().force + new Vector3(0, -30,0);
+            //gameObject.GetComponent<ConstantForce>().force = new Vector3(0, -30,0);
+            //playerMovementTutorial.jumpForce = 1f;
             if (waterMovement.enabled)
             {
                 rb.mass = 25f;
@@ -148,7 +153,8 @@ public class PlayerMainScript : MonoBehaviour
         }
         else
         {
-            gameObject.GetComponent<ConstantForce>().force = new Vector3(0, 0,0);
+            gameObject.GetComponent<ConstantForce>().force = gameObject.GetComponent<ConstantForce>().force - new Vector3(0, -30,0);
+            //gameObject.GetComponent<ConstantForce>().force = new Vector3(0, 0,0);
             playerMovementTutorial.jumpForce = originalJumpForce;
             StartCoroutine(ChangeMassBackToOne());
             falling = false; 

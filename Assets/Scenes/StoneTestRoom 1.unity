@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -349,6 +349,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4909907853444717809, guid: e37ca921dd782aa4398d2fe0d2a1df3e, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5017908434446335820, guid: e37ca921dd782aa4398d2fe0d2a1df3e, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -469,7 +473,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7181295881192865664, guid: c2b8b120ac5bc4045a03cde8454b1ac5, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7181295881192865664, guid: c2b8b120ac5bc4045a03cde8454b1ac5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -941,7 +945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 518421455226536435, guid: e8888e4832984c34f89481eb44140717, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 518421455226536435, guid: e8888e4832984c34f89481eb44140717, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1315,7 +1319,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1290983553
 GameObject:
@@ -1518,7 +1522,7 @@ PrefabInstance:
       objectReference: {fileID: 987206865}
     - target: {fileID: 1702462415847510850, guid: 6741d4398d2cb844fbbb1d24fe354ce6, type: 3}
       propertyPath: windForce
-      value: 100
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6052383749366194524, guid: 6741d4398d2cb844fbbb1d24fe354ce6, type: 3}
       propertyPath: m_Name
@@ -1656,7 +1660,7 @@ PrefabInstance:
     - target: {fileID: 769994088334329263, guid: cd71008c86916e342919c63b213891db, type: 3}
       propertyPath: AAIcon
       value: 
-      objectReference: {fileID: 1736834121}
+      objectReference: {fileID: 0}
     - target: {fileID: 1011371944602728108, guid: cd71008c86916e342919c63b213891db, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1877,11 +1881,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7387706064836869012, guid: 2e0c71c2737e10247abae98dd28fff6d, type: 3}
---- !u!1 &1736834121 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5755562250259472022, guid: e37ca921dd782aa4398d2fe0d2a1df3e, type: 3}
-  m_PrefabInstance: {fileID: 349629573}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1808847728
 PrefabInstance:
   m_ObjectHideFlags: 0

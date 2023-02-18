@@ -15,7 +15,9 @@ public class StoneStance : MonoBehaviour, ICard
         {
             Debug.Log("despreparacion");
             var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
+            if(player.stoned){
             player.stone_status(false);
+            }
             ready = false;
             return; 
         }

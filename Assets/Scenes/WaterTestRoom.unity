@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1331,6 +1331,38 @@ PrefabInstance:
     - target: {fileID: 2694582450189174510, guid: e37ca921dd782aa4398d2fe0d2a1df3e, type: 3}
       propertyPath: massChangeSpeed
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909907852665106194, guid: e37ca921dd782aa4398d2fe0d2a1df3e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909907852935026163, guid: e37ca921dd782aa4398d2fe0d2a1df3e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909907853029224788, guid: e37ca921dd782aa4398d2fe0d2a1df3e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909907853206157314, guid: e37ca921dd782aa4398d2fe0d2a1df3e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909907853444717803, guid: e37ca921dd782aa4398d2fe0d2a1df3e, type: 3}
+      propertyPath: floatStrength
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909907853444717813, guid: e37ca921dd782aa4398d2fe0d2a1df3e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909907853444717813, guid: e37ca921dd782aa4398d2fe0d2a1df3e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909907853444717813, guid: e37ca921dd782aa4398d2fe0d2a1df3e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -50.7
       objectReference: {fileID: 0}
     - target: {fileID: 5017908434446335820, guid: e37ca921dd782aa4398d2fe0d2a1df3e, type: 3}
       propertyPath: m_RootOrder

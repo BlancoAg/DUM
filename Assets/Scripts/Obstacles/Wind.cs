@@ -13,6 +13,7 @@ public class Wind : MonoBehaviour
     private float eulerAngX;
     private float eulerAngZ;
     private float eulerAngY;
+    public float windForce;
     //public List<string> direction = ;
     private void Start(){
                 
@@ -33,14 +34,16 @@ public class Wind : MonoBehaviour
         //     Vector3 windVelocity = windDirection * windForce;
         //     characterController.Move(windVelocity * smoothness);
         // }
-        if (other.tag == "Player" && other.GetComponent<PlayerMainScript>().stoned == false)
+        //if (other.tag == "Player" && other.GetComponent<PlayerMainScript>().stoned == false)
+        if (other.tag == "Player")
         {
            if(other.GetComponent<ConstantForce>()){
-           other.GetComponent<ConstantForce>().force = other.GetComponent<ConstantForce>().force + new Vector3(0,25,0);
+           other.GetComponent<ConstantForce>().force = other.GetComponent<ConstantForce>().force + new Vector3(0,windForce,0);
            }
         }
-        else if(other.GetComponent<ConstantForce>() && !other.gameObject.CompareTag("Player")){
-        other.GetComponent<ConstantForce>().force = other.GetComponent<ConstantForce>().force + new Vector3(0,25,0);
+
+        if(other.GetComponent<ConstantForce>() && other.tag != "Player"){
+        //other.GetComponent<ConstantForce>().force = other.GetComponent<ConstantForce>().force + new Vector3(0,windForce,0);
         }
     }
     private void OnTriggerExit(Collider other) 
@@ -55,7 +58,7 @@ public class Wind : MonoBehaviour
         //     characterController.Move(windVelocity * smoothness);
         // }
         if(other.GetComponent<ConstantForce>()){
-            other.GetComponent<ConstantForce>().force = other.GetComponent<ConstantForce>().force - new Vector3(0,25,0);
+            other.GetComponent<ConstantForce>().force = other.GetComponent<ConstantForce>().force - new Vector3(0,windForce,0);
         }
     }
 }

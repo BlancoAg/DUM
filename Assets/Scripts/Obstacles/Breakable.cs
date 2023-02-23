@@ -5,10 +5,10 @@ using UnityEngine;
 public class Breakable : MonoBehaviour
 {
     private bool broken = false;
-    private void OnTriggerEnter(Collider other)
+    public void Break()
     {   
         //ParticleSystem particleSystem = GameObject.Find("Shatter").GetComponent<ParticleSystem>();
-        if (other.tag == "Player" && other.GetComponent<PlayerMainScript>().falling == true && !broken)
+        if (!broken)
         {
             transform.GetChild(0).gameObject.SetActive(false);
             broken = true;

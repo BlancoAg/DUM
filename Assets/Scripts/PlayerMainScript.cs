@@ -17,8 +17,7 @@ public class PlayerMainScript : MonoBehaviour
     //stone stance variables
     public bool stoned = false;
     public float massChangeSpeed = 0.5f;
-    private float originalJumpForce;
-    public bool falling;
+    //public bool falling;
     //feather falling variables
     public bool floating;
     public float slowFallForce = 2.0f;
@@ -50,19 +49,27 @@ public class PlayerMainScript : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerMovementTutorial = GetComponent<PlayerMovementTutorial>();
         waterMovement = GetComponent<WaterMovement>();
-        originalJumpForce = playerMovementTutorial.jumpForce;
         
         
     }
     void Update()
     {  
-        if (playerMovementTutorial.grounded && stoned){
-                falling = false;
-            }
+        //if (playerMovementTutorial.grounded && stoned){
+        //        falling = false;
+        //    }
 
         if (!playerMovementTutorial.grounded && stoned){
-                falling = true;
+            Debug.Log("Falling");
+
+             RaycastHit hit;
+
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, 1f)) {
+                 Breakable breakableObject = hit.collider.GetComponent<Breakable>();
+                if (breakableObject != null) {
+                breakableObject.Break();
+                }
             }
+        }
         //if(stoned && !playerMovementTutorial.grounded){
         //    Debug.Log("stoned");
         //    gameObject.GetComponent<ConstantForce>().force = new Vector3(0,-50f,0);
@@ -155,9 +162,8 @@ public class PlayerMainScript : MonoBehaviour
         {
             gameObject.GetComponent<ConstantForce>().force = gameObject.GetComponent<ConstantForce>().force - new Vector3(0, -30,0);
             //gameObject.GetComponent<ConstantForce>().force = new Vector3(0, 0,0);
-            playerMovementTutorial.jumpForce = originalJumpForce;
+            //playerMovementTutorial.jumpForce = originalJumpForce;
             StartCoroutine(ChangeMassBackToOne());
-            falling = false; 
         }
     }
     

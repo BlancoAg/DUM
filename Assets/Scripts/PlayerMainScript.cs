@@ -63,7 +63,7 @@ public class PlayerMainScript : MonoBehaviour
 
              RaycastHit hit;
 
-            if (Physics.Raycast(transform.position, Vector3.down, out hit, 1f)) {
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.9f)) {
                  Breakable breakableObject = hit.collider.GetComponent<Breakable>();
                 if (breakableObject != null) {
                 breakableObject.Break();

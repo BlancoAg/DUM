@@ -59,13 +59,17 @@ public class PlayerMainScript : MonoBehaviour
         //    }
 
         if (!playerMovementTutorial.grounded && stoned){
-            Debug.Log("Falling");
+            //Debug.Log("Falling");
 
-             RaycastHit hit;
+            RaycastHit hit;
 
             if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.9f)) {
-                 Breakable breakableObject = hit.collider.GetComponent<Breakable>();
+                //Debug.Log("algo toque :D");
+                Debug.Log(hit.collider.name);
+                Breakable breakableObject = hit.collider.GetComponent<Breakable>();
+                Debug.Log(breakableObject);
                 if (breakableObject != null) {
+                Debug.Log(breakableObject.name);
                 breakableObject.Break();
                 }
             }

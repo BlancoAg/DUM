@@ -1433,7 +1433,6 @@ MonoBehaviour:
   currentHealth: 0
   stoned: 0
   massChangeSpeed: 8
-  falling: 0
   floating: 0
   slowFallForce: 2
   defaultFallForce: 9.8
@@ -1544,7 +1543,7 @@ MonoBehaviour:
   sourceCC: {fileID: 4909907853954193915}
   clip: {fileID: 8300000, guid: e2dd3866ccbde04478ea91fd7ccdf8bf, type: 3}
   sauce: {fileID: 0}
-  clop: {fileID: 0}
+  clop: {fileID: 8300000, guid: 71aa5b1ff66550b4ab09737a89708fd3, type: 3}
   cardsInHand: []
   currentCardIndex: 0
   collection: {fileID: 4909907852483881850}

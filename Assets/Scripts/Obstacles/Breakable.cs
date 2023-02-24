@@ -11,6 +11,8 @@ public class Breakable : MonoBehaviour
         if (!broken)
         {
             transform.GetChild(0).gameObject.SetActive(false);
+            Debug.Log(gameObject.name); 
+            gameObject.GetComponent<Collider>().enabled = false;
             broken = true;
         
         // Find the particle system component in the scene

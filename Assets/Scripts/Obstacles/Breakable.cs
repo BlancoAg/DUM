@@ -10,13 +10,14 @@ public class Breakable : MonoBehaviour
         //ParticleSystem particleSystem = GameObject.Find("Shatter").GetComponent<ParticleSystem>();
         if (!broken)
         {
-            transform.GetChild(0).gameObject.SetActive(false);
-            Debug.Log(gameObject.name); 
+            //transform.GetChild(0).gameObject.SetActive(false);
+            Debug.Log(gameObject.name);
+            gameObject.GetComponent<Renderer>().enabled = false;
             gameObject.GetComponent<Collider>().enabled = false;
             broken = true;
         
         // Find the particle system component in the scene
-        ParticleSystem particleSystem = GameObject.Find("Shatter").GetComponent<ParticleSystem>();
+        ParticleSystem particleSystem = transform.GetChild(0).GetComponent<ParticleSystem>();
 
         // Check if the particle system is not null
         if (particleSystem != null)

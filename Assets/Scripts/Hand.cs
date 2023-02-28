@@ -15,6 +15,7 @@ public class Hand : MonoBehaviour
     public int currentCardIndex;
 
     public GameObject collection;
+    public GameObject cardDesc;
     private bool ready = true;
     void Start()
     {
@@ -109,7 +110,16 @@ public class Hand : MonoBehaviour
         {
             collection.SetActive(false);
         }
-    }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            cardDesc.SetActive(true);
+        }
+        else
+        {
+            cardDesc.SetActive(false);
+        }
+        }
     public void play_sound(){
         sourceCC.PlayOneShot(clip);
     }

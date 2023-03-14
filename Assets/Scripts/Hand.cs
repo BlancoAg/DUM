@@ -20,6 +20,7 @@ public class Hand : MonoBehaviour
     void Start()
     {
         cardsInHand = new List<GameObject>();
+        Debug.Log(cardsInHand.Count);
         currentCardIndex = 0;
         sauce = GetComponent<AudioSource>();
 
@@ -44,7 +45,7 @@ public class Hand : MonoBehaviour
             }
         }
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f || Input.GetKeyDown("e")) // forward
+        if (cardsInHand.Count != 0 || Input.GetAxis("Mouse ScrollWheel") > 0f || Input.GetKeyDown("e")) // forward
         {
             if (currentCardIndex + 1 >= cardsInHand.Count)
             {
@@ -60,7 +61,7 @@ public class Hand : MonoBehaviour
             }
 
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f || Input.GetKeyDown("q") ) // backwards
+        else if (cardsInHand.Count != 0 || Input.GetAxis("Mouse ScrollWheel") < 0f || Input.GetKeyDown("q") ) // backwards
         {
             if (currentCardIndex <= 0)
             {

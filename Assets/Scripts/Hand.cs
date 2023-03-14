@@ -45,7 +45,7 @@ public class Hand : MonoBehaviour
             }
         }
 
-        if (cardsInHand.Count != 0 || Input.GetAxis("Mouse ScrollWheel") > 0f || Input.GetKeyDown("e")) // forward
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f || Input.GetKeyDown("e")) // forward
         {
             if (currentCardIndex + 1 >= cardsInHand.Count)
             {
@@ -61,7 +61,7 @@ public class Hand : MonoBehaviour
             }
 
         }
-        else if (cardsInHand.Count != 0 || Input.GetAxis("Mouse ScrollWheel") < 0f || Input.GetKeyDown("q") ) // backwards
+        else if (cardsInHand.Count != 0 && Input.GetAxis("Mouse ScrollWheel") < 0f || Input.GetKeyDown("q")) // backwards
         {
             if (currentCardIndex <= 0)
             {

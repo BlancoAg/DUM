@@ -6,6 +6,7 @@ public class CardInHandUpdater : MonoBehaviour
 {
     public Hand handScript;
     public Image cardImage;
+    public GameObject cardinhand;
     public GameObject cardToCast;
     public TMP_Text cardText;
 
@@ -13,11 +14,13 @@ public class CardInHandUpdater : MonoBehaviour
     {
         if (handScript.cardsInHand.Count > 0)
         {
-            cardToCast.SetActive(true);
+            //cardToCast.SetActive(true);
+            cardinhand.SetActive(true);
             GameObject currentCard = handScript.cardsInHand[handScript.currentCardIndex];
             Transform quad = currentCard.transform.GetChild(3);
             Material material = quad.GetComponent<Renderer>().material;
             cardImage.material = material;
+            cardinhand.GetComponent<Renderer>().material = material;
 
             // Retrieve the TextMeshPro component from the 5th child of the current card
             string cardTextMeshPro = currentCard.transform.GetChild(4).GetComponent<TMP_Text>().text;

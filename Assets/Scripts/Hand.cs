@@ -10,6 +10,10 @@ public class Hand : MonoBehaviour
     public AudioSource sauce;
 
     public AudioClip clop;
+    public AudioClip prep;
+    public AudioClip cast;
+
+    
 
     public List<GameObject> cardsInHand;
     public int currentCardIndex;
@@ -92,12 +96,13 @@ public class Hand : MonoBehaviour
                 {
                     ready = true;
                     currentCard.card_preparation(true);
+                    PrepSound();
                 
                 }
                 if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) && ready)
                 {
                     currentCard.cast_card();
-                    
+                    CastSound();
 
                 }
             }
@@ -130,6 +135,14 @@ public class Hand : MonoBehaviour
 
     public void PlaySound() {
     sauce.PlayOneShot(clop);
+    }
+    public void PrepSound()
+    {
+        sauce.PlayOneShot(prep);
+    }
+    public void CastSound()
+    {
+        sauce.PlayOneShot(cast);
     }
 
 }    

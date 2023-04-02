@@ -841,6 +841,8 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: e2dd3866ccbde04478ea91fd7ccdf8bf, type: 3}
   sauce: {fileID: 0}
   clop: {fileID: 8300000, guid: 71aa5b1ff66550b4ab09737a89708fd3, type: 3}
+  prep: {fileID: 0}
+  cast: {fileID: 0}
   cardsInHand: []
   currentCardIndex: 0
   collection: {fileID: 6888432938289926833}

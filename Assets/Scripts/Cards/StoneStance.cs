@@ -35,7 +35,7 @@ public class StoneStance : MonoBehaviour, ICard
            {
               //Debug.Log("Card" + gameObject.name + "Played");
               //player.shielded = !player.shielded;
-              player.GetComponent<Hand>().PlaySound();
+              //player.GetComponent<Hand>().PlaySound();
               player.stone_status(true);
               ready = false;
            } 

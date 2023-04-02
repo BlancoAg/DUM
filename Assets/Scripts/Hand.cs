@@ -12,6 +12,7 @@ public class Hand : MonoBehaviour
     public AudioClip clop;
     public AudioClip prep;
     public AudioClip cast;
+    public AudioClip flip;
 
     
 
@@ -58,6 +59,7 @@ public class Hand : MonoBehaviour
             else
             {
                 currentCardIndex++;
+                CardFlip();
             }
             if (cardsInHand.Count > 0)
             {
@@ -74,6 +76,7 @@ public class Hand : MonoBehaviour
             else
             {
                 currentCardIndex--;
+                CardFlip();
             }
             if (cardsInHand.Count > 0)
             {
@@ -143,6 +146,11 @@ public class Hand : MonoBehaviour
     public void CastSound()
     {
         sauce.PlayOneShot(cast);
+    }
+
+    public void CardFlip()
+    {
+        sauce.PlayOneShot(flip);
     }
 
 }    

@@ -459,7 +459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8026606715969496301, guid: efcba397415e76341b00d0f57e01c72c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.73
+      value: 14.22
       objectReference: {fileID: 0}
     - target: {fileID: 8026606715969496301, guid: efcba397415e76341b00d0f57e01c72c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -467,7 +467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8026606715969496301, guid: efcba397415e76341b00d0f57e01c72c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -39.82
+      value: -45.11
       objectReference: {fileID: 0}
     - target: {fileID: 8026606715969496301, guid: efcba397415e76341b00d0f57e01c72c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1384,6 +1384,10 @@ PrefabInstance:
       propertyPath: density
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4920588717593814922, guid: e9d9ac2abdf7fc1448c436d54cbdde16, type: 3}
+      propertyPath: angularDrag
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9d9ac2abdf7fc1448c436d54cbdde16, type: 3}
 --- !u!1 &1117707514
@@ -1679,6 +1683,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6888432937429493024, guid: 4b3bc9b3d832571478840fbdca677b9b, type: 3}
+      propertyPath: floatStrength
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6888432937429493024, guid: 4b3bc9b3d832571478840fbdca677b9b, type: 3}
+      propertyPath: turbulenceStrength
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6888432937429493027, guid: 4b3bc9b3d832571478840fbdca677b9b, type: 3}
+      propertyPath: cast
+      value: 
+      objectReference: {fileID: 8300000, guid: 0478257fc382bda408b26bc75c2d60cc, type: 3}
+    - target: {fileID: 6888432937429493027, guid: 4b3bc9b3d832571478840fbdca677b9b, type: 3}
+      propertyPath: prep
+      value: 
+      objectReference: {fileID: 8300000, guid: cf90a15168318d2489799a9d7b317f8a, type: 3}
     - target: {fileID: 6888432937429493038, guid: 4b3bc9b3d832571478840fbdca677b9b, type: 3}
       propertyPath: m_Name
       value: Player

@@ -11,6 +11,7 @@ TagManager:
   - Wind
   - Water
   - Activator
+  - NPC
   layers:
   - Default
   - TransparentFX

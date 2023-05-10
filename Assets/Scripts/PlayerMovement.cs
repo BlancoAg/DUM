@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
+    public GameObject card_in_hand;
+
     public float moveSpeed;
 
     public float groundDrag;

@@ -17,9 +17,9 @@ public class Wind : MonoBehaviour
     //public List<string> direction = ;
     private void Start(){
                 
-        eulerAngX = transform.eulerAngles.x;
-        eulerAngY = transform.eulerAngles.y;
-        eulerAngZ = transform.eulerAngles.z;
+        //eulerAngX = transform.eulerAngles.x;
+        //eulerAngY = transform.eulerAngles.y;
+        //eulerAngZ = transform.eulerAngles.z;
         player = GetComponent<PlayerMainScript>();
     }
     

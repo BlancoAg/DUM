@@ -42,6 +42,12 @@ public class ObjectInteraction : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
+            if (dialoguesystem.talking)
+                    {
+                        Debug.Log("skip");
+                        dialoguesystem.skip();
+                    }
+
             if (Physics.Raycast(ray, out hit, 2))
             {
                 if (hit.collider != null && hit.collider.CompareTag("NPC"))
@@ -59,6 +65,7 @@ public class ObjectInteraction : MonoBehaviour
                     }
                     else if (dialoguesystem.endend)
                     {
+                        Debug.Log("Talk");
                         dialoguesystem.Talk(dialogues);
                     }
                 }

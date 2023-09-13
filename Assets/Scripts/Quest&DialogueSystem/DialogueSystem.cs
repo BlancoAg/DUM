@@ -29,6 +29,7 @@ public class DialogueSystem : MonoBehaviour
     public bool waiting_input;
     public bool more_lines;
     private int index;
+    public GameObject interaction_indicator;
 private void Start()
 {
     talking = false;
@@ -55,6 +56,7 @@ private void Start()
 
     public void Talk(List<string> dialogue)
     {
+
         if (dialogue.Count > 1)
         {
             more_lines = true;
@@ -72,6 +74,7 @@ private void Start()
         original_speed = textSpeed;
         TextBox.SetActive(true);
         letters.SetActive(true);
+        interaction_indicator.SetActive(false);
         StartCoroutine(TypeLine(dialogue));
     }
 
@@ -178,5 +181,9 @@ private void Start()
     {
         List<string> row = GetCellsInRow(next_line_id); // Use next_line_id
         return row;
+    }
+
+    public void need_interaction(){
+        interaction_indicator.SetActive(true);
     }
 }

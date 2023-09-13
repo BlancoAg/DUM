@@ -7,9 +7,10 @@ public class ExcelReader : MonoBehaviour
 {
     public int rowNumber;
     public int id;
+    public int next_id;
     private void Start() {
         rowNumber = 0;
-        id = 0;
+        // id = 0;
     }
     
     public List<string> GetCellsInRow(int rowNumber)
@@ -29,6 +30,8 @@ public class ExcelReader : MonoBehaviour
                 if (lineNumber == rowNumber)
                 {
                     cells = line.Split(',').Skip(1).ToList();
+                    id = int.Parse(cells.Last());
+
                     rowNumber = 2;
                     return cells;
 
@@ -42,7 +45,7 @@ public class ExcelReader : MonoBehaviour
         
         
         List<string> row = GetCellsInRow(id);
-        id++;
+        // id = int.Parse(row.Last());
         return row;
     }
 }

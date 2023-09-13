@@ -5,7 +5,7 @@ using UnityEngine;
 public class AerialAscension : MonoBehaviour, ICard
 {
     private bool ready;
-    public GameObject AAIcon;
+    //public GameObject AAIcon;
     //public GameObject player;
     
     void Start()
@@ -21,13 +21,13 @@ public class AerialAscension : MonoBehaviour, ICard
             //Debug.Log("despreparacion");
             //firstPersonController.jumpForce = defaultJumpForce;
             ready = false;
-            AAIcon.SetActive(false);
+            //AAIcon.SetActive(false);
             GameObject.Find("Player").GetComponent<PlayerMovementTutorial>().jumpForce = 5;
             return; 
         }
         ready = status;
         Debug.Log("Card "+ gameObject.name +" is ready");
-        AAIcon.SetActive(true);
+        //AAIcon.SetActive(true);
         
         return; 
     }

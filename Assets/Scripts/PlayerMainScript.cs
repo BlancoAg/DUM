@@ -48,10 +48,9 @@ public class PlayerMainScript : MonoBehaviour
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
         playerMovementTutorial = GetComponent<PlayerMovementTutorial>();
-        waterMovement = GetComponent<WaterMovement>();
-        
-        
+        waterMovement = GetComponent<WaterMovement>();    
     }
+    
     void Update()
     {  
         //if (playerMovementTutorial.grounded && stoned){

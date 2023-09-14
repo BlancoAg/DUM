@@ -14,7 +14,7 @@ public class SlideDoor : MonoBehaviour
             opening = false;
         }
         if(opening){
-            Debug.Log(transform.position.y);
+            //Debug.Log(transform.position.y);
             //transform.position.y = transform.position.y - 0.1f;
         }
     }

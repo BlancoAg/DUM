@@ -10,15 +10,15 @@ public class SmallStance : MonoBehaviour, ICard
 
     // Start is called before the first frame update
     public void card_preparation(bool status){
-        Debug.Log("estatus: " + status);
+        //Debug.Log("estatus: " + status);
         if (!status)
         {
-            //Debug.Log("despreparacion");
+            ////Debug.Log("despreparacion");
             ready = false;
             return; 
         }
         ready = status;
-        Debug.Log("Card "+ gameObject.name +" is ready");
+        //Debug.Log("Card "+ gameObject.name +" is ready");
         return; 
     }
 

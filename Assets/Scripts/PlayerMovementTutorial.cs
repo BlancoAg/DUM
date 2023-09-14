@@ -16,7 +16,9 @@ public class PlayerMovementTutorial : MonoBehaviour
     public float airMultiplier;
     public float mouseSensitivity = 2.0f;
     private float verticalRotation = 0;
-    bool readyToJump;
+    public bool readyToJump;
+
+    public bool readyToDoubleJump;
 
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
@@ -46,6 +48,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         player = GameObject.Find("Player");
         playerHeight = player.transform.localScale.y;
         readyToJump = true;
+        readyToDoubleJump = true;
 
         //mouse cursor
         Cursor.lockState = CursorLockMode.Locked;
@@ -95,6 +98,9 @@ public class PlayerMovementTutorial : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+        if(grounded && readyToJump){
+            readyToDoubleJump = true;
+        }
     }
 
     private void MovePlayer()
@@ -130,8 +136,12 @@ public class PlayerMovementTutorial : MonoBehaviour
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
-    private void ResetJump()
+    public void ResetJump()
     {
+        //Debug.Log("ResetJump");
         readyToJump = true;
+        if(grounded){
+        readyToDoubleJump = true;
+        }
     }
 }

@@ -23,7 +23,7 @@ public class ObjectInteraction : MonoBehaviour
             {
                 if (hit.collider != null && hit.collider.CompareTag("Activator"))
                 {
-                    Debug.Log("Test_tag");
+                    //Debug.Log("Test_tag");
                     hit.collider.gameObject.GetComponent<Activator>().Execute();
                 }
 
@@ -44,7 +44,7 @@ public class ObjectInteraction : MonoBehaviour
 
             if (dialoguesystem.talking)
                     {
-                        Debug.Log("skip");
+                        //Debug.Log("skip");
                         dialoguesystem.skip();
                     }
 
@@ -52,7 +52,7 @@ public class ObjectInteraction : MonoBehaviour
             {
                 if (hit.collider != null && hit.collider.CompareTag("NPC"))
                 {
-                    Debug.Log("Al menos le pegamos a un NPC");
+                    //Debug.Log("Al menos le pegamos a un NPC");
                     if (dialoguesystem.endend)
                     {
                         dialogues = hit.collider.gameObject.GetComponent<DialogueSystem>().gestor_de_dialogo();
@@ -60,12 +60,12 @@ public class ObjectInteraction : MonoBehaviour
 
                     if (dialoguesystem.talking)
                     {
-                        Debug.Log("skip");
+                        //Debug.Log("skip");
                         dialoguesystem.skip();
                     }
                     else if (dialoguesystem.endend)
                     {
-                        Debug.Log("Talk");
+                        //Debug.Log("Talk");
                         dialoguesystem.Talk(dialogues);
                     }
                 }

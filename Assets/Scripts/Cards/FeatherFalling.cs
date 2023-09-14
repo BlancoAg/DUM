@@ -21,7 +21,7 @@ public class FeatherFalling : MonoBehaviour, ICard
         {
             // var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
             // player.feather_falling(false);
-            Debug.Log("despreparacion");
+            //Debug.Log("despreparacion");
             if(ff){
             ff = false;
             player.force = player.force - new Vector3(0,4f,0);
@@ -34,13 +34,13 @@ public class FeatherFalling : MonoBehaviour, ICard
     }
     public void cast_card()
     {
-        Debug.Log("cast card");
-        Debug.Log(ready);
-        Debug.Log(ff);
+        //Debug.Log("cast card");
+        //Debug.Log(ready);
+        //Debug.Log(ff);
 
         // var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
         if(!ff){
-            Debug.Log("FF cast");
+            //Debug.Log("FF cast");
             player.force = player.force + new Vector3(0,4f,0);
             ff = true;
         }

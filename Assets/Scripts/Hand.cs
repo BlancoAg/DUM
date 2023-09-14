@@ -14,8 +14,7 @@ public class Hand : MonoBehaviour
     public AudioClip cast;
     public AudioClip flip;
 
-    
-
+    QuestTrigger questTrigger;
     public List<GameObject> cardsInHand;
     public int currentCardIndex;
 
@@ -25,7 +24,7 @@ public class Hand : MonoBehaviour
     void Start()
     {
         cardsInHand = new List<GameObject>();
-        Debug.Log(cardsInHand.Count);
+        //Debug.Log(cardsInHand.Count);
         currentCardIndex = 0;
         sauce = GetComponent<AudioSource>();
 
@@ -40,12 +39,18 @@ public class Hand : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit,2))
             {
+                questTrigger = hit.collider.gameObject.GetComponent<QuestTrigger>();
+                if (questTrigger != null)
+                {
+                    // Call the "Trigger" method if it exists
+                    questTrigger.Trigger();
+                }
                 GameObject objectHit = hit.transform.gameObject;
                 if (objectHit.tag == "Card")
                 {
                     cardsInHand.Add(objectHit);
                     hit.collider.gameObject.SetActive(false);
-                    Debug.Log("Added " + objectHit.name + " to hand.");
+                    //Debug.Log("Added " + objectHit.name + " to hand.");
                 }
             }
         }
@@ -63,7 +68,7 @@ public class Hand : MonoBehaviour
             }
             if (cardsInHand.Count > 0)
             {
-                Debug.Log("Selected " + cardsInHand[currentCardIndex].name);
+                //Debug.Log("Selected " + cardsInHand[currentCardIndex].name);
             }
 
         }
@@ -80,7 +85,7 @@ public class Hand : MonoBehaviour
             }
             if (cardsInHand.Count > 0)
             {
-                Debug.Log("Selected " + cardsInHand[currentCardIndex].name);
+                //Debug.Log("Selected " + cardsInHand[currentCardIndex].name);
             }
 
         }

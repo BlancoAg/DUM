@@ -11,7 +11,7 @@ public class Breakable : MonoBehaviour
         if (!broken)
         {
             //transform.GetChild(0).gameObject.SetActive(false);
-            Debug.Log(gameObject.name);
+            //Debug.Log(gameObject.name);
             gameObject.GetComponent<Renderer>().enabled = false;
             gameObject.GetComponent<Collider>().enabled = false;
             broken = true;

@@ -58,12 +58,12 @@ public class PlayerMainScript : MonoBehaviour
         //    }
 
         if (!playerMovementTutorial.grounded && stoned){
-            //Debug.Log("Falling");
+            ////Debug.Log("Falling");
 
             RaycastHit hit;
 
             if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.9f)) {
-                //Debug.Log("algo toque :D");
+                ////Debug.Log("algo toque :D");
                 Breakable breakableObject = hit.collider.GetComponent<Breakable>();
                 if (breakableObject != null) {
                 breakableObject.Break();
@@ -71,7 +71,7 @@ public class PlayerMainScript : MonoBehaviour
             }
         }
         //if(stoned && !playerMovementTutorial.grounded){
-        //    Debug.Log("stoned");
+        //    //Debug.Log("stoned");
         //    gameObject.GetComponent<ConstantForce>().force = new Vector3(0,-50f,0);
         //    if (waterMovement.enabled) {
         //        rb.mass = 25f;   
@@ -182,7 +182,7 @@ public class PlayerMainScript : MonoBehaviour
     }
 
     // public void aerial_ascend(){
-    //     Debug.Log("aerial_ascend");
+    //     //Debug.Log("aerial_ascend");
     //     gameObject.GetComponent<ConstantForce>().force = gameObject.GetComponent<ConstantForce>().force + new Vector3(0, 50,0);
     // }
 

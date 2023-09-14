@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -370,6 +370,10 @@ PrefabInstance:
       propertyPath: next_line_id
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 788312104671378290, guid: f892993c8356de64c9afb7f2a5e41322, type: 3}
+      propertyPath: interaction_indicator
+      value: 
+      objectReference: {fileID: 1496986037}
     - target: {fileID: 788312104671378291, guid: f892993c8356de64c9afb7f2a5e41322, type: 3}
       propertyPath: target
       value: 
@@ -377,6 +381,10 @@ PrefabInstance:
     - target: {fileID: 788312104671378291, guid: f892993c8356de64c9afb7f2a5e41322, type: 3}
       propertyPath: trigger_id
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 788312105697220643, guid: f892993c8356de64c9afb7f2a5e41322, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3986751708670439331, guid: f892993c8356de64c9afb7f2a5e41322, type: 3}
       propertyPath: m_Name
@@ -573,6 +581,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b3bc9b3d832571478840fbdca677b9b, type: 3}
+--- !u!1 &1496986037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 788312105697220643, guid: f892993c8356de64c9afb7f2a5e41322, type: 3}
+  m_PrefabInstance: {fileID: 1254247640}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1594191974
 GameObject:
   m_ObjectHideFlags: 0

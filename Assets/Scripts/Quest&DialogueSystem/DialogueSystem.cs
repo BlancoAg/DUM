@@ -13,6 +13,7 @@ public class DialogueSystem : MonoBehaviour
     private GameObject letters;
     private GameObject TextBox;
     private GameObject pressbuttonbutton;
+    public GameObject interaction_indicator;
     public PlayerMovementTutorial movement;
     public string letter;
     private readonly List<string[]> data = new List<string[]>();
@@ -29,19 +30,24 @@ public class DialogueSystem : MonoBehaviour
     public bool waiting_input;
     public bool more_lines;
     private int index;
-    public GameObject interaction_indicator;
+    
+
 private void Start()
 {
     talking = false;
     waiting = false;
     endend = true;
-
     // Find a game object with the "Player" tag
     GameObject player = GameObject.FindGameObjectWithTag("Player");
+    //interaction_indicator = GameObject.Find("need_talk").gameObject;
+    //interaction_indicator = gameObject.Find("need_talk").gameObject;
+    // GameObject interaction_indicato = GameObject.Find("need_talk");
 
     if (player != null)
     {
+        //Debug.Log("hay jugador");
         TextBox = player.transform.Find("Interfaz/DialogueBox").gameObject;
+        //Debug.Log(TextBox);
         pressbuttonbutton = player.transform.Find("Interfaz/DialogueBox/pressbutton").gameObject;
         letters = TextBox.transform.Find("Text (TMP)").gameObject;
         textComponent = letters.GetComponent<TextMeshProUGUI>();
@@ -49,7 +55,7 @@ private void Start()
     }
     else
     {
-        Debug.LogError("No game object with the 'Player' tag found.");
+        //Debug.LogError("No game object with the 'Player' tag found.");
     }
 }
 
@@ -72,10 +78,13 @@ private void Start()
         index = 0;
         movement.enabled = false;
         original_speed = textSpeed;
+        //Debug.Log(gameObject.name);
         TextBox.SetActive(true);
         letters.SetActive(true);
-        interaction_indicator.SetActive(false);
+        //Debug.Log(interaction_indicator.name);
+        interaction_indicator.GetComponent<SpriteRenderer>().enabled = false;
         StartCoroutine(TypeLine(dialogue));
+        
     }
 
     IEnumerator<WaitForSeconds> TypeLine(List<string> dialogue)
@@ -132,6 +141,7 @@ private void Start()
 
     public void end()
     {
+        StopCoroutine("TypeLine");
         textSpeed = original_speed;
         movement.enabled = true;
         TextBox.SetActive(false);
@@ -145,7 +155,6 @@ private void Start()
 
     public void _continue(int id)
     {
-        Debug.Log(id);
         // Assign the received id to next_line_id
         next_line_id = id;
     }
@@ -184,6 +193,7 @@ private void Start()
     }
 
     public void need_interaction(){
-        interaction_indicator.SetActive(true);
+        interaction_indicator.GetComponent<SpriteRenderer>().enabled = true;
+
     }
 }

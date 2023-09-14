@@ -19,8 +19,9 @@ public class Card_Rotation : MonoBehaviour
         i = i + 0.1f;       
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, i , transform.rotation.eulerAngles.z);
 
-        if(i == 360f){  
+        if(i >= 360f){  
             i = 0;
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, transform.rotation.eulerAngles.z);
         }
     }
 }

@@ -4,29 +4,40 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour
 {
+    public AudioClip breakClip; // Rename the variable to breakClip for clarity
     private bool broken = false;
+    private AudioSource audioSource; // Reference to the AudioSource component
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            // If there's no AudioSource component attached, add one.
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // Assign the audio clip to the AudioSource component.
+        audioSource.clip = breakClip;
+    }
+
     public void Break()
-    {   
-        //ParticleSystem particleSystem = GameObject.Find("Shatter").GetComponent<ParticleSystem>();
+    {
         if (!broken)
         {
-            //transform.GetChild(0).gameObject.SetActive(false);
-            //Debug.Log(gameObject.name);
             gameObject.GetComponent<Renderer>().enabled = false;
             gameObject.GetComponent<Collider>().enabled = false;
             broken = true;
-        
-        // Find the particle system component in the scene
-        ParticleSystem particleSystem = transform.GetChild(0).GetComponent<ParticleSystem>();
 
-        // Check if the particle system is not null
-        if (particleSystem != null)
-        {
-            // Play the particle system
-            particleSystem.Play();
-        }
+            ParticleSystem particleSystem = transform.GetChild(0).GetComponent<ParticleSystem>();
+
+            if (particleSystem != null)
+            {
+                particleSystem.Play();
+            }
+
+            // Play the break audio clip
+            audioSource.Play();
         }
     }
 }
-
-

@@ -39,7 +39,7 @@ public class RuneReposition : MonoBehaviour, ICard
                 {   
                     ////Debug.Log(target.GetChild(0).name);
                     player.transform.position = target.gameObject.transform.position;
-    
+                    player.GetComponent<Hand>().RuneSound();
                     ready = false;
                 }
             }

@@ -13,6 +13,8 @@ public class Hand : MonoBehaviour
     public AudioClip prep;
     public AudioClip cast;
     public AudioClip flip;
+    public AudioClip rune;
+    public AudioClip aerial;
 
     QuestTrigger questTrigger;
     public List<GameObject> cardsInHand;
@@ -156,6 +158,14 @@ public class Hand : MonoBehaviour
     public void CardFlip()
     {
         sauce.PlayOneShot(flip);
+    }
+    public void RuneSound()
+    {
+        sauce.PlayOneShot(rune);
+    }
+    public void AerialSound()
+    {
+        sauce.PlayOneShot(aerial);
     }
 
 }    

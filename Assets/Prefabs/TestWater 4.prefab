@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 5603801161775467994}
   - component: {fileID: 6424526652810872191}
   - component: {fileID: 2117239027333810693}
+  - component: {fileID: 3748607575269178693}
   m_Layer: 0
   m_Name: TestWater 4
   m_TagString: Water
@@ -329,3 +330,16 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 1d4a6125d1f5e974287b71215926401e, type: 2}
+--- !u!114 &3748607575269178693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6424526652810871936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d59c66e7824ba44b9c1cd1032dd4ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundToPlay: {fileID: 8300000, guid: 5d7052c04af166f4fb6d7a1095915813, type: 3}

@@ -12,6 +12,7 @@ TagManager:
   - Water
   - Activator
   - NPC
+  - Ground
   layers:
   - Default
   - TransparentFX

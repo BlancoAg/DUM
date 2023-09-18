@@ -691,6 +691,10 @@ MonoBehaviour:
   readyToDoubleJump: 0
   walkSpeed: 0
   sprintSpeed: 0
+  footstepSounds:
+  - {fileID: 8300000, guid: 09fcc3df14d8f984f99a7b339f2ae18a, type: 3}
+  - {fileID: 8300000, guid: 661b6edb979c88043abd02d497e0048f, type: 3}
+  - {fileID: 8300000, guid: d064ea97acbec634faadee8618e2a804, type: 3}
   jumpKey: 32
   playerHeight: 0.5
   whatIsGround:
@@ -772,7 +776,6 @@ MonoBehaviour:
   sauce: {fileID: 3277617012233709120}
   clop: {fileID: 8300000, guid: 4ad116106c460564d828044877754033, type: 3}
   prep: {fileID: 8300000, guid: cf90a15168318d2489799a9d7b317f8a, type: 3}
-  cast: {fileID: 0}
   flip: {fileID: 8300000, guid: 645d01a4382883744a29cbe8d870e90e, type: 3}
   rune: {fileID: 8300000, guid: 10b5e5bd2f97aaf438062f1c486391d8, type: 3}
   aerial: {fileID: 8300000, guid: 12ee0e081d442ba46879d5f2b4113e41, type: 3}

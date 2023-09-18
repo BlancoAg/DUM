@@ -23,6 +23,11 @@ public class PlayerMovementTutorial : MonoBehaviour
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
 
+    [Header("Footstep Sounds")]
+    public AudioClip[] footstepSounds;
+
+    private AudioSource audioSource;
+
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
 
@@ -53,6 +58,10 @@ public class PlayerMovementTutorial : MonoBehaviour
         //mouse cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        //footsteps
+        audioSource = GetComponent<AudioSource>();
+        audioSource.spatialBlend = 1.0f; // Set spatial blend to 3D for positional audio.
     }
 
     private void Update()
@@ -69,7 +78,7 @@ public class PlayerMovementTutorial : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
-        
+
         //mouse look
         float rotLeftRight = Input.GetAxis("Mouse X") * mouseSensitivity;
         transform.Rotate(0, rotLeftRight, 0);
@@ -77,6 +86,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
         verticalRotation = Mathf.Clamp(verticalRotation, -90, 90);
         Camera.main.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+
     }
 
     private void FixedUpdate()
@@ -90,7 +100,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         // when to jump
-        if(Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
 
@@ -98,7 +108,8 @@ public class PlayerMovementTutorial : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
-        if(grounded && readyToJump){
+        if (grounded && readyToJump)
+        {
             readyToDoubleJump = true;
         }
     }
@@ -109,20 +120,32 @@ public class PlayerMovementTutorial : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         // on ground
-        if(grounded)
+        if (grounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
 
+            // Check if the player is moving (horizontal or vertical input is not zero)
+            if (Mathf.Abs(horizontalInput) > 0.1f || Mathf.Abs(verticalInput) > 0.1f)
+            {
+                // Play a random footstep sound
+                PlayRandomFootstepSound();
+            }
+        }
+
         // in air
-        else if(!grounded)
+        else if (!grounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+        }
     }
+
 
     private void SpeedControl()
     {
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         // limit velocity if needed
-        if(flatVel.magnitude > moveSpeed)
+        if (flatVel.magnitude > moveSpeed)
         {
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
@@ -140,8 +163,33 @@ public class PlayerMovementTutorial : MonoBehaviour
     {
         //Debug.Log("ResetJump");
         readyToJump = true;
-        if(grounded){
-        readyToDoubleJump = true;
+        if (grounded)
+        {
+            readyToDoubleJump = true;
         }
     }
+
+    private bool isPlayingFootstep = false; // Flag to track if a footstep sound is currently playing
+
+    private void PlayRandomFootstepSound()
+    {
+        if (!isPlayingFootstep && footstepSounds.Length > 0)
+        {
+            int randomIndex = Random.Range(0, footstepSounds.Length);
+            AudioClip randomFootstepSound = footstepSounds[randomIndex];
+            StartCoroutine(PlayFootstepAndWait(randomFootstepSound));
+        }
+    }
+
+    private IEnumerator PlayFootstepAndWait(AudioClip footstepSound)
+    {
+        isPlayingFootstep = true;
+        audioSource.PlayOneShot(footstepSound);
+
+        // Wait for the length of the footstep sound clip before allowing another footstep to be played
+        yield return new WaitForSeconds(footstepSound.length);
+
+        isPlayingFootstep = false;
+    }
+
 }

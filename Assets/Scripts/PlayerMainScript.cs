@@ -41,6 +41,8 @@ public class PlayerMainScript : MonoBehaviour
     public float windForce = 5.0f;
     public float windDuration = 5.0f;
     public bool isWindBlowing = false;
+
+    private float weight;
     
 
     void Start()
@@ -144,13 +146,13 @@ public class PlayerMainScript : MonoBehaviour
          ScorchShieldIcon.SetActive(shielded);   
     }
     //Stone Stance method
-    public void stone_status(bool status)
+    public void stone_status(bool status , float weight)
     {
         stoned = status;
         StoneStanceIcon.SetActive(stoned);
         if (stoned)
         {
-            gameObject.GetComponent<ConstantForce>().force = gameObject.GetComponent<ConstantForce>().force + new Vector3(0, -30,0);
+            gameObject.GetComponent<ConstantForce>().force = gameObject.GetComponent<ConstantForce>().force + new Vector3(0, - weight,0);
             //gameObject.GetComponent<ConstantForce>().force = new Vector3(0, -30,0);
             //playerMovementTutorial.jumpForce = 1f;
             if (waterMovement.enabled)
@@ -160,7 +162,7 @@ public class PlayerMainScript : MonoBehaviour
         }
         else
         {
-            gameObject.GetComponent<ConstantForce>().force = gameObject.GetComponent<ConstantForce>().force - new Vector3(0, -30,0);
+            gameObject.GetComponent<ConstantForce>().force = gameObject.GetComponent<ConstantForce>().force - new Vector3(0, - weight,0);
             //gameObject.GetComponent<ConstantForce>().force = new Vector3(0, 0,0);
             //playerMovementTutorial.jumpForce = originalJumpForce;
             StartCoroutine(ChangeMassBackToOne());

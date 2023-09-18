@@ -8,6 +8,8 @@ public class StoneStance : MonoBehaviour, ICard
     private bool ready;
     public GameObject StoneStanceIcon;
 
+    public float weight;
+
     public void card_preparation(bool status)
     {
         ////Debug.Log("estatus: " + status);
@@ -16,7 +18,7 @@ public class StoneStance : MonoBehaviour, ICard
             ////Debug.Log("despreparacion");
             var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
             if(player.stoned){
-            player.stone_status(false);
+            player.stone_status(false,weight);
             }
             ready = false;
             return; 
@@ -36,7 +38,7 @@ public class StoneStance : MonoBehaviour, ICard
               ////Debug.Log("Card" + gameObject.name + "Played");
               //player.shielded = !player.shielded;
               player.GetComponent<Hand>().PlaySound();
-              player.stone_status(true);
+              player.stone_status(true,weight);
               ready = false;
            } 
         }

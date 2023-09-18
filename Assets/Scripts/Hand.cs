@@ -11,7 +11,6 @@ public class Hand : MonoBehaviour
 
     public AudioClip clop;
     public AudioClip prep;
-    public AudioClip cast;
     public AudioClip flip;
     public AudioClip rune;
     public AudioClip aerial;
@@ -112,7 +111,6 @@ public class Hand : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) && ready)
                 {
                     currentCard.cast_card();
-                    CastSound();
 
                 }
             }
@@ -150,11 +148,6 @@ public class Hand : MonoBehaviour
     {
         sauce.PlayOneShot(prep);
     }
-    public void CastSound()
-    {
-        sauce.PlayOneShot(cast);
-    }
-
     public void CardFlip()
     {
         sauce.PlayOneShot(flip);

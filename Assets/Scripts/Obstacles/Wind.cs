@@ -17,6 +17,7 @@ public class Wind : MonoBehaviour
     public float LateralwindForce;
     public float FrontalwindForce;
     //public List<string> direction = ;
+    public bool already_afected = false;
     private void Start(){
                 
         //eulerAngX = transform.eulerAngles.x;
@@ -37,17 +38,18 @@ public class Wind : MonoBehaviour
         //     characterController.Move(windVelocity * smoothness);
         // }
         //if (other.tag == "Player" && other.GetComponent<PlayerMainScript>().stoned == false)
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !other.GetComponent<PlayerMainScript>().stoned)
         {
-           if(other.GetComponent<ConstantForce>()){
-           other.GetComponent<ConstantForce>().force = other.GetComponent<ConstantForce>().force + new Vector3(LateralwindForce,UpperwindForce,FrontalwindForce);
+           if(other.GetComponent<ConstantForce>() && !already_afected){
+            already_afected = true;
+            other.GetComponent<ConstantForce>().force = other.GetComponent<ConstantForce>().force + new Vector3(LateralwindForce,UpperwindForce,FrontalwindForce);
            }
         }
 
         if(other.GetComponent<ConstantForce>() && other.tag != "Player"){
             other.GetComponent<ConstantForce>().force = other.GetComponent<ConstantForce>().force + new Vector3(LateralwindForce,UpperwindForce,FrontalwindForce);
         }
-    }
+    } 
     private void OnTriggerExit(Collider other) 
     {
         // //stoneSt = stoneCard.GetComponent<StoneStance>();
@@ -59,9 +61,20 @@ public class Wind : MonoBehaviour
         //     Vector3 windVelocity = windDirection * windForce;
         //     characterController.Move(windVelocity * smoothness);
         // }
-        if(other.GetComponent<ConstantForce>()){
+        if(other.GetComponent<ConstantForce>() && already_afected){
+            already_afected = false;
             other.GetComponent<ConstantForce>().force = other.GetComponent<ConstantForce>().force - new Vector3(LateralwindForce,UpperwindForce,FrontalwindForce);
         }
+    }
+    private void OnTriggerStay(Collider other) {
+        if (already_afected && other.GetComponent<PlayerMainScript>().stoned){
+            already_afected = false;
+            other.GetComponent<ConstantForce>().force = other.GetComponent<ConstantForce>().force - new Vector3(LateralwindForce,UpperwindForce,FrontalwindForce);
+        }
+        if ( !other.GetComponent<PlayerMainScript>().stoned && !already_afected){
+        already_afected = true;
+        other.GetComponent<ConstantForce>().force = other.GetComponent<ConstantForce>().force + new Vector3(LateralwindForce,UpperwindForce,FrontalwindForce);
+    }
     }
 }
 

@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stoned: 0
   StoneStanceIcon: {fileID: 0}
+  weight: 35
 --- !u!1 &706778265982672544
 GameObject:
   m_ObjectHideFlags: 0

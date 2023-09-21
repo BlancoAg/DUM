@@ -6,14 +6,24 @@ public class AerialAscension : MonoBehaviour, ICard
 {
     private bool ready;
 
+    public GameObject Wind;
+
+    private ParticleSystem WindEffect;
     private PlayerMovementTutorial Player;
     void Start()
     {
     Player = GameObject.Find("Player").GetComponent<PlayerMovementTutorial>();
+    WindEffect = Wind.GetComponent<ParticleSystem>();
+    WindEffect.Stop();
     }
 
     public void card_preparation(bool status)
     {
+        if(status){
+            WindEffect.Play();
+        }else{
+            WindEffect.Stop();
+        }
         //Debug.Log("estatus: " + status);
         if (!status)
         {
@@ -49,10 +59,11 @@ public class AerialAscension : MonoBehaviour, ICard
         }
     }
 
-    //IEnumerator ResetJumpForce()
-    //{
-    //    yield return new WaitForSeconds(2);
-    //    
-    //}
+    IEnumerator trun()
+    {
+
+        yield return new WaitForSeconds(2);
+        
+    }
 
 }

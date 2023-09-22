@@ -6,9 +6,17 @@ public class StoneStance : MonoBehaviour, ICard
 {
     public bool stoned = false;
     private bool ready;
+    public GameObject Wind;
+    private ParticleSystem WindEffect;
     public GameObject StoneStanceIcon;
 
     public float weight;
+
+    void Start()
+    {
+    WindEffect = Wind.GetComponent<ParticleSystem>();
+    WindEffect.Stop();
+    }
 
     public void card_preparation(bool status)
     {
@@ -21,6 +29,7 @@ public class StoneStance : MonoBehaviour, ICard
             player.stone_status(false,weight);
             }
             ready = false;
+            WindEffect.Stop();
             return; 
         }
         ready = status;
@@ -38,6 +47,7 @@ public class StoneStance : MonoBehaviour, ICard
               ////Debug.Log("Card" + gameObject.name + "Played");
               //player.shielded = !player.shielded;
               player.GetComponent<Hand>().PlaySound();
+              WindEffect.Play();
               player.stone_status(true,weight);
               ready = false;
            } 

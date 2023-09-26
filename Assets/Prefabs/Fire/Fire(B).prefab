@@ -4855,6 +4855,7 @@ Transform:
   m_Children:
   - {fileID: 1052378305736650895}
   - {fileID: 9206387971749560807}
+  - {fileID: 7419422322630416544}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -9721,3 +9722,93 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: aa3231bf01a21154ca92c471c4994594, type: 2}
+--- !u!1001 &2873341373995644838
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1052378306358745188}
+    m_Modifications:
+    - target: {fileID: 3477093257228140302, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.07243705
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477093257228140302, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.9999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484346649556262501, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: m_Name
+      value: Embers
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690285205775986438, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690285205775986438, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690285205775986438, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690285205775986438, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690285205775986438, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690285205775986438, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690285205775986438, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690285205775986438, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690285205775986438, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690285205775986438, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690285205775986438, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859320032504040488, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859320032504040488, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 4.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859320032504040488, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859320032504040488, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: ShapeModule.m_Rotation.x
+      value: 89.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859320032504040488, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+--- !u!4 &7419422322630416544 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4690285205775986438, guid: 5ed5581fdfc7aa140acff6d7299b401a, type: 3}
+  m_PrefabInstance: {fileID: 2873341373995644838}
+  m_PrefabAsset: {fileID: 0}

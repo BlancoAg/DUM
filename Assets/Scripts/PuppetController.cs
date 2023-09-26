@@ -4,47 +4,68 @@ using UnityEngine;
 
 public class PuppetController : MonoBehaviour
 {
-    public GameObject player;  
-    public Camera playerCamera; 
+    public bool inControl = true; // Added inControl variable
+    private Camera puppetCamera;
+    private PlayerMovementTutorial playerMovement;
+    private Renderer meshRenderer;
 
     void Start()
     {
-        // Make sure both cameras are enabled
-        playerCamera.enabled = true;
-        //Search "Puppet" objects
-        GameObject[] puppetObjects = GameObject.FindGameObjectsWithTag("Puppet");
+        puppetCamera = GetComponentInChildren<Camera>();
+        playerMovement = GetComponent<PlayerMovementTutorial>();
+        meshRenderer = GetComponent<Renderer>();
 
-        // Disable the cameras of all the found objects
-        foreach (GameObject puppet in puppetObjects)
+        if (puppetCamera != null)
         {
-            puppet.GetComponentInChildren<Camera>().enabled = false;
+            puppetCamera.enabled = true;
         }
+        else
+        {
+            Debug.LogWarning("No Camera component found on this GameObject or its children.");
+        }
+
+        ToggleControl(inControl);
     }
-    
 
     void Update()
     {
-        // Check if player clicks on puppet
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
+            Camera cameraComponent = GetComponentInChildren<Camera>();
+            Ray ray = cameraComponent.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.tag == "Puppet")
+                if (hit.collider.CompareTag("Puppet") || hit.collider.CompareTag("Player"))
                 {
-                    // Disable player camera and enable puppets cameras
-                    playerCamera.enabled = false;
-                    hit.collider.gameObject.GetComponentInChildren<Camera>().enabled = true;
-                    // Disable player's movement script
-                    player.GetComponent<FirstPersonController>().enabled = false;
-
-                    // Enable puppet's movement script
-                    hit.collider.gameObject.GetComponent<FirstPersonController>().enabled = true;
+                    ToggleControl(!inControl);
+                    hit.collider.gameObject.GetComponent<PuppetController>().ToggleControl(true);
                 }
             }
         }
     }
-}
 
+    void ToggleControl(bool control)
+    {
+        inControl = control;
+        
+        // Enable/disable the camera
+        if (puppetCamera != null)
+        {
+            puppetCamera.enabled = control;
+        }
+        
+        // Enable/disable the movement script
+        if (playerMovement != null)
+        {
+            playerMovement.enabled = control;
+        }
+        
+        // Enable/disable the mesh renderer (if it exists)
+        if (meshRenderer != null)
+        {
+            meshRenderer.enabled = !control;
+        }
+    }
+}

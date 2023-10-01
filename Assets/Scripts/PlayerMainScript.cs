@@ -4,8 +4,10 @@ using UnityEngine;
 using Fusion.Fluid;
 public class PlayerMainScript : MonoBehaviour
 {
-    private bool can_grow;
 
+    public AudioClip discover_sound;
+    public AudioSource saurce;
+    private bool can_grow;
     public float bigsize;
     public float smallsize;
     public bool shielded = false;
@@ -216,6 +218,11 @@ public class PlayerMainScript : MonoBehaviour
           waterMovement.enabled = true;
           playerMovementTutorial.enabled = false;
        }
+       if (other.CompareTag("sound"))
+           {
+           saurce.PlayOneShot(discover_sound);
+           Destroy(other);
+           }
    }
    void OnTriggerExit(Collider other)
    {
@@ -225,4 +232,5 @@ public class PlayerMainScript : MonoBehaviour
            playerMovementTutorial.enabled = true;
        }
    }
+
 }

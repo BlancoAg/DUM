@@ -13,12 +13,13 @@ public class AerialAscension : MonoBehaviour, ICard
     void Start()
     {
     Player = GameObject.Find("Player").GetComponent<PlayerMovementTutorial>();
-    WindEffect = Wind.GetComponent<ParticleSystem>();
+    WindEffect = Wind.transform.Find("Wind").GetComponent<ParticleSystem>();
     WindEffect.Stop();
     }
 
     public void card_preparation(bool status)
     {
+        Debug.Log(WindEffect);
         if(status){
             WindEffect.Play();
         }else{

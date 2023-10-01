@@ -4987,7 +4987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c62cc5c2f6788c488ebe1e6ac00baf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AAIcon: {fileID: 4909907853444717797, guid: e37ca921dd782aa4398d2fe0d2a1df3e, type: 3}
+  Wind: {fileID: 4893193504080191617, guid: 12f47248e75bab145b3a7993ddfe4850, type: 3}
 --- !u!1 &2497072714769507289
 GameObject:
   m_ObjectHideFlags: 0

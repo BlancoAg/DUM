@@ -5,6 +5,6 @@ using UnityEngine;
 public interface ICard
 {
     void card_preparation(bool status);
-    void cast_card();
+    void cast_card(GameObject handGameObject);
 }
 

@@ -25,7 +25,8 @@ public class TestCard : MonoBehaviour, ICard
        
     }
 
-    public void cast_card(){
+    public void cast_card(GameObject handGameObject)
+    {
         if(ready){
         //Debug.Log("Card " + gameObject.name + " Played");
         //bla bla bla

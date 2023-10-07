@@ -110,7 +110,7 @@ public class Hand : MonoBehaviour
                 }
                 if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) && ready)
                 {
-                    currentCard.cast_card();
+                    currentCard.cast_card(gameObject);
 
                 }
             }

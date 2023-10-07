@@ -26,9 +26,9 @@ public class RuneReposition : MonoBehaviour, ICard
         return; 
     }
 
-    public void cast_card()
+    public void cast_card(GameObject handGameObject)
     {
-        var player = GameObject.Find("Player");
+        var player = handGameObject.GetComponent<PlayerMainScript>();
         if (ready)
         {
             RaycastHit hit;

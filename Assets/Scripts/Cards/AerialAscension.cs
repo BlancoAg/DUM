@@ -42,7 +42,7 @@ public class AerialAscension : MonoBehaviour, ICard
         return; 
     }
 
-    public void cast_card()
+    public void cast_card(GameObject handGameObject)
     {
         if (ready)
         {

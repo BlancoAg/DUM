@@ -24,11 +24,11 @@ public class ScorchShield : MonoBehaviour, ICard
         return; 
     }
 
-    public void cast_card()
+    public void cast_card(GameObject handGameObject)
     {      
         if(ready)
         {
-           var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
+           var player = handGameObject.GetComponent<PlayerMainScript>();
            if(ready)
            {
               //Debug.Log("Card" + gameObject.name + "Played");

@@ -25,9 +25,9 @@ public class ComebackCard : MonoBehaviour, ICard
     }
 
 
-    public void cast_card()
+    public void cast_card(GameObject handGameObject)
     {
-        var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
+        var player = handGameObject.GetComponent<PlayerMainScript>();
         if (positionSaved)
         {
 

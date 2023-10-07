@@ -73,12 +73,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450544021555967661}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d9ee46352b2c4f4290a3fca527b61fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stoned: 0
+  Wind: {fileID: 0}
   StoneStanceIcon: {fileID: 0}
   weight: 35
 --- !u!1 &706778265982672544

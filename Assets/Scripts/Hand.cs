@@ -24,9 +24,9 @@ public class Hand : MonoBehaviour
     private bool ready = true;
     void Start()
     {
-        cardsInHand = new List<GameObject>();
+        //cardsInHand = new List<GameObject>();
         //Debug.Log(cardsInHand.Count);
-        currentCardIndex = 0;
+        //currentCardIndex = 0;
         sauce = GetComponent<AudioSource>();
 
     }
@@ -99,12 +99,12 @@ public class Hand : MonoBehaviour
                 if (!Input.GetMouseButton(1) && ready)
                 {
                     ready = false;
-                    currentCard.card_preparation(false);
+                    currentCard.card_preparation(false, gameObject);
                 }
                 if (Input.GetMouseButton(1) && !ready)
                 {
                     ready = true;
-                    currentCard.card_preparation(true);
+                    currentCard.card_preparation(true, gameObject);
                     PrepSound();
                 
                 }

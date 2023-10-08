@@ -11,21 +11,32 @@ public class CardInHandUpdater : MonoBehaviour
     public TMP_Text cardText;
 
     void Update()
+{
+    if (handScript.cardsInHand.Count > 0)
     {
-        if (handScript.cardsInHand.Count > 0)
-        {
-            //cardToCast.SetActive(true);
-            cardinhand.SetActive(true);
-            GameObject currentCard = handScript.cardsInHand[handScript.currentCardIndex];
-            Transform quad = currentCard.transform.GetChild(3);
-            Material material = quad.GetComponent<Renderer>().material;
-            cardImage.material = material;
-            cardinhand.GetComponent<Renderer>().material = material;
+        cardinhand.SetActive(true);
+        GameObject currentCard = handScript.cardsInHand[handScript.currentCardIndex];
+        Transform quad = currentCard.transform.GetChild(3);
+        Renderer renderer = quad.GetComponent<Renderer>();
 
-            // Retrieve the TextMeshPro component from the 5th child of the current card
-            string cardTextMeshPro = currentCard.transform.GetChild(4).GetComponent<TMP_Text>().text;
-            // Update the text of the TextMeshPro object
-            cardText.text = cardTextMeshPro;
+        // Use Renderer.sharedMaterial instead of Renderer.material
+        Material material = renderer.sharedMaterial;
+        cardImage.material = material;
+
+        // Since cardinhand is a GameObject, you cannot directly set its material.
+        // You need to access the renderer component of the cardinhand object.
+        Renderer cardinhandRenderer = cardinhand.GetComponent<Renderer>();
+        if (cardinhandRenderer != null)
+        {
+            cardinhandRenderer.sharedMaterial = material;
         }
+
+        // Retrieve the TextMeshPro component from the 5th child of the current card
+        string cardTextMeshPro = currentCard.transform.GetChild(4).GetComponent<TMP_Text>().text;
+
+        // Update the text of the TextMeshPro object
+        cardText.text = cardTextMeshPro;
     }
+}
+
 }

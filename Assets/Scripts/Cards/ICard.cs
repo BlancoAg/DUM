@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface ICard
 {
-    void card_preparation(bool status);
+    void card_preparation(bool status, GameObject handgameObject);
     void cast_card(GameObject handGameObject);
 }
 

@@ -10,7 +10,7 @@ public class ComebackCard : MonoBehaviour, ICard
     public AudioSource sauce;
     private bool ready;
 
-    public void card_preparation(bool status)
+    public void card_preparation(bool status, GameObject handGameObject)
     {
         //Debug.Log("estatus: " + status);
         if (!status)
@@ -27,7 +27,7 @@ public class ComebackCard : MonoBehaviour, ICard
 
     public void cast_card(GameObject handGameObject)
     {
-        var player = handGameObject.GetComponent<PlayerMainScript>();
+        var player = handGameObject;
         if (positionSaved)
         {
 

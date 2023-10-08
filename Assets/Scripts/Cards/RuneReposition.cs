@@ -12,7 +12,7 @@ public class RuneReposition : MonoBehaviour, ICard
         mainCamera = Camera.main;   
     }
 
-    public void card_preparation(bool status)
+    public void card_preparation(bool status, GameObject handGameObject)
     {
         //Debug.Log("estatus: " + status);
         if (!status)

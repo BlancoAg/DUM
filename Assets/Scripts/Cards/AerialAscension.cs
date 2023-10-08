@@ -12,12 +12,11 @@ public class AerialAscension : MonoBehaviour, ICard
     private PlayerMovementTutorial Player;
     void Start()
     {
-    Player = GameObject.Find("Player").GetComponent<PlayerMovementTutorial>();
     WindEffect = Wind.transform.Find("Wind").GetComponent<ParticleSystem>();
     WindEffect.Stop();
     }
 
-    public void card_preparation(bool status)
+    public void card_preparation(bool status, GameObject handGameObject)
     {
         Debug.Log(WindEffect);
         if(status){
@@ -28,11 +27,12 @@ public class AerialAscension : MonoBehaviour, ICard
         //Debug.Log("estatus: " + status);
         if (!status)
         {
+
             ////Debug.Log("despreparacion");
             //firstPersonController.jumpForce = defaultJumpForce;
             ready = false;
             //AAIcon.SetActive(false);
-            GameObject.Find("Player").GetComponent<PlayerMovementTutorial>().jumpForce = 5;
+            var player = handGameObject.GetComponent<PlayerMovementTutorial>().jumpForce = 5;
             return; 
         }
         ready = status;
@@ -46,10 +46,10 @@ public class AerialAscension : MonoBehaviour, ICard
     {
         if (ready)
         {
-
+            var player = handGameObject.GetComponent<PlayerMainScript>();
             // reset y velocity
             if(Player.readyToDoubleJump){
-            Rigidbody rb = GameObject.Find("Player").GetComponent<Rigidbody>();
+            Rigidbody rb = player.GetComponent<Rigidbody>();
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
             rb.AddForce(transform.up * 10f, ForceMode.Impulse);
             Player.readyToDoubleJump = false;

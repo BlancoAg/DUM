@@ -14,22 +14,22 @@ public class StoneStance : MonoBehaviour, ICard
 
     void Start()
     {
-    WindEffect = Wind.GetComponent<ParticleSystem>();
-    WindEffect.Stop();
+    //WindEffect = Wind.GetComponent<ParticleSystem>();
+    //WindEffect.Stop();
     }
 
-    public void card_preparation(bool status)
+    public void card_preparation(bool status, GameObject handGameObject)
     {
         ////Debug.Log("estatus: " + status);
         if (!status)
         {
             ////Debug.Log("despreparacion");
-            var player = GameObject.Find("Player").GetComponent<PlayerMainScript>();
+            var player = handGameObject.GetComponent<PlayerMainScript>();
             if(player.stoned){
             player.stone_status(false,weight);
             }
             ready = false;
-            WindEffect.Stop();
+            //WindEffect.Stop();
             return; 
         }
         ready = status;
@@ -47,7 +47,7 @@ public class StoneStance : MonoBehaviour, ICard
               ////Debug.Log("Card" + gameObject.name + "Played");
               //player.shielded = !player.shielded;
               player.GetComponent<Hand>().PlaySound();
-              WindEffect.Play();
+              //WindEffect.Play();
               player.stone_status(true,weight);
               ready = false;
            } 

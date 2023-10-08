@@ -6,7 +6,7 @@ public class SmallStance : MonoBehaviour, ICard
 {
     public bool ready;
 
-    public void card_preparation(bool status)
+    public void card_preparation(bool status, GameObject handGameObject)
     {
         if (!status)
         {

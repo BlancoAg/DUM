@@ -7,7 +7,7 @@ public class TestCard : MonoBehaviour, ICard
     private bool status;
     private bool ready;
 
-    public void card_preparation(bool status){
+    public void card_preparation(bool status, GameObject handGameObject){
     //Debug.Log("estatus: " + status);
     if(!status){
         //Debug.Log("despreparacion");

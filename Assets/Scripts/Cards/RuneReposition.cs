@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class RuneReposition : MonoBehaviour, ICard
 {
-    private Camera mainCamera;
     private bool ready; 
-
-    void Start()
-    {
-        mainCamera = Camera.main;   
-    }
 
     public void card_preparation(bool status, GameObject handGameObject)
     {
@@ -27,22 +21,33 @@ public class RuneReposition : MonoBehaviour, ICard
     }
 
     public void cast_card(GameObject handGameObject)
+{
+    var player = handGameObject.GetComponent<PlayerMainScript>();
+    if (ready)
     {
-        var player = handGameObject.GetComponent<PlayerMainScript>();
-        if (ready)
+        // Get the camera from handGameObject
+        Camera mainCamera = handGameObject.GetComponentInChildren<Camera>();
+
+        if (mainCamera != null) // Check if a camera component was found
         {
             RaycastHit hit;
             if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit))
             {
                 GameObject target = hit.transform.gameObject;
                 if (target.CompareTag("Rune"))
-                {   
-                    ////Debug.Log(target.GetChild(0).name);
+                {
+                    // Move the player to the position of the target
                     player.transform.position = target.gameObject.transform.position;
                     player.GetComponent<Hand>().RuneSound();
                     ready = false;
                 }
             }
         }
+        else
+        {
+            Debug.LogError("Camera not found on handGameObject!");
+        }
     }
+}
+
 }

@@ -6,24 +6,24 @@ public class AerialAscension : MonoBehaviour, ICard
 {
     private bool ready;
 
-    public GameObject Wind;
+    //public GameObject Wind;
 
-    private ParticleSystem WindEffect;
-    private PlayerMovementTutorial Player;
+    //private ParticleSystem WindEffect;
+    //private PlayerMovementTutorial Player;
     void Start()
     {
-    WindEffect = Wind.transform.Find("Wind").GetComponent<ParticleSystem>();
-    WindEffect.Stop();
+    //WindEffect = Wind.transform.Find("Wind").GetComponent<ParticleSystem>();
+    //WindEffect.Stop();
     }
 
     public void card_preparation(bool status, GameObject handGameObject)
     {
-        Debug.Log(WindEffect);
-        if(status){
-            WindEffect.Play();
-        }else{
-            WindEffect.Stop();
-        }
+        //Debug.Log(WindEffect);
+        //if(status){
+        //    WindEffect.Play();
+        //}else{
+        //    WindEffect.Stop();
+        //}
         //Debug.Log("estatus: " + status);
         if (!status)
         {
@@ -32,7 +32,7 @@ public class AerialAscension : MonoBehaviour, ICard
             //firstPersonController.jumpForce = defaultJumpForce;
             ready = false;
             //AAIcon.SetActive(false);
-            var player = handGameObject.GetComponent<PlayerMovementTutorial>().jumpForce = 5;
+            handGameObject.GetComponent<PlayerMovementTutorial>().jumpForce = 5;
             return; 
         }
         ready = status;
@@ -46,14 +46,14 @@ public class AerialAscension : MonoBehaviour, ICard
     {
         if (ready)
         {
-            var player = handGameObject.GetComponent<PlayerMainScript>();
+            var player = handGameObject.GetComponent<PlayerMovementTutorial>();
             // reset y velocity
-            if(Player.readyToDoubleJump){
+            if(player.readyToDoubleJump){
             Rigidbody rb = player.GetComponent<Rigidbody>();
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
             rb.AddForce(transform.up * 10f, ForceMode.Impulse);
-            Player.readyToDoubleJump = false;
-            Player.GetComponent<Hand>().AerialSound();
+            player.readyToDoubleJump = false;
+            //Player.GetComponent<Hand>().AerialSound();
 
             ready = false;
             }

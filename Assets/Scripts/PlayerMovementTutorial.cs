@@ -46,8 +46,11 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     Rigidbody rb;
 
+    private Animator CameraAnimation;
     private void Start()
     {
+        CameraAnimation = GameObject.Find("Main Camera").GetComponent<Animator>();
+
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         player = GameObject.Find("Player");
@@ -73,10 +76,14 @@ public class PlayerMovementTutorial : MonoBehaviour
         MyInput();
         SpeedControl();
 
+
         // handle drag
-        if (grounded)
+        if (grounded){
             rb.drag = groundDrag;
-        else
+            //CameraAnimation.SetBool("Landing", true);
+
+        
+        }else
             rb.drag = 0;
 
         //mouse look
@@ -118,18 +125,24 @@ public class PlayerMovementTutorial : MonoBehaviour
     {
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
+        
         // on ground
         if (grounded)
         {
+            
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
 
             // Check if the player is moving (horizontal or vertical input is not zero)
             if (Mathf.Abs(horizontalInput) > 0.1f || Mathf.Abs(verticalInput) > 0.1f)
             {
                 // Play a random footstep sound
+                CameraAnimation.SetBool("Walking", true);
                 PlayRandomFootstepSound();
             }
+            else{
+                CameraAnimation.SetBool("Walking", false);
+            }
+            //
         }
 
         // in air
@@ -162,6 +175,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     public void ResetJump()
     {
         //Debug.Log("ResetJump");
+        CameraAnimation.SetTrigger("Landing");
         readyToJump = true;
         if (grounded)
         {

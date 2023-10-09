@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PuppetController : MonoBehaviour
 {
-    public bool inControl = true;
+    public bool inControl = false;
     private Camera puppetCamera;
     private PlayerMovementTutorial playerMovement;
     private Renderer meshRenderer;
@@ -47,35 +47,36 @@ public class PuppetController : MonoBehaviour
             Ray ray = cameraComponent.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit,4))
             {
                 if (hit.collider.CompareTag("Puppet") || hit.collider.CompareTag("Player"))
                 {
                     // Store the target puppet for control transfer
                     targetPuppet = hit.collider.gameObject.GetComponent<PuppetController>();
-
+                    ToggleControl(false);
+                    targetPuppet.ToggleControl(true);
                     // Start the control transfer coroutine
-                    StartCoroutine(TransferControlAfterDelay(1.0f));
+                    //StartCoroutine(TransferControlAfterDelay(1.0f));
                 }
             }
         }
     }
 
-    IEnumerator TransferControlAfterDelay(float delay)
-    {
-        isTransferringControl = true;
+    // IEnumerator TransferControlAfterDelay(float delay)
+    // {
+    //     isTransferringControl = true;
 
-        // Wait for the specified delay
-        yield return new WaitForSeconds(delay);
+    //     // Wait for the specified delay
+    //     yield return new WaitForSeconds(delay);
 
-        // Transfer control to the target puppet
-        ToggleControl(false);
-        targetPuppet.ToggleControl(true);
+    //     // Transfer control to the target puppet
+    //     ToggleControl(false);
+    //     targetPuppet.ToggleControl(true);
 
-        // Reset variables
-        targetPuppet = null;
-        isTransferringControl = false;
-    }
+    //     // Reset variables
+    //     targetPuppet = null;
+    //     isTransferringControl = false;
+    // }
 
     void ToggleControl(bool control)
     {

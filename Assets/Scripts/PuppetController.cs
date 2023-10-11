@@ -47,7 +47,7 @@ public class PuppetController : MonoBehaviour
             Ray ray = cameraComponent.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit,4))
+            if (Physics.Raycast(ray, out hit))
             {
                 if (hit.collider.CompareTag("Puppet") || hit.collider.CompareTag("Player"))
                 {

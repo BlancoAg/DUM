@@ -17,7 +17,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     public float mouseSensitivity = 2.0f;
     private float verticalRotation = 0;
     public bool readyToJump;
-
+    public bool jumping;
     public bool readyToDoubleJump;
 
     [HideInInspector] public float walkSpeed;
@@ -72,6 +72,13 @@ public class PlayerMovementTutorial : MonoBehaviour
         // ground check
         playerHeight = player.transform.localScale.y;
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
+        if(!grounded){
+            jumping = true;
+        }else if(jumping){
+            jumping = false;
+            CameraAnimation.SetTrigger("Landing");
+        }
+
 
         MyInput();
         SpeedControl();
@@ -175,7 +182,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     public void ResetJump()
     {
         //Debug.Log("ResetJump");
-        CameraAnimation.SetTrigger("Landing");
+        
         readyToJump = true;
         if (grounded)
         {

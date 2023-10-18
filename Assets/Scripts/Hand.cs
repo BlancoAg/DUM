@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Hand : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class Hand : MonoBehaviour
 
     public GameObject collection;
     public GameObject cardDesc;
+
+    public GameObject interfaz;
     private bool ready = true;
     void Start()
     {
@@ -51,7 +54,9 @@ public class Hand : MonoBehaviour
                 {
                     cardsInHand.Add(objectHit);
                     hit.collider.gameObject.SetActive(false);
+                    CardShowcase(objectHit);
                     //Debug.Log("Added " + objectHit.name + " to hand.");
+
                 }
             }
         }
@@ -160,5 +165,35 @@ public class Hand : MonoBehaviour
     {
         sauce.PlayOneShot(aerial);
     }
+    private void CardShowcase(GameObject card){
+    GameObject player = GameObject.Find("Player");
+    Transform cardToShowTransform = player.transform.Find("Interfaz/CardShowcase/CardToShow");
 
+    if (cardToShowTransform != null)
+    {
+    GameObject cardToShow = cardToShowTransform.gameObject;
+
+    // Assuming you want to get the material from "QuadFF" and set it to a Renderer component (e.g., MeshRenderer or SpriteRenderer) on the "cardToShow" GameObject
+    Image cardRenderer = cardToShow.GetComponent<Image>();
+
+    //GameObject card = GameObject.Find("Card"); // Replace "Card" with the actual name of your card GameObject
+
+    if (cardRenderer != null && card != null)
+    {
+        Material quadFFMaterial = card.transform.Find("Quad").GetComponent<Renderer>().material;
+        cardRenderer.material = quadFFMaterial;
+        player.transform.Find("Interfaz/CardShowcase/descripcion_de_carta").GetComponent<TextMeshProUGUI>().text = card.GetComponent<ICard>().tell_description();
+    }
+    else
+    {
+        Debug.LogError("Renderer or Card not found.");
+    }
+    }
+    else
+    {
+        Debug.LogError("CardToShow not found.");
+    }
+
+
+    }
 }    

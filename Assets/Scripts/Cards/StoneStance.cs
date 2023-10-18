@@ -17,6 +17,9 @@ public class StoneStance : MonoBehaviour, ICard
     //WindEffect = Wind.GetComponent<ParticleSystem>();
     //WindEffect.Stop();
     }
+    public string tell_description() {
+        return  "test";
+    }
 
     public void card_preparation(bool status, GameObject handGameObject)
     {

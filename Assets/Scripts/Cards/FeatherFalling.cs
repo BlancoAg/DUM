@@ -42,4 +42,8 @@ public class FeatherFalling : MonoBehaviour, ICard
         }
 
     }
+
+    public string tell_description() {
+        return  "test";
+    }
 }

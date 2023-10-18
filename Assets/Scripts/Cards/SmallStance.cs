@@ -6,6 +6,11 @@ public class SmallStance : MonoBehaviour, ICard
 {
     public bool ready;
 
+    public string description;
+
+    public string tell_description() {
+        return  "test";
+    }
     public void card_preparation(bool status, GameObject handGameObject)
     {
         if (!status)

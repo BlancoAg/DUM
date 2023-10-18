@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8879668411496645819}
   - component: {fileID: 5143502947296705330}
   m_Layer: 0
-  m_Name: Quad RR
+  m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

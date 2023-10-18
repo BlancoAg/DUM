@@ -7,6 +7,10 @@ public class ScorchShield : MonoBehaviour, ICard
     public bool shielded = false;
     private bool ready;
     public GameObject ScorchShieldIcon;
+
+    public string tell_description() {
+        return  "test";
+    }
     public void card_preparation(bool status, GameObject handGameObject)
     {
         //Debug.Log("estatus: " + status);

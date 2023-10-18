@@ -10,6 +10,9 @@ public class ComebackCard : MonoBehaviour, ICard
     public AudioSource sauce;
     private bool ready;
 
+    public string tell_description() {
+        return  "test";
+    }
     public void card_preparation(bool status, GameObject handGameObject)
     {
         //Debug.Log("estatus: " + status);

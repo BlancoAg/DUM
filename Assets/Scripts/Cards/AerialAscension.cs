@@ -15,7 +15,9 @@ public class AerialAscension : MonoBehaviour, ICard
     //WindEffect = Wind.transform.Find("Wind").GetComponent<ParticleSystem>();
     //WindEffect.Stop();
     }
-
+    public string tell_description() {
+        return  "test";
+    }
     public void card_preparation(bool status, GameObject handGameObject)
     {
         //Debug.Log(WindEffect);

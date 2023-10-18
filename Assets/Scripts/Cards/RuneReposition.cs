@@ -5,6 +5,9 @@ using UnityEngine;
 public class RuneReposition : MonoBehaviour, ICard
 {
     private bool ready; 
+    public string tell_description() {
+        return  "test";
+    }
 
     public void card_preparation(bool status, GameObject handGameObject)
     {

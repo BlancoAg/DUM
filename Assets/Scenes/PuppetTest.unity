@@ -1894,7 +1894,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5879172077306960512, guid: 070f85d4f61ded24e9bd873e2fdca885, type: 3}
       propertyPath: inControl
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879172077306960513, guid: 070f85d4f61ded24e9bd873e2fdca885, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5879172077306960523, guid: 070f85d4f61ded24e9bd873e2fdca885, type: 3}
       propertyPath: m_Name
@@ -2786,6 +2790,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5879172077306960513, guid: 070f85d4f61ded24e9bd873e2fdca885, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5879172077306960523, guid: 070f85d4f61ded24e9bd873e2fdca885, type: 3}
       propertyPath: m_Name
       value: Puppet (1)
@@ -3202,6 +3210,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5879172077306960513, guid: 070f85d4f61ded24e9bd873e2fdca885, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5879172077306960523, guid: 070f85d4f61ded24e9bd873e2fdca885, type: 3}
       propertyPath: m_Name
       value: Puppet
@@ -3524,10 +3536,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5879172077306960512, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
       propertyPath: inControl
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5879172077306960523, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879172077306960523, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5879172077306960573, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
@@ -3583,6 +3599,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7657795869535761112, guid: 845a420251a78154ea62af81acf83b58, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1983631841}
     - target: {fileID: 7657795869535761114, guid: 845a420251a78154ea62af81acf83b58, type: 3}
       propertyPath: m_Name
       value: activator 3

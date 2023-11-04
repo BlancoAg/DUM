@@ -24,6 +24,7 @@ public class PlayerMainScript : MonoBehaviour
     public bool floating;
     public float slowFallForce = 2.0f;
     public float defaultFallForce = 9.8f;
+    public string waterTag = "Water";
 
     public GameObject gameOverPanel;
     public GameObject Crosshair;
@@ -57,6 +58,7 @@ public class PlayerMainScript : MonoBehaviour
     
     void Update()
     {  
+        
         //if (playerMovementTutorial.grounded && stoned){
         //        falling = false;
         //    }
@@ -93,6 +95,7 @@ public class PlayerMainScript : MonoBehaviour
             }else{
                 growing = false;
                 big = true;
+                ToggleWaterColliders(!big);
             }
         }
         if(shrinking)
@@ -102,6 +105,19 @@ public class PlayerMainScript : MonoBehaviour
             }else{
                 shrinking = false;
                 big = false;
+                ToggleWaterColliders(!big);
+            }
+        }
+    }
+
+    public void ToggleWaterColliders(bool big) {
+    GameObject[] waterObjects = GameObject.FindGameObjectsWithTag("Water");
+
+    foreach (GameObject waterObject in waterObjects) {
+        BoxCollider boxCollider = waterObject.GetComponent<BoxCollider>();
+
+        if (boxCollider != null) {
+            boxCollider.isTrigger = !big;
             }
         }
     }

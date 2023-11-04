@@ -95,7 +95,6 @@ public class PlayerMainScript : MonoBehaviour
             }else{
                 growing = false;
                 big = true;
-                ToggleWaterColliders(!big);
             }
         }
         if(shrinking)
@@ -105,19 +104,18 @@ public class PlayerMainScript : MonoBehaviour
             }else{
                 shrinking = false;
                 big = false;
-                ToggleWaterColliders(!big);
             }
         }
     }
 
-    public void ToggleWaterColliders(bool big) {
+    public void ToggleWaterColliders(bool state) {
     GameObject[] waterObjects = GameObject.FindGameObjectsWithTag("Water");
 
     foreach (GameObject waterObject in waterObjects) {
         BoxCollider boxCollider = waterObject.GetComponent<BoxCollider>();
 
         if (boxCollider != null) {
-            boxCollider.isTrigger = !big;
+            boxCollider.isTrigger = state;
             }
         }
     }
@@ -149,9 +147,11 @@ public class PlayerMainScript : MonoBehaviour
         if(!shrinking && !growing && big){
             gameObject.GetComponent<Hand>().play_sound();
             shrinking = true;
+            ToggleWaterColliders(false);
         }else if(!can_grow && !shrinking && !growing && !big){
             gameObject.GetComponent<Hand>().play_sound();
             growing = true;
+            ToggleWaterColliders(true);
         }else{
             gameObject.GetComponent<Hand>().fail_sound();
         }

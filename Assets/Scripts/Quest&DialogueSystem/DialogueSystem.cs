@@ -82,7 +82,7 @@ private void Start()
         TextBox.SetActive(true);
         letters.SetActive(true);
         //Debug.Log(interaction_indicator.name);
-        interaction_indicator.GetComponent<SpriteRenderer>().enabled = false;
+        //interaction_indicator.GetComponent<SpriteRenderer>().enabled = false;
         StartCoroutine(TypeLine(dialogue));
         
     }

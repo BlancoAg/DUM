@@ -42,7 +42,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AparitionRate: 1
+    - _AparitionRate: 1.58
     - _DissolveSpeed: -1
     - _EdgueWidth: 0.04
     - _Metalic: 0

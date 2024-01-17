@@ -778,7 +778,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &497073392
 Transform:
   m_ObjectHideFlags: 0
@@ -1349,6 +1349,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &829625559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5879172077459905241, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
+  m_PrefabInstance: {fileID: 1819503604}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &829625564
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829625559}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d1bd3f677b50ee34fb3a2199598db378, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &896102322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1818,6 +1843,10 @@ PrefabInstance:
     - target: {fileID: 7890895650259201588, guid: 9ad2a9a4b5f1e8443b6f336034a1f442, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890895650259201588, guid: 9ad2a9a4b5f1e8443b6f336034a1f442, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 999569116980428926, guid: 9ad2a9a4b5f1e8443b6f336034a1f442, type: 3}
@@ -2501,6 +2530,50 @@ PrefabInstance:
     - target: {fileID: 5879172077382810734, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879172077459905240, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879172077459905240, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879172077459905240, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879172077459905240, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.09494991
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879172077459905240, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.888469
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879172077459905240, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.047713306
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879172077459905240, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.4464648
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879172077459905240, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 192.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879172077459905240, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 53.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879172077459905240, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879172077459905241, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7702832289572807443, guid: 5e7deccb0870ab74591fd3103ad69ff0, type: 3}
       propertyPath: m_IsActive

@@ -9,14 +9,34 @@ public class ObjectInteraction : MonoBehaviour
     private PuppetController puppetCont;
     public PuppetController targetPuppet;
 
+    public GameObject talkicon;
+
     private void Start()
     {
         dialoguesystem = GetComponent<DialogueSystem>(); // Remove "gameObject."
         puppetCont = GetComponent<PuppetController>();
     }
 
-    void Update()
-    {
+    void Update(){
+        //  if (Input.GetMouseButtonDown(0))\
+        if(true)
+            {
+           Camera cameraComponent = GetComponentInChildren<Camera>();
+           Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+           RaycastHit hit;
+           
+           if (Physics.Raycast(ray, out hit, 3))
+           {
+               if (hit.collider.CompareTag("NPC"))
+               {
+               talkicon.SetActive(true);
+               }else{
+               talkicon.SetActive(false);
+               }
+           }else{
+               talkicon.SetActive(false);
+               }
+        }
         if (Input.GetMouseButtonDown(0))
         {
             Camera cameraComponent = GetComponentInChildren<Camera>();

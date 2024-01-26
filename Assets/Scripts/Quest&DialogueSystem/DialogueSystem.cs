@@ -30,6 +30,8 @@ public class DialogueSystem : MonoBehaviour
     public bool waiting_input;
     public bool more_lines;
     private int index;
+
+    private float real_sensibility;
     
 
 private void Start()

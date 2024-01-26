@@ -6738,6 +6738,7 @@ MonoBehaviour:
   floating: 0
   slowFallForce: 2
   defaultFallForce: 9.8
+  waterTag: Water
   gameOverPanel: {fileID: 5879172077387779444}
   Crosshair: {fileID: 5879172076677534933}
   ScorchShieldIcon: {fileID: 5879172076784697050}

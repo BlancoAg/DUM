@@ -15,6 +15,7 @@ TagManager:
   - Ground
   - sound
   - Ladder
+  - Door
   layers:
   - Default
   - TransparentFX

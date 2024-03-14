@@ -5688,7 +5688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &335110149288721524
 Transform:
   m_ObjectHideFlags: 0
@@ -5735,6 +5735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ready: 0
+  description: 
 --- !u!64 &7322923467142999442
 MeshCollider:
   m_ObjectHideFlags: 0

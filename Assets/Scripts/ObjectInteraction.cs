@@ -27,7 +27,7 @@ public class ObjectInteraction : MonoBehaviour
            if(talkicon != null){
            if (Physics.Raycast(ray, out hit, 3))
            {
-               if (hit.collider.CompareTag("NPC"))
+               if (hit.collider.CompareTag("NPC") && !GlobalVariables.character_talking)
                {
                 talkicon.SetActive(true);
                }else{
@@ -101,6 +101,7 @@ public class ObjectInteraction : MonoBehaviour
                     else if (dialoguesystem.endend)
                     {
                         //Debug.Log("Talk");
+                        GlobalVariables.character_talking = true;
                         dialoguesystem.Talk(dialogues);
                     }
                 }

@@ -142,7 +142,8 @@ private void Start()
     }
 
     public void end()
-    {
+    {   
+        GlobalVariables.character_talking = false;
         StopCoroutine("TypeLine");
         textSpeed = original_speed;
         movement.enabled = true;

@@ -5,12 +5,7 @@ public class ClickableObject : MonoBehaviour
     // This method will be called when the GameObject is clicked
     public void OnClick()
     {
-        // Search for objects with the "Fire" tag and disable them
-        GameObject[] fireObjects = GameObject.FindGameObjectsWithTag("Fire");
-        foreach (GameObject fireObject in fireObjects)
-        {
-            fireObject.SetActive(false);
-        }
+        
     }
 
     // Update is called once per frame

@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5877c1cdfbd53fd47b3de23685cb5b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  savedPosition: {x: 577.132, y: 51.053356, z: 606.3052}
+  savedPosition: {x: 579.1426, y: 51.05336, z: 597.68365}
   positionSaved: 0
   ComeBackCardMark: {fileID: 4313422131031966525, guid: 7e24f22171284334dbefe2ba361a9988, type: 3}
   clip: {fileID: 8300000, guid: 4342ab652bd9f4f4884ca33e8b40a7aa, type: 3}

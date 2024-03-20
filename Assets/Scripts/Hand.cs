@@ -50,7 +50,7 @@ public class Hand : MonoBehaviour
                     questTrigger.Trigger();
                 }
                 GameObject objectHit = hit.transform.gameObject;
-                if (objectHit.tag == "Card")
+                if (objectHit.tag == "Card" && GlobalVariables.player_controlling)
                 {
                     cardsInHand.Add(objectHit);
                     hit.collider.gameObject.SetActive(false);

@@ -68,6 +68,14 @@ public class ObjectInteraction : MonoBehaviour
                     PuppetController targetPuppet = hit.collider.gameObject.GetComponent<PuppetController>();
                     puppetCont.ToggleControl(false);
                     targetPuppet.ToggleControl(true);
+                    if (hit.collider.CompareTag("Player"))
+                    {
+                        GlobalVariables.player_controlling = true;
+                    }
+                    if (hit.collider.CompareTag("Puppet"))
+                    {
+                        GlobalVariables.player_controlling = false;
+                    }
                 }
             }
         }

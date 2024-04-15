@@ -11,6 +11,8 @@ public class ObjectInteraction : MonoBehaviour
 
     public GameObject talkicon;
 
+    public float talk_distance;
+
     private void Start()
     {
 
@@ -83,7 +85,7 @@ public class ObjectInteraction : MonoBehaviour
                         dialoguesystem.skip();
                     }
 
-            if (Physics.Raycast(ray, out hit, 2))
+            if (Physics.Raycast(ray, out hit, talk_distance))
             {
                 if (hit.collider != null && hit.collider.CompareTag("NPC"))
                 {

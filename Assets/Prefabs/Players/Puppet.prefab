@@ -6558,7 +6558,7 @@ GameObject:
   - component: {fileID: 1453784217333700846}
   m_Layer: 0
   m_Name: Puppet
-  m_TagString: Player
+  m_TagString: Puppet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6738,6 +6738,7 @@ MonoBehaviour:
   floating: 0
   slowFallForce: 2
   defaultFallForce: 9.8
+  waterTag: Water
   gameOverPanel: {fileID: 5879172077387779444}
   Crosshair: {fileID: 5879172076677534933}
   ScorchShieldIcon: {fileID: 5879172076784697050}
@@ -6832,6 +6833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPuppet: {fileID: 0}
+  talkicon: {fileID: 0}
 --- !u!114 &5879172077306960526
 MonoBehaviour:
   m_ObjectHideFlags: 0

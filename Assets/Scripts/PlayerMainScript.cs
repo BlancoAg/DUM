@@ -25,6 +25,7 @@ public class PlayerMainScript : MonoBehaviour
     public float slowFallForce = 2.0f;
     public float defaultFallForce = 9.8f;
     public string waterTag = "Water";
+    public bool swimming = false;
 
     public GameObject gameOverPanel;
     public GameObject Crosshair;
@@ -33,7 +34,6 @@ public class PlayerMainScript : MonoBehaviour
     public GameObject StoneStanceIcon;
     
     private PlayerMovementTutorial playerMovementTutorial;
-    private WaterMovement waterMovement;
     private ComplexFluidInteractor complexFluidInteractor;
 
     Rigidbody rb;
@@ -52,8 +52,7 @@ public class PlayerMainScript : MonoBehaviour
     {
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
-        playerMovementTutorial = GetComponent<PlayerMovementTutorial>();
-        waterMovement = GetComponent<WaterMovement>();    
+        playerMovementTutorial = GetComponent<PlayerMovementTutorial>();  
     }
     
     void Update()
@@ -173,7 +172,7 @@ public class PlayerMainScript : MonoBehaviour
             gameObject.GetComponent<ConstantForce>().force = gameObject.GetComponent<ConstantForce>().force + new Vector3(0, - weight,0);
             //gameObject.GetComponent<ConstantForce>().force = new Vector3(0, -30,0);
             //playerMovementTutorial.jumpForce = 1f;
-            if (waterMovement.enabled)
+            if (swimming)
             {
                 rb.mass = 25f;
             }
@@ -231,21 +230,14 @@ public class PlayerMainScript : MonoBehaviour
    {
        if (other.CompareTag("Water"))
        {
-          waterMovement.enabled = true;
-          playerMovementTutorial.enabled = false;
+          swimming = true;
        }
-       if (other.CompareTag("sound"))
-           {
-           saurce.PlayOneShot(discover_sound);
-           Destroy(other);
-           }
    }
    void OnTriggerExit(Collider other)
    {
        if (other.CompareTag("Water"))
        {
-           waterMovement.enabled = false;
-           playerMovementTutorial.enabled = true;
+           swimming = false;
        }
    }
 

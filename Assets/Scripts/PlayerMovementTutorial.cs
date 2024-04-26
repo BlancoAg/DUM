@@ -35,6 +35,8 @@ public class PlayerMovementTutorial : MonoBehaviour
     public float playerHeight;
     public LayerMask whatIsGround;
     public bool grounded;
+    public float waterMovementSpeed = 5.0f;
+    private bool inWater = false;
 
     public Transform orientation;
 
@@ -69,6 +71,8 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     private void Update()
     {
+        if (!inWater)
+        {
         // ground check
         playerHeight = player.transform.localScale.y;
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
@@ -92,16 +96,68 @@ public class PlayerMovementTutorial : MonoBehaviour
         
         }else
             rb.drag = 0;
+        
+        HandleMouseLook();
+        }
+        else
+        {
+            // Handle movement and rotation when in water
+            // Reset movement input
+            ResetMovementInput();
+            // Movement
+            HandleWaterMovement();
+            // Mouse look
+            HandleMouseLook();
+        }
 
-        //mouse look
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            inWater = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            inWater = false;
+        }
+    }
+
+    private void HandleWaterMovement()
+    {
+        float forwardSpeed = Input.GetAxis("Vertical") * waterMovementSpeed;
+        float sideSpeed = Input.GetAxis("Horizontal") * waterMovementSpeed;
+
+        Vector3 movement = new Vector3(sideSpeed, 0, forwardSpeed);
+        movement = transform.rotation * movement;
+
+        transform.position += movement * Time.deltaTime;
+
+        // Mouse rotation remains the same as in the Update() method
+        HandleMouseLook();
+    }
+
+    private void HandleMouseLook()
+    {
         float rotLeftRight = Input.GetAxis("Mouse X") * mouseSensitivity;
         transform.Rotate(0, rotLeftRight, 0);
 
         verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
         verticalRotation = Mathf.Clamp(verticalRotation, -90, 90);
         Camera.main.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
-
     }
+
+    private void ResetMovementInput()
+    {
+        horizontalInput = 0f;
+        verticalInput = 0f;
+    }
+
 
     private void FixedUpdate()
     {

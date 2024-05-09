@@ -20,6 +20,12 @@ public class PlayerMovementTutorial : MonoBehaviour
     public bool jumping;
     public bool readyToDoubleJump;
 
+    // Ladder climbing variables
+    public bool isClimbing = false;
+    public float climbSpeed = 5.0f;
+    private Transform currentLadder;
+    private float verticalIn;
+    private float horizontalIn;
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
 
@@ -71,37 +77,43 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     private void Update()
     {
-        if (!inWater)
+        if (!isClimbing && !inWater)
         {
         // ground check
         playerHeight = player.transform.localScale.y;
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
-        if(!grounded){
-            jumping = true;
-        }else if(jumping){
-            jumping = false;
-            CameraAnimation.SetTrigger("Landing");
+            if(!grounded){
+                jumping = true;
+            }else if(jumping){
+                jumping = false;
+                CameraAnimation.SetTrigger("Landing");
+            }
+
+
+            MyInput();
+            SpeedControl();
+
+
+            // handle drag
+            if (grounded){
+                rb.drag = groundDrag;
+                //CameraAnimation.SetBool("Landing", true);
+
+
+            }else
+                rb.drag = 0;
+
+            HandleMouseLook();
         }
-
-
-        MyInput();
-        SpeedControl();
-
-
-        // handle drag
-        if (grounded){
-            rb.drag = groundDrag;
-            //CameraAnimation.SetBool("Landing", true);
-
-        
-        }else
-            rb.drag = 0;
-        
-        HandleMouseLook();
+        else if (isClimbing)
+        {
+            // Handle ladder climbing
+            HandleLadderClimbing();
         }
-        else
+        else if (inWater)
         {
             // Handle movement and rotation when in water
+
             // Reset movement input
             ResetMovementInput();
             // Movement
@@ -112,11 +124,19 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     }
 
+    // Additional methods for ladder climbing
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Water"))
         {
             inWater = true;
+        }
+        else if (other.CompareTag("Ladder"))
+        {
+            // Check if the player enters a ladder's collision box
+            isClimbing = true;
+            currentLadder = other.transform;
         }
     }
 
@@ -126,7 +146,32 @@ public class PlayerMovementTutorial : MonoBehaviour
         {
             inWater = false;
         }
+        else if (other.CompareTag("Ladder"))
+        {
+            // Check if the player exits the ladder's collision box
+            isClimbing = false;
+            currentLadder = null;
+        }
     }
+
+    private void HandleLadderClimbing()
+    {
+        // Handle ladder climbing input
+        verticalIn = Input.GetAxis("Vertical");
+        horizontalIn = Input.GetAxis("Horizontal");
+
+        // Move the player up and down the ladder
+        Vector3 climbDirection = currentLadder.up * verticalIn;
+        GetComponent<Rigidbody>().velocity = climbDirection * climbSpeed;
+
+        // Handle side movement while climbing
+        Vector3 sideMovement = transform.right * horizontalIn;
+        GetComponent<Rigidbody>().velocity += sideMovement * climbSpeed;
+
+        // Handle mouse look
+        HandleMouseLook();
+    }
+
 
     private void HandleWaterMovement()
     {

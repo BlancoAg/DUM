@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IActivate
 {
-    void Active();
+    void Active(int switchId);
 }

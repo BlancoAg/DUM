@@ -27,7 +27,7 @@ public class TurnOff : MonoBehaviour, IActivate
         }
     }
 
-    public void Active()
+    public void Active(int switchId)
     {
         Debug.Log("Active");
         turned = !turned;

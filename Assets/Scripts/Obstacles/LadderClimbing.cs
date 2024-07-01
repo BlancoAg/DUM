@@ -23,15 +23,11 @@ public class LadderClimbing : MonoBehaviour
             // Move the player up and down the ladder
             Vector3 climbDirection = currentLadder.up * verticalInput;
             GetComponent<Rigidbody>().velocity = climbDirection * 5f;
+
+            // Handle side movement while climbing
+            Vector3 sideMovement = transform.right * horizontalInput;
+            GetComponent<Rigidbody>().velocity += sideMovement * 5f;
         }
-
-        // Handle mouse look while climbing
-        float rotLeftRight = Input.GetAxis("Mouse X") * mouseSensitivity;
-        transform.Rotate(0, rotLeftRight, 0);
-
-        verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
-        verticalRotation = Mathf.Clamp(verticalRotation, -90, 90);
-        Camera.main.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -30,7 +30,7 @@ public class DoorSlide : MonoBehaviour, IActivate
 
 
         
-    public void Active()
+    public void Active(int switchId)
     {
         doorIsOpen = !doorIsOpen;
 

@@ -29,7 +29,7 @@ public class SlideDoorGTP : MonoBehaviour, IActivate
 
 
         
-    public void Active()
+    public void Active(int switchId)
     {
         doorIsOpen = !doorIsOpen;
 

@@ -7,6 +7,7 @@ using System.Linq;
 
 public class DialogueSystem : MonoBehaviour
 {
+    private CameraLookAt look_at_script;
     public int rowNumber;
     public int next_line_id; // Renamed from 'id'
     public int id; // Retained for the current dialogue ID
@@ -41,6 +42,7 @@ private void Start()
     endend = true;
     // Find a game object with the "Player" tag
     GameObject player = GameObject.FindGameObjectWithTag("Player");
+    look_at_script = GetComponentInChildren<Camera>().GetComponent<CameraLookAt>();
     //interaction_indicator = GameObject.Find("need_talk").gameObject;
     //interaction_indicator = gameObject.Find("need_talk").gameObject;
     // GameObject interaction_indicato = GameObject.Find("need_talk");
@@ -89,7 +91,7 @@ private void Start()
         
     }
 
-    IEnumerator<WaitForSeconds> TypeLine(List<string> dialogue)
+    IEnumerator<WaitForSeconds>TypeLine(List<string> dialogue)
     {
         foreach (var word in dialogue)
         {
@@ -146,7 +148,7 @@ private void Start()
         GlobalVariables.character_talking = false;
         StopCoroutine("TypeLine");
         textSpeed = original_speed;
-        movement.enabled = true;
+        // movement.enabled = true;
         TextBox.SetActive(false);
         letters.SetActive(false);
         pressbuttonbutton.SetActive(false);
@@ -154,6 +156,8 @@ private void Start()
         talking = false;
         waiting = false;
         endend = true;
+        look_at_script.stop_looking();
+
     }
 
     public void _continue(int id)

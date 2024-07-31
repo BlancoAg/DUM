@@ -46,7 +46,7 @@ Material:
     - _EdgueWidth: 0.01
     - _Metalic: 0
     - _NoiseScale: 100
-    - _NormalStrength: 0
+    - _NormalStrength: 0.74
     - _Oclusion: 0
     - _QueueControl: 0
     - _QueueOffset: 0

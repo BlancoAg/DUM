@@ -9,20 +9,23 @@ public class ObjectInteraction : MonoBehaviour
     private PuppetController puppetCont;
     public PuppetController targetPuppet;
 
+    private CameraLookAt look_at_script;
     public GameObject talkicon;
 
     public float talk_distance;
 
     private void Start()
     {
-
+        Debug.Log(GlobalVariables.character_talking);
         dialoguesystem = GetComponent<DialogueSystem>(); // Remove "gameObject."
         puppetCont = GetComponent<PuppetController>();
+        look_at_script = GetComponentInChildren<Camera>().GetComponent<CameraLookAt>();
     }
 
     void Update(){
         //  if (Input.GetMouseButtonDown(0))\
         if(true){
+
            Camera cameraComponent = GetComponentInChildren<Camera>();
            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
            RaycastHit hit;
@@ -39,6 +42,7 @@ public class ObjectInteraction : MonoBehaviour
                  talkicon.SetActive(false);
                }
            }
+
         }
         if (Input.GetMouseButtonDown(0))
         {
@@ -90,6 +94,7 @@ public class ObjectInteraction : MonoBehaviour
             if (dialoguesystem.talking)
                     {
                         //Debug.Log("skip");
+                
                         dialoguesystem.skip();
                     }
 
@@ -100,6 +105,7 @@ public class ObjectInteraction : MonoBehaviour
                     //Debug.Log("Al menos le pegamos a un NPC");
                     if (dialoguesystem.endend)
                     {
+                        look_at_script.start_looking(hit.transform, 0f);
                         dialogues = hit.collider.gameObject.GetComponent<DialogueSystem>().gestor_de_dialogo();
                     }
 

@@ -25,44 +25,56 @@ public class Hand : MonoBehaviour
 
     public GameObject interfaz;
     private bool ready = true;
+
+    private Animator CardAnimation;
     void Start()
     {
         //cardsInHand = new List<GameObject>();
         //Debug.Log(cardsInHand.Count);
         //currentCardIndex = 0;
+        // GlobalVariables.character_talking = true;
         sauce = GetComponent<AudioSource>();
 
     }
 
     void Update()
     {   
+        
+        CardAnimation = GameObject.Find("card").GetComponent<Animator>();
         if (Input.GetMouseButtonDown(0))
         {
+        Debug.Log("Hiciste");
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit,2))
             {
+                Debug.Log("le pegaste a algo");
                 questTrigger = hit.collider.gameObject.GetComponent<QuestTrigger>();
                 if (questTrigger != null)
                 {
-                    // Call the "Trigger" method if it exists
                     questTrigger.Trigger();
                 }
                 GameObject objectHit = hit.transform.gameObject;
                 if (objectHit.tag == "Card" && GlobalVariables.player_controlling)
                 {
+                    Debug.Log("Agarraste una carta");
                     cardsInHand.Add(objectHit);
+
                     hit.collider.gameObject.SetActive(false);
-                    CardShowcase(objectHit);
-                    //Debug.Log("Added " + objectHit.name + " to hand.");
+                    // CardShowcase(objectHit);
+                    Debug.Log("Added " + objectHit.tag + " to hand.");
+                    Debug.Log("Added " + objectHit.name + " to hand.");
 
                 }
             }
         }
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f || Input.GetKeyDown("e")) // forward
+        if (!ready && Input.GetAxis("Mouse ScrollWheel") > 0f || Input.GetKeyDown("e")) // forward
         {
+            if (cardsInHand.Count > 1){
+                CardFlip();
+            }
             if (currentCardIndex + 1 >= cardsInHand.Count)
             {
                 currentCardIndex = 0;
@@ -70,7 +82,7 @@ public class Hand : MonoBehaviour
             else
             {
                 currentCardIndex++;
-                CardFlip();
+                // CardFlip();
             }
             if (cardsInHand.Count > 0)
             {
@@ -78,8 +90,11 @@ public class Hand : MonoBehaviour
             }
 
         }
-        else if (cardsInHand.Count != 0 && Input.GetAxis("Mouse ScrollWheel") < 0f || Input.GetKeyDown("q")) // backwards
+        else if (!ready && cardsInHand.Count != 0 && Input.GetAxis("Mouse ScrollWheel") < 0f || Input.GetKeyDown("q")) // backwards
         {
+            if (cardsInHand.Count > 1){
+                CardFlip();
+            }
             if (currentCardIndex <= 0)
             {
                 currentCardIndex = cardsInHand.Count - 1;
@@ -87,7 +102,7 @@ public class Hand : MonoBehaviour
             else
             {
                 currentCardIndex--;
-                CardFlip();
+                // CardFlip();
             }
             if (cardsInHand.Count > 0)
             {
@@ -103,19 +118,18 @@ public class Hand : MonoBehaviour
             {
                 if (!Input.GetMouseButton(1) && ready)
                 {
-                    ready = false;
-                    currentCard.card_preparation(false, gameObject);
+                    Debug.Log(ready);
+                    un_prepare_card(currentCard);
                 }
                 if (Input.GetMouseButton(1) && !ready)
                 {
-                    ready = true;
-                    currentCard.card_preparation(true, gameObject);
-                    PrepSound();
+                    prepare__card(currentCard);
+
                 
                 }
                 if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) && ready)
                 {
-                    currentCard.cast_card(gameObject);
+                    cast_card(currentCard);
                 }
             }
         }
@@ -154,6 +168,7 @@ public class Hand : MonoBehaviour
     }
     public void CardFlip()
     {
+        CardAnimation.SetTrigger("swap");
         sauce.PlayOneShot(flip);
     }
     public void RuneSound()
@@ -163,6 +178,26 @@ public class Hand : MonoBehaviour
     public void AerialSound()
     {
         sauce.PlayOneShot(aerial);
+    }
+
+    private void cast_card(ICard currentCard){
+        CardAnimation.SetTrigger("cast_card");
+        CardAnimation.SetBool("prepared",false);
+        ready = false;
+        currentCard.cast_card(gameObject);
+    }
+    private void prepare__card(ICard currentCard){
+        // CardAnimation.SetTrigger("prepare_card");
+        CardAnimation.SetBool("prepared",true);
+        ready = true;
+        currentCard.card_preparation(true, gameObject);
+        PrepSound();
+    }
+    private void un_prepare_card(ICard currentCard){
+        // CardAnimation.SetTrigger("un_prepare_card");
+        CardAnimation.SetBool("prepared",false);
+        ready = false;
+        currentCard.card_preparation(false, gameObject);
     }
     private void CardShowcase(GameObject card){
     GameObject player = GameObject.Find("Player");

@@ -55,6 +55,13 @@ public class PlayerMovementTutorial : MonoBehaviour
     Rigidbody rb;
 
     private Animator CameraAnimation;
+
+    private int vaultLayer;
+    public Transform playerTransform;  
+    private float vaultPlayerHeight = 2f;
+    private float playerRadius = 0.5f;
+    private float vaultDetectionRange = 1f;
+
     private void Start()
     {
         CameraAnimation = GameObject.Find("Main Camera").GetComponent<Animator>();
@@ -73,6 +80,8 @@ public class PlayerMovementTutorial : MonoBehaviour
         //footsteps
         audioSource = GetComponent<AudioSource>();
         audioSource.spatialBlend = 1.0f; // Set spatial blend to 3D for positional audio.
+        vaultLayer = LayerMask.NameToLayer("VaultLayer");
+        vaultLayer = ~vaultLayer;
     }
 
     private void Update()
@@ -92,6 +101,8 @@ public class PlayerMovementTutorial : MonoBehaviour
 
             MyInput();
             SpeedControl();
+            Vault();
+
 
 
             // handle drag
@@ -123,6 +134,40 @@ public class PlayerMovementTutorial : MonoBehaviour
         }
 
     }
+
+    private void Vault()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector3 forward = playerTransform.TransformDirection(Vector3.forward);
+            Vector3 rayStart = playerTransform.position + Vector3.up * (vaultPlayerHeight * 0.5f);
+
+            if (Physics.Raycast(rayStart, forward, out var firstHit, vaultDetectionRange, vaultLayer))
+            {
+                Debug.Log("vaultable in front");
+                if (Physics.Raycast(firstHit.point + (forward * playerRadius) + (Vector3.up * 0.6f * vaultPlayerHeight), Vector3.down, out var secondHit, vaultPlayerHeight))
+                {
+                    Debug.Log("found place to land");
+                    StartCoroutine(LerpVault(secondHit.point, 0.5f));
+                }
+            }
+        }
+    }
+
+    IEnumerator LerpVault(Vector3 targetPosition, float duration)
+    {
+        float time = 0;
+        Vector3 startPosition = transform.position;
+    
+        while (time < duration)
+        {
+            transform.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = targetPosition;
+    }
+
 
     // Additional methods for ladder climbing
 

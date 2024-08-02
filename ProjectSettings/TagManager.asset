@@ -15,6 +15,7 @@ TagManager:
   - Ground
   - sound
   - Ladder
+  - Vaultable
   layers:
   - Default
   - TransparentFX

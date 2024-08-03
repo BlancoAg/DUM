@@ -103,8 +103,6 @@ public class PlayerMovementTutorial : MonoBehaviour
             SpeedControl();
             Vault();
 
-
-
             // handle drag
             if (grounded){
                 rb.drag = groundDrag;
@@ -139,15 +137,22 @@ public class PlayerMovementTutorial : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            // Calculate the direction forward from the player's perspective
             Vector3 forward = playerTransform.TransformDirection(Vector3.forward);
-            Vector3 rayStart = playerTransform.position + Vector3.up * (vaultPlayerHeight * 0.5f);
-
+            
+            // Set the ray start position to the feet of the player
+            Vector3 rayStart = playerTransform.position;
+        
+            // Perform the raycast from the calculated start position in the forward direction
             if (Physics.Raycast(rayStart, forward, out var firstHit, vaultDetectionRange, vaultLayer))
             {
                 Debug.Log("vaultable in front");
+                
+                // Check for a valid landing spot above the detected object
                 if (Physics.Raycast(firstHit.point + (forward * playerRadius) + (Vector3.up * 0.6f * vaultPlayerHeight), Vector3.down, out var secondHit, vaultPlayerHeight))
                 {
                     Debug.Log("found place to land");
+                    // Start the vaulting animation
                     StartCoroutine(LerpVault(secondHit.point, 0.5f));
                 }
             }

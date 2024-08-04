@@ -42,7 +42,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     public LayerMask whatIsGround;
     public bool grounded;
     public float waterMovementSpeed = 5.0f;
-    private bool inWater = false;
+    public bool inWater = false;
 
     public Transform orientation;
 
@@ -93,6 +93,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
             if(!grounded){
                 jumping = true;
+                
             }else if(jumping){
                 jumping = false;
                 CameraAnimation.SetTrigger("Landing");
@@ -109,10 +110,14 @@ public class PlayerMovementTutorial : MonoBehaviour
                 //CameraAnimation.SetBool("Landing", true);
 
 
-            }else
-                rb.drag = 0;
+            }
+            else
+            rb.drag = 0;
 
             HandleMouseLook();
+            
+            
+                
         }
         else if (isClimbing)
         {
@@ -129,6 +134,8 @@ public class PlayerMovementTutorial : MonoBehaviour
             HandleWaterMovement();
             // Mouse look
             HandleMouseLook();
+
+            Vault();
         }
 
     }
@@ -171,6 +178,7 @@ public class PlayerMovementTutorial : MonoBehaviour
             yield return null;
         }
         transform.position = targetPosition;
+        //inWater = false;
     }
 
 

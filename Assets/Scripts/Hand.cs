@@ -101,19 +101,7 @@ public class Hand : MonoBehaviour
             ICard currentCard = cardsInHand[currentCardIndex].GetComponent<ICard>();
             if (currentCard != null)
             {
-                if (!Input.GetMouseButton(1) && ready)
-                {
-                    ready = false;
-                    currentCard.card_preparation(false, gameObject);
-                }
-                if (Input.GetMouseButton(1) && !ready)
-                {
-                    ready = true;
-                    currentCard.card_preparation(true, gameObject);
-                    PrepSound();
-                
-                }
-                if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) && ready)
+                if (Input.GetMouseButtonDown(1)) // Cast card immediately on left mouse button click
                 {
                     currentCard.cast_card(gameObject);
                 }

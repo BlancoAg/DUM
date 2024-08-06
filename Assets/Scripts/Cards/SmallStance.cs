@@ -26,7 +26,7 @@ public class SmallStance : MonoBehaviour, ICard
         // Find the PlayerMainScript component on the GameObject from the Hand script
         var player = handGameObject.GetComponent<PlayerMainScript>();
 
-        if (player != null && ready)
+        if (player != null)
         {
             player.change_size();
             ready = false;

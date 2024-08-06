@@ -8,38 +8,54 @@ public class ScorchShield : MonoBehaviour, ICard
     private bool ready;
     public GameObject ScorchShieldIcon;
 
-    public string tell_description() {
-        return  "test";
+    private bool isHeld = false; // Track if the left mouse button is being held
+
+    public string tell_description()
+    {
+        return "test";
     }
+
     public void card_preparation(bool status, GameObject handGameObject)
     {
-        //Debug.Log("estatus: " + status);
-        if (!status)
-        {
-            //Debug.Log("despreparacion");
-            var player = handGameObject.GetComponent<PlayerMainScript>();
-            player.shield_status(false);
-            ready = false;
-
-            return; 
-        }
-        ready = status;
-        //Debug.Log("Card "+ gameObject.name +" is ready");
-        return; 
+        // This method is now unused, but it must remain because of the ICard interface
     }
 
     public void cast_card(GameObject handGameObject)
-    {      
-        if(ready)
+    {
+        var player = handGameObject.GetComponent<PlayerMainScript>();
+        
+        if (!isHeld)
         {
-           var player = handGameObject.GetComponent<PlayerMainScript>();
-           if(ready)
-           {
-              //Debug.Log("Card" + gameObject.name + "Played");
-              //player.shielded = !player.shielded;
-              player.shield_status(true);
-              ready = false;
-           } 
+            // If the left mouse button is clicked
+            player.shield_status(true);
+            isHeld = true;
+        }
+        else
+        {
+            // If the left mouse button is held
+            player.shield_status(false);
+            isHeld = false;
+        }
+    }
+
+    void Update()
+    {
+        if (isHeld && Input.GetMouseButton(1))
+        {
+            var player = GetComponentInParent<PlayerMainScript>();
+            if (player != null)
+            {
+                player.shield_status(true);
+            }
+        }
+        else if (isHeld && !Input.GetMouseButton(1))
+        {
+            var player = GetComponentInParent<PlayerMainScript>();
+            if (player != null)
+            {
+                player.shield_status(false);
+            }
+            isHeld = false;
         }
     }
 }

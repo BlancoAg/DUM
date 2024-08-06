@@ -26,7 +26,7 @@ public class RuneReposition : MonoBehaviour, ICard
     public void cast_card(GameObject handGameObject)
 {
     var player = handGameObject.GetComponent<PlayerMainScript>();
-    if (ready)
+    
     {
         // Get the camera from handGameObject
         Camera mainCamera = handGameObject.GetComponentInChildren<Camera>();

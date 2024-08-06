@@ -46,7 +46,7 @@ public class AerialAscension : MonoBehaviour, ICard
 
     public void cast_card(GameObject handGameObject)
     {
-        if (ready)
+        
         {
             var player = handGameObject.GetComponent<PlayerMovementTutorial>();
             // reset y velocity

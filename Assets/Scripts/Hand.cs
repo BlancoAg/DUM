@@ -39,8 +39,12 @@ public class Hand : MonoBehaviour
 
     void Update()
     {   
-        
+        try{
         CardAnimation = GameObject.Find("card").GetComponent<Animator>();
+        }
+        catch{
+            Debug.Log("Al parecer no hay carta");
+        }
         if (Input.GetMouseButtonDown(0))
         {
         Debug.Log("Hiciste");

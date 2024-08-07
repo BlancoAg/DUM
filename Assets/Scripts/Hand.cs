@@ -97,16 +97,29 @@ public class Hand : MonoBehaviour
         }
 
         if (cardsInHand.Count > 0)
+    {
+        ICard currentCard = cardsInHand[currentCardIndex].GetComponent<ICard>();
+        if (currentCard != null)
         {
-            ICard currentCard = cardsInHand[currentCardIndex].GetComponent<ICard>();
-            if (currentCard != null)
+            if (Input.GetMouseButton(1) && !ready)
             {
-                if (Input.GetMouseButtonDown(1)) // Cast card immediately on left mouse button click
-                {
-                    currentCard.cast_card(gameObject);
-                }
+                ready = true;
+                currentCard.card_preparation(true, gameObject);
+                PrepSound();
+            }
+
+            if (!Input.GetMouseButton(1) && ready)
+            {
+                ready = false;
+                currentCard.card_preparation(false, gameObject);
+            }
+
+            if (Input.GetMouseButtonDown(1) && ready)
+            {
+                currentCard.cast_card(gameObject);
             }
         }
+    }
 
         if (Input.GetKey(KeyCode.Tab))
         {

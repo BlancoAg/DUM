@@ -194,7 +194,7 @@ PrefabInstance:
     - target: {fileID: 788312104671378290, guid: f892993c8356de64c9afb7f2a5e41322, type: 3}
       propertyPath: movement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1505352862}
     - target: {fileID: 788312104671378290, guid: f892993c8356de64c9afb7f2a5e41322, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -616,6 +616,17 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &1505352862 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6888618370838317212, guid: de8a1c1d2487b494ba339ecff9de7f09, type: 3}
+  m_PrefabInstance: {fileID: 243765547}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfe851b5bd3b37547ba613b77208844e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1594191974
 GameObject:
   m_ObjectHideFlags: 0

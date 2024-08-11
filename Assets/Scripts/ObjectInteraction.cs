@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class ObjectInteraction : MonoBehaviour
 {
@@ -21,6 +23,10 @@ public class ObjectInteraction : MonoBehaviour
     }
 
     void Update(){
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RestartGame();
+        }
         //  if (Input.GetMouseButtonDown(0))\
         if(true){
            Camera cameraComponent = GetComponentInChildren<Camera>();
@@ -46,7 +52,7 @@ public class ObjectInteraction : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             
-            if (Physics.Raycast(ray, out hit, 2))
+            if (Physics.Raycast(ray, out hit, 3))
             {
                 if (hit.collider != null && hit.collider.CompareTag("Activator"))
                 {
@@ -62,7 +68,7 @@ public class ObjectInteraction : MonoBehaviour
                     questTrigger.Trigger();
                 }
             }
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, 3 ))
             {
                 if (hit.collider.CompareTag("Puppet") || hit.collider.CompareTag("Player"))
                 {
@@ -84,6 +90,7 @@ public class ObjectInteraction : MonoBehaviour
 
         if (Input.GetKeyDown("f"))
         {
+            
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -97,7 +104,7 @@ public class ObjectInteraction : MonoBehaviour
             {
                 if (hit.collider != null && hit.collider.CompareTag("NPC"))
                 {
-                    //Debug.Log("Al menos le pegamos a un NPC");
+                    Debug.Log("NPC Detected: " + hit.collider.name);
                     if (dialoguesystem.endend)
                     {
                         dialogues = hit.collider.gameObject.GetComponent<DialogueSystem>().gestor_de_dialogo();
@@ -110,12 +117,17 @@ public class ObjectInteraction : MonoBehaviour
                     }
                     else if (dialoguesystem.endend)
                     {
-                        //Debug.Log("Talk");
+                        Debug.Log("Talk");
                         GlobalVariables.character_talking = true;
                         dialoguesystem.Talk(dialogues);
                     }
                 }
             }
         }
+    }
+
+    private void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

@@ -64,7 +64,7 @@ private void Start()
 
     public void Talk(List<string> dialogue)
     {
-
+        Debug.Log("Talk method called");
         if (dialogue.Count > 1)
         {
             more_lines = true;

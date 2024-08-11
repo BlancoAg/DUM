@@ -41,7 +41,7 @@ public class Hand : MonoBehaviour
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit,1))
+            if (Physics.Raycast(ray, out hit,2))
             {
                 questTrigger = hit.collider.gameObject.GetComponent<QuestTrigger>();
                 if (questTrigger != null)

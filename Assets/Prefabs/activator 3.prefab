@@ -175,6 +175,14 @@ PrefabInstance:
       value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 2535104476558247892, guid: c88b218a342c2bd44b13a9c2a32c205c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535104476558247892, guid: c88b218a342c2bd44b13a9c2a32c205c, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535104476558247892, guid: c88b218a342c2bd44b13a9c2a32c205c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a873a298aca830b4d90e6234136e22ac, type: 2}
@@ -206,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  switchId: 0
 --- !u!114 &7657795868379534035
 MonoBehaviour:
   m_ObjectHideFlags: 0

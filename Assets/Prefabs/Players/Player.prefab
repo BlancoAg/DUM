@@ -6663,7 +6663,9 @@ MonoBehaviour:
     m_Bits: 8
   grounded: 1
   waterMovementSpeed: 5
+  inWater: 0
   orientation: {fileID: 6888618370918422317}
+  playerTransform: {fileID: 0}
 --- !u!114 &6888618370838317210
 MonoBehaviour:
   m_ObjectHideFlags: 0

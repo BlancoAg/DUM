@@ -94,6 +94,10 @@ public class PlayerMainScript : MonoBehaviour
             }else{
                 growing = false;
                 big = true;
+                Debug.Log("Creciste papi");
+                GlobalVariables.character_small = false;
+                Debug.Log("Variable Global: " + GlobalVariables.character_small);
+
             }
         }
         if(shrinking)
@@ -103,6 +107,9 @@ public class PlayerMainScript : MonoBehaviour
             }else{
                 shrinking = false;
                 big = false;
+                Debug.Log("Toy Chiquito");
+                GlobalVariables.character_small = true;
+                Debug.Log("Variable Global: " + GlobalVariables.character_small);
             }
         }
     }

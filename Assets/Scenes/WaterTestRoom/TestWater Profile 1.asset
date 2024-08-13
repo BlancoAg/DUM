@@ -118,7 +118,7 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 1
-    m_Value: {x: 0.22665787, y: 1, z: 0.873987, w: 0.0000000044239243}
+    m_Value: {x: 0.2630546, y: 1, z: 0.9444657, w: -0.13903743}
   gamma:
     m_OverrideState: 1
     m_Value: {x: 0.19836462, y: 1, z: 0.8872922, w: -0.00000001293024}

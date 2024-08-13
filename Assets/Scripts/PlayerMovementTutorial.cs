@@ -77,6 +77,12 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     private void Update()
     {
+        if (GlobalVariables.character_small == false){
+            moveSpeed = 7.0f;
+        }else
+        {
+            moveSpeed = 1.5f;
+        }
         if (!isClimbing && !inWater)
         {
         // ground check

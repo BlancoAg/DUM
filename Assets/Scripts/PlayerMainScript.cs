@@ -107,17 +107,17 @@ public class PlayerMainScript : MonoBehaviour
         }
     }
 
-    public void ToggleWaterColliders(bool state) {
-    GameObject[] waterObjects = GameObject.FindGameObjectsWithTag("Water");
-
-    foreach (GameObject waterObject in waterObjects) {
-        BoxCollider boxCollider = waterObject.GetComponent<BoxCollider>();
-
-        if (boxCollider != null) {
-            boxCollider.isTrigger = state;
-            }
-        }
-    }
+    //public void ToggleWaterColliders(bool state) {
+    //GameObject[] waterObjects = GameObject.FindGameObjectsWithTag("Water");
+//
+    //foreach (GameObject waterObject in waterObjects) {
+    //    BoxCollider boxCollider = waterObject.GetComponent<BoxCollider>();
+//
+    //    if (boxCollider != null) {
+    //        boxCollider.isTrigger = state;
+    //        }
+    //    }
+    //}
 
     //Player death method
     public void ApplyDamage(float damage)
@@ -146,11 +146,11 @@ public class PlayerMainScript : MonoBehaviour
         if(!shrinking && !growing && big){
             gameObject.GetComponent<Hand>().play_sound();
             shrinking = true;
-            ToggleWaterColliders(false);
+            //ToggleWaterColliders(false);
         }else if(!can_grow && !shrinking && !growing && !big){
             gameObject.GetComponent<Hand>().play_sound();
             growing = true;
-            ToggleWaterColliders(true);
+            //ToggleWaterColliders(true);
         }else{
             gameObject.GetComponent<Hand>().fail_sound();
         }

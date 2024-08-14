@@ -11,46 +11,53 @@ public class RuneReposition : MonoBehaviour, ICard
 
     public void card_preparation(bool status, GameObject handGameObject)
     {
-        //Debug.Log("estatus: " + status);
         if (!status)
         {
-            //Debug.Log("despreparacion");
             ready = false;
             return; 
         }
         ready = status;
-        //Debug.Log("Card "+ gameObject.name +" is ready");
         return; 
     }
 
     public void cast_card(GameObject handGameObject)
-{
-    var player = handGameObject.GetComponent<PlayerMainScript>();
-    if (ready)
     {
-        // Get the camera from handGameObject
-        Camera mainCamera = handGameObject.GetComponentInChildren<Camera>();
-
-        if (mainCamera != null) // Check if a camera component was found
+        var player = handGameObject.GetComponent<PlayerMainScript>();
+        if (ready)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit))
+            // Get the camera from handGameObject
+            Camera mainCamera = handGameObject.GetComponentInChildren<Camera>();
+
+            if (mainCamera != null) // Check if a camera component was found
             {
-                GameObject target = hit.transform.gameObject;
-                if (target.CompareTag("Rune"))
+                RaycastHit hit;
+                if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit))
                 {
-                    // Move the player to the position of the target
-                    player.transform.position = target.gameObject.transform.position;
-                    player.GetComponent<Hand>().RuneSound();
-                    ready = false;
+                    GameObject target = hit.transform.gameObject;
+                    if (target.CompareTag("Rune"))
+                    {
+                        // Buscar el objeto hijo "TP_location"
+                        Transform tpLocation = target.transform.Find("TP_location");
+                        
+                        if (tpLocation != null) // Si el objeto "TP_location" fue encontrado
+                        {
+                            // Mover al jugador a la posición del objeto hijo "TP_location"
+                            player.transform.position = tpLocation.position;
+                            player.GetComponent<Hand>().RuneSound();
+                            ready = false;
+                        }
+                        else
+                        {
+                            Debug.LogError("TP_location not found on the rune!");
+                        }
+                    }
                 }
             }
-        }
-        else
-        {
-            Debug.LogError("Camera not found on handGameObject!");
+            else
+            {
+                Debug.LogError("Camera not found on handGameObject!");
+            }
         }
     }
 }
 
-}

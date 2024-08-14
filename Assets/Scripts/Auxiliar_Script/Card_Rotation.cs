@@ -16,7 +16,7 @@ public class Card_Rotation : MonoBehaviour
     {
         //gameObject.transform.rotation = new Vector3(0,i,0);
 
-        i = i + 0.1f;       
+        i = i + 0.5f;       
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, i , transform.rotation.eulerAngles.z);
 
         if(i >= 360f){  

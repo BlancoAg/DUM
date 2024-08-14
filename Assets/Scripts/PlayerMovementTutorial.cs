@@ -26,6 +26,8 @@ public class PlayerMovementTutorial : MonoBehaviour
     private Transform currentLadder;
     private float verticalIn;
     private float horizontalIn;
+
+    public GameObject feet;
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
 
@@ -63,7 +65,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         rb.freezeRotation = true;
         player = GameObject.Find("Player");
         
-        playerHeight = player.transform.localScale.y + 0.43f;
+        // playerHeight = player.transform.localScale.y + 0.43f;
         readyToJump = true;
         readyToDoubleJump = true;
 
@@ -89,7 +91,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         // ground check
         // playerHeight = player.transform.localScale.y;
         
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
+        grounded = Physics.Raycast(feet.transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
             if(!grounded){
                 jumping = true;
             }else if(jumping){

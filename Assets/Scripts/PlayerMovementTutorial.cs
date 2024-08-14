@@ -62,7 +62,8 @@ public class PlayerMovementTutorial : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         player = GameObject.Find("Player");
-        playerHeight = player.transform.localScale.y;
+        
+        playerHeight = player.transform.localScale.y + 0.43f;
         readyToJump = true;
         readyToDoubleJump = true;
 
@@ -86,7 +87,8 @@ public class PlayerMovementTutorial : MonoBehaviour
         if (!isClimbing && !inWater)
         {
         // ground check
-        playerHeight = player.transform.localScale.y;
+        // playerHeight = player.transform.localScale.y;
+        
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
             if(!grounded){
                 jumping = true;

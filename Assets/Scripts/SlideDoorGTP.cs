@@ -12,7 +12,7 @@ public class SlideDoorGTP : MonoBehaviour, IActivate
     private void Start()
     {
         closedPosition = door.position;
-        openPosition = closedPosition + new Vector3(0,-6,0);
+        openPosition = closedPosition + new Vector3(0,-30,0);
     }
 
     private void Update()

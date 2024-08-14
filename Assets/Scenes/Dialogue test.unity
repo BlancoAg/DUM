@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 8303516187748196181, guid: f892993c8356de64c9afb7f2a5e41322, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8803203093751202870, guid: f892993c8356de64c9afb7f2a5e41322, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -541,6 +545,10 @@ PrefabInstance:
     - target: {fileID: 6888618370838317202, guid: de8a1c1d2487b494ba339ecff9de7f09, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6888618370838317208, guid: de8a1c1d2487b494ba339ecff9de7f09, type: 3}
+      propertyPath: talk_distance
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6888618370838317220, guid: de8a1c1d2487b494ba339ecff9de7f09, type: 3}
       propertyPath: m_RootOrder

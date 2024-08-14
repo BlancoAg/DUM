@@ -43,11 +43,11 @@ public class Hand : MonoBehaviour
         CardAnimation = GameObject.Find("card").GetComponent<Animator>();
         }
         catch{
-            Debug.Log("Al parecer no hay carta");
+            // Debug.Log("No tenes cartas papu");
         }
         if (Input.GetMouseButtonDown(0))
         {
-        Debug.Log("Hiciste");
+        // Debug.Log("Hiciste");
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 

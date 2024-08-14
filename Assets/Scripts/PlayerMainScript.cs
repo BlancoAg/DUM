@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fusion.Fluid;
+using UnityEngine.SceneManagement;
 public class PlayerMainScript : MonoBehaviour
 {
 
@@ -57,7 +58,11 @@ public class PlayerMainScript : MonoBehaviour
     
     void Update()
     {  
-        
+        if (Input.GetKeyDown("p"))
+    {   GameObject gameOverPanel = GameObject.Find("gameOverPanel");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameOverPanel.SetActive(false);
+        }
         //if (playerMovementTutorial.grounded && stoned){
         //        falling = false;
         //    }
@@ -89,7 +94,7 @@ public class PlayerMainScript : MonoBehaviour
         if(growing)
         {
             if(gameObject.transform.localScale.x <= bigsize){
-                gameObject.transform.localScale =  gameObject.transform.localScale + new Vector3(0.01f, 0.01f, 0.01f);
+                gameObject.transform.localScale =  gameObject.transform.localScale + new Vector3(0.05f, 0.05f, 0.05f);
 
             }else{
                 growing = false;
@@ -102,13 +107,14 @@ public class PlayerMainScript : MonoBehaviour
         }
         if(shrinking)
         {
+            GlobalVariables.character_small = true;
             if(gameObject.transform.localScale.x >= smallsize){
-                gameObject.transform.localScale =  gameObject.transform.localScale - new Vector3(0.01f, 0.01f, 0.01f);
+                gameObject.transform.localScale =  gameObject.transform.localScale - new Vector3(0.05f, 0.05f, 0.05f);
             }else{
                 shrinking = false;
                 big = false;
                 Debug.Log("Toy Chiquito");
-                GlobalVariables.character_small = true;
+                
                 Debug.Log("Variable Global: " + GlobalVariables.character_small);
             }
         }

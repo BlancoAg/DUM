@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1270292786336416974}
   - component: {fileID: 4529610168218909176}
   - component: {fileID: 4421859100610667706}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4824,7 +4824,7 @@ GameObject:
   - component: {fileID: 7650018294482175895}
   - component: {fileID: 7563296730981756236}
   - component: {fileID: 7034739268893918860}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4921,7 +4921,7 @@ GameObject:
   - component: {fileID: 883209012519619898}
   - component: {fileID: 45643980675158393}
   - component: {fileID: 7263051390025876860}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5017,7 +5017,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3090080249456465031}
   - component: {fileID: 3511810860004925625}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System Force Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5546,7 +5546,7 @@ GameObject:
   - component: {fileID: 999569116980428926}
   - component: {fileID: 4661526327129494371}
   - component: {fileID: 861112796282656770}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Card Test
   m_TagString: Card
   m_Icon: {fileID: 0}
@@ -5584,6 +5584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2080c65ae92abf04a9bff83f289da583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  i: 0.1
 --- !u!114 &4661526327129494371
 MonoBehaviour:
   m_ObjectHideFlags: 0

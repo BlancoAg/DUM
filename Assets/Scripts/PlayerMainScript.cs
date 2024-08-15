@@ -55,11 +55,25 @@ public class PlayerMainScript : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerMovementTutorial = GetComponent<PlayerMovementTutorial>();  
     }
+    void OnCollisionEnter(Collision collision)
+{
+    // Debug.Log("El tag es " + collision.collider.tag);
+
+    // Verifica si el objeto tiene la etiqueta "brittle_gound" y si las condiciones adicionales son verdaderas
+    if (collision.collider.CompareTag("brittle_gound") && !playerMovementTutorial.grounded && stoned)
+    {
+        // Obtiene el componente Breakable y, si existe, llama al método Break
+        Breakable breakableObject = collision.collider.GetComponent<Breakable>();
+        if (breakableObject != null) 
+        {
+            breakableObject.Break();
+        }
+    }
+}
     
-    void Update()
-    {  
-        if (Input.GetKeyDown("p"))
-    {   GameObject gameOverPanel = GameObject.Find("gameOverPanel");
+    void Update(){  
+        if (Input.GetKeyDown("p")){   
+        GameObject gameOverPanel = GameObject.Find("gameOverPanel");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         gameOverPanel.SetActive(false);
         }
@@ -67,30 +81,11 @@ public class PlayerMainScript : MonoBehaviour
         //        falling = false;
         //    }
 
-        if (!playerMovementTutorial.grounded && stoned){
-            ////Debug.Log("Falling");
 
-            RaycastHit hit;
 
-            if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.9f)) {
-                ////Debug.Log("algo toque :D");
-                Breakable breakableObject = hit.collider.GetComponent<Breakable>();
-                if (breakableObject != null) {
-                breakableObject.Break();
-                }
-            }
-        }
-        //if(stoned && !playerMovementTutorial.grounded){
-        //    //Debug.Log("stoned");
-        //    gameObject.GetComponent<ConstantForce>().force = new Vector3(0,-50f,0);
-        //    if (waterMovement.enabled) {
-        //        rb.mass = 25f;   
-        //    }
-        //}
-        //else{
-        //    back_to_normal();
-        //}
-        //Growing or Shrinking check
+
+
+
         if(growing)
         {
             if(gameObject.transform.localScale.x <= bigsize){
@@ -253,5 +248,4 @@ public class PlayerMainScript : MonoBehaviour
            swimming = false;
        }
    }
-
 }

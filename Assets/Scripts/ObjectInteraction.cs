@@ -11,77 +11,43 @@ public class ObjectInteraction : MonoBehaviour
 
     private CameraLookAt look_at_script;
     public GameObject talkicon;
+    public GameObject indicadorF;  // Indicador para objetos con Tag "NPC"
+    public GameObject indicadorE;  // Indicador para objetos con Tag "Card" o "Activable"
 
     public float talk_distance;
 
     private void Start()
     {
-        Debug.Log(GlobalVariables.character_talking);
-        dialoguesystem = GetComponent<DialogueSystem>(); // Remove "gameObject."
+        dialoguesystem = GetComponent<DialogueSystem>();
         puppetCont = GetComponent<PuppetController>();
         look_at_script = GetComponentInChildren<Camera>().GetComponent<CameraLookAt>();
+
+        // Asegúrate de que los indicadores estén desactivados al inicio
+        if (indicadorF != null) indicadorF.SetActive(false);
+        if (indicadorE != null) indicadorE.SetActive(false);
     }
 
-    void Update(){
-        //  if (Input.GetMouseButtonDown(0))\
-        if(true){
+    private void Update()
+    {
+        CheckObjectTags();
 
-           Camera cameraComponent = GetComponentInChildren<Camera>();
-           Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-           RaycastHit hit;
-           if(talkicon != null){
-           if (Physics.Raycast(ray, out hit, 3))
-           {
-               if (hit.collider.CompareTag("NPC") && !GlobalVariables.character_talking)
-               {
-                talkicon.SetActive(true);
-               }else{
-                talkicon.SetActive(false);
-               }
-           }else{
-                 talkicon.SetActive(false);
-               }
-           }
-
-        }
         if (Input.GetMouseButtonDown(0))
         {
             Camera cameraComponent = GetComponentInChildren<Camera>();
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            
+
             if (Physics.Raycast(ray, out hit, 2))
             {
                 if (hit.collider != null && hit.collider.CompareTag("Activator"))
                 {
-                    //Debug.Log("Test_tag");
                     hit.collider.gameObject.GetComponent<Activator>().Execute();
                 }
 
-                // Check if the hit object has a script component called "QuestTrigger"
                 questTrigger = hit.collider.gameObject.GetComponent<QuestTrigger>();
                 if (questTrigger != null)
                 {
-                    // Call the "Trigger" method if it exists
                     questTrigger.Trigger();
-                }
-            }
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider.CompareTag("Puppet") || hit.collider.CompareTag("Player"))
-                {
-                    // Store the target puppet for control transfer
-                    PuppetController targetPuppet = hit.collider.gameObject.GetComponent<PuppetController>();
-                    puppetCont.ToggleControl(false);
-                    targetPuppet.ToggleControl(true);
-                    if (hit.collider.CompareTag("Player"))
-                    {
-                        GlobalVariables.player_controlling = true;
-                    }
-                    if (hit.collider.CompareTag("Puppet"))
-                    {
-                        GlobalVariables.player_controlling = false;
-                    }
                 }
             }
         }
@@ -92,17 +58,14 @@ public class ObjectInteraction : MonoBehaviour
             RaycastHit hit;
 
             if (dialoguesystem.talking)
-                    {
-                        //Debug.Log("skip");
-                
-                        dialoguesystem.skip();
-                    }
+            {
+                dialoguesystem.skip();
+            }
 
             if (Physics.Raycast(ray, out hit, talk_distance))
             {
                 if (hit.collider != null && hit.collider.CompareTag("NPC"))
                 {
-                    //Debug.Log("Al menos le pegamos a un NPC");
                     if (dialoguesystem.endend)
                     {
                         look_at_script.start_looking(hit.transform, 0f);
@@ -111,17 +74,51 @@ public class ObjectInteraction : MonoBehaviour
 
                     if (dialoguesystem.talking)
                     {
-                        //Debug.Log("skip");
                         dialoguesystem.skip();
                     }
                     else if (dialoguesystem.endend)
                     {
-                        //Debug.Log("Talk");
                         GlobalVariables.character_talking = true;
                         dialoguesystem.Talk(dialogues);
                     }
                 }
             }
+        }
+    }
+
+    private void CheckObjectTags()
+    {
+        Camera cameraComponent = GetComponentInChildren<Camera>();
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 3))
+        {
+            // Activar talkicon si se está viendo un NPC y no hay diálogo en curso
+            if (talkicon != null)
+            {
+                talkicon.SetActive(hit.collider.CompareTag("NPC") && !GlobalVariables.character_talking);
+            }
+
+            // Activar indicadorF si está viendo un objeto con el Tag "NPC"
+            if (indicadorF != null)
+            {
+                indicadorF.SetActive(hit.collider.CompareTag("NPC"));
+            }
+
+            // Activar indicadorE si está viendo un objeto con el Tag "Card" o "Activable"
+            if (indicadorE != null)
+            {
+                bool isCardOrActivable = hit.collider.CompareTag("Card") || hit.collider.CompareTag("Activable");
+                indicadorE.SetActive(isCardOrActivable);
+            }
+        }
+        else
+        {
+            // Desactivar todos los indicadores si no se está viendo ningún objeto relevante
+            if (talkicon != null) talkicon.SetActive(false);
+            if (indicadorF != null) indicadorF.SetActive(false);
+            if (indicadorE != null) indicadorE.SetActive(false);
         }
     }
 }

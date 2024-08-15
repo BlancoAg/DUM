@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1577609632647162967}
+  - component: {fileID: 4399910494458277757}
   m_Layer: 0
   m_Name: Lever_Prefab
-  m_TagString: Untagged
+  m_TagString: Activable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,6 +34,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4399910494458277757
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2575938327731363396}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.34, y: 1.06, z: 0.18}
+  m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!1 &7727883797297684363
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,7 +60,7 @@ GameObject:
   - component: {fileID: 7066963040038473936}
   m_Layer: 0
   m_Name: Lever_main
-  m_TagString: Untagged
+  m_TagString: Activable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +148,7 @@ GameObject:
   - component: {fileID: 7988450659621363514}
   m_Layer: 0
   m_Name: Lever
-  m_TagString: Untagged
+  m_TagString: Activable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -243,7 +257,8 @@ MonoBehaviour:
   isLever: 1
   Locked: 0
   DoorObject: {fileID: 0}
-  RampObject: {fileID: 0}
+  RampObject1: {fileID: 0}
+  RampObject2: {fileID: 0}
   CanOpen: 1
   CanClose: 1
   isOpened: 0

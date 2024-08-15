@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6586363478512825725}
   m_Layer: 0
   m_Name: Shatter
-  m_TagString: Untagged
+  m_TagString: brittle_gound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4881,7 +4881,7 @@ GameObject:
   - component: {fileID: 6586363478637281760}
   m_Layer: 0
   m_Name: BrekableFloor(C)(M)
-  m_TagString: Untagged
+  m_TagString: brittle_gound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4918,7 +4918,7 @@ GameObject:
   - component: {fileID: 3164547710540737739}
   m_Layer: 3
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: brittle_gound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

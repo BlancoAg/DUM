@@ -65,7 +65,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         rb.freezeRotation = true;
         player = GameObject.Find("Player");
         
-        // playerHeight = player.transform.localScale.y + 0.43f;
+        playerHeight = 0.01f;
         readyToJump = true;
         readyToDoubleJump = true;
 
@@ -82,9 +82,11 @@ public class PlayerMovementTutorial : MonoBehaviour
     {
         if (GlobalVariables.character_small == false){
             moveSpeed = 7.0f;
+            jumpForce = 7.0f;
         }else
         {
             moveSpeed = 1.5f;
+            jumpForce = 3.0f;
         }
         if (!isClimbing && !inWater)
         {

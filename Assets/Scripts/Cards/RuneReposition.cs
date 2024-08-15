@@ -31,9 +31,14 @@ public class RuneReposition : MonoBehaviour, ICard
             if (mainCamera != null) // Check if a camera component was found
             {
                 RaycastHit hit;
-                if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit))
+              if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, Mathf.Infinity, ~LayerMask.GetMask("Player")))
+{
+    // Código a ejecutar si el Raycast impacta algo que no tenga el tag 'Player'
+}
+
                 {
                     GameObject target = hit.transform.gameObject;
+                    Debug.Log(target.tag);
                     if (target.CompareTag("Rune"))
                     {
                         // Buscar el objeto hijo "TP_location"

@@ -5623,7 +5623,7 @@ GameObject:
   - component: {fileID: 8847678984878466490}
   - component: {fileID: 2132260997629736007}
   - component: {fileID: 3779366634629693871}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Desc
   m_TagString: Untagged
   m_Icon: {fileID: 0}

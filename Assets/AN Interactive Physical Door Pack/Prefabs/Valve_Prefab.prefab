@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3036862408743611690}
   m_Layer: 0
   m_Name: Valve_Prefab
-  m_TagString: Untagged
+  m_TagString: Activable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,9 +46,10 @@ GameObject:
   - component: {fileID: 4028874723192598727}
   - component: {fileID: 8025324976199497260}
   - component: {fileID: 4338380873967934221}
+  - component: {fileID: 4624835950027335702}
   m_Layer: 0
   m_Name: Valve
-  m_TagString: Untagged
+  m_TagString: Activable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,7 +138,8 @@ MonoBehaviour:
   isLever: 0
   Locked: 0
   DoorObject: {fileID: 0}
-  RampObject: {fileID: 0}
+  RampObject1: {fileID: 0}
+  RampObject2: {fileID: 0}
   CanOpen: 1
   CanClose: 1
   isOpened: 0
@@ -149,6 +151,7 @@ MonoBehaviour:
   valvesound: {fileID: 4338380873967934221}
   ValveSound: {fileID: 8300000, guid: 16aebe31ad5940f4284bae046f7e6d96, type: 3}
   ValveStop: {fileID: 8300000, guid: b05268a261a5a7e4fba811ee7a528922, type: 3}
+  ValveBackwards: {fileID: 0}
   LeaverPull: {fileID: 0}
 --- !u!82 &4338380873967934221
 AudioSource:
@@ -246,6 +249,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &4624835950027335702
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4021467230806756047}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 0.6, z: 0.04}
+  m_Center: {x: -0.0077768243, y: 8.5932525e-16, z: 0}
 --- !u!1 &5790873268593514898
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,9 +273,10 @@ GameObject:
   - component: {fileID: 8600925852609775011}
   - component: {fileID: 327641201959715123}
   - component: {fileID: 246514954226735840}
+  - component: {fileID: 4762151454452592864}
   m_Layer: 0
   m_Name: Valve_main
-  m_TagString: Untagged
+  m_TagString: Activable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -329,3 +346,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4762151454452592864
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5790873268593514898}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.32970497, y: 0.18574946, z: 1.1841519}
+  m_Center: {x: -0.00000047683716, y: -0.000000007450587, z: 0.59207594}

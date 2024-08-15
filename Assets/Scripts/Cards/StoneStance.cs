@@ -9,6 +9,7 @@ public class StoneStance : MonoBehaviour, ICard
     public GameObject Wind;
     private ParticleSystem WindEffect;
     public GameObject StoneStanceIcon;
+    
 
     public float weight;
 
@@ -41,10 +42,11 @@ public class StoneStance : MonoBehaviour, ICard
     }
 
     public void cast_card(GameObject handGameObject)
+    
     {      
-        if(ready)
+        var player = handGameObject.GetComponent<PlayerMainScript>();
+        if(ready && player != player.stoned)
         {
-           var player = handGameObject.GetComponent<PlayerMainScript>();
            if(ready)
            {
               ////Debug.Log("Card" + gameObject.name + "Played");

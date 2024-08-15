@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0.024997672, y: -0.0236569, z: 0.007847341}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1402758661513540240}
   m_RootOrder: 0
@@ -51,10 +52,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -80,6 +83,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2678727306239475843
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,6 +110,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5539966838103666586}
   - {fileID: 8296686746469984768}
@@ -129,7 +134,7 @@ GameObject:
   - component: {fileID: 6200662137476766102}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Activable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,6 +149,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0.6167797, y: 0.002, z: 0.0592719}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1402758661513540240}
   m_RootOrder: 1
@@ -167,10 +173,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -199,6 +207,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!54 &6200662137476766101
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -236,10 +245,11 @@ HingeJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5815388445836955371}
   m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0.07, y: 0.10634666, z: 2.93}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.3232203, y: 2.9927676, z: -4.887075}
+  m_ConnectedAnchor: {x: 0.6867797, y: 2.9320004, z: -0.047074944}
   m_UseSpring: 1
   m_Spring:
     spring: 1

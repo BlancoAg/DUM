@@ -4920,7 +4920,7 @@ GameObject:
   - component: {fileID: 5280104573902474410}
   - component: {fileID: 1206339968176643829}
   - component: {fileID: 4442003082370685766}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Desc
   m_TagString: Untagged
   m_Icon: {fileID: 0}

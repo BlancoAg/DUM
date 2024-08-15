@@ -39,21 +39,25 @@ public class Hand : MonoBehaviour
 
     void Update()
     {   
+        if (Input.GetMouseButtonDown(0)){
+            // Debug.Log("Boton Derecho");
+        }
         try{
         CardAnimation = GameObject.Find("card").GetComponent<Animator>();
         }
         catch{
             // Debug.Log("No tenes cartas papu");
         }
-        if (Input.GetMouseButtonDown(0))
+        // if (Input.GetMouseButtonDown(0))
+        if (Input.GetKey("e"))
         {
         // Debug.Log("Hiciste");
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit,2))
+        if (Physics.Raycast(ray, out hit, 2))
+            // if (Physics.Raycast(ray, out hit, 2, LayerMask.GetMask("Card")))
             {
-                Debug.Log("le pegaste a algo");
+                // Debug.Log("le pegaste a algo");
                 questTrigger = hit.collider.gameObject.GetComponent<QuestTrigger>();
                 if (questTrigger != null)
                 {
@@ -62,19 +66,19 @@ public class Hand : MonoBehaviour
                 GameObject objectHit = hit.transform.gameObject;
                 if (objectHit.tag == "Card" && GlobalVariables.player_controlling)
                 {
-                    Debug.Log("Agarraste una carta");
+                    // Debug.Log("Agarraste una carta");
                     cardsInHand.Add(objectHit);
 
                     hit.collider.gameObject.SetActive(false);
                     // CardShowcase(objectHit);
-                    Debug.Log("Added " + objectHit.tag + " to hand.");
-                    Debug.Log("Added " + objectHit.name + " to hand.");
+                    // Debug.Log("Added " + objectHit.tag + " to hand.");
+                    // Debug.Log("Added " + objectHit.name + " to hand.");
 
                 }
             }
         }
 
-        if (!ready && Input.GetAxis("Mouse ScrollWheel") > 0f || Input.GetKeyDown("e")) // forward
+        if (!ready && Input.GetAxis("Mouse ScrollWheel") > 0f)// forward
         {
             if (cardsInHand.Count > 1){
                 CardFlip();
@@ -94,7 +98,7 @@ public class Hand : MonoBehaviour
             }
 
         }
-        else if (!ready && cardsInHand.Count != 0 && Input.GetAxis("Mouse ScrollWheel") < 0f || Input.GetKeyDown("q")) // backwards
+        else if (!ready && cardsInHand.Count != 0 && Input.GetAxis("Mouse ScrollWheel") < 0f) // backwards
         {
             if (cardsInHand.Count > 1){
                 CardFlip();
@@ -117,12 +121,18 @@ public class Hand : MonoBehaviour
 
         if (cardsInHand.Count > 0)
         {
+            // if (Input.GetMouseButtonDown(1)){
+            //     Debug.Log("Boton Izquierdo");
+            // }
+            // if (ready){
+            //     Debug.Log("B");
+            // }
             ICard currentCard = cardsInHand[currentCardIndex].GetComponent<ICard>();
             if (currentCard != null)
             {
                 if (!Input.GetMouseButton(1) && ready)
                 {
-                    Debug.Log(ready);
+                  //  Debug.Log(ready);
                     un_prepare_card(currentCard);
                 }
                 if (Input.GetMouseButton(1) && !ready)
@@ -133,6 +143,7 @@ public class Hand : MonoBehaviour
                 }
                 if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) && ready)
                 {
+                //    / Debug.Log("Cast Card in Hand");
                     cast_card(currentCard);
                 }
             }
@@ -224,12 +235,12 @@ public class Hand : MonoBehaviour
     }
     else
     {
-        Debug.LogError("Renderer or Card not found.");
+        // Debug.LogError("Renderer or Card not found.");
     }
     }
     else
     {
-        Debug.LogError("CardToShow not found.");
+        // Debug.LogError("CardToShow not found.");
     }
 
 

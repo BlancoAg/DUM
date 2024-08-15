@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7358211635226007783}
   - component: {fileID: 3656927627929370296}
   - component: {fileID: 5099728424308973880}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CardGravitiGone
   m_TagString: Card
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4692921453548833822}
   - component: {fileID: 6592924544018216992}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System Force Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 6047430346962045849}
   - component: {fileID: 100529525257450887}
   - component: {fileID: 2846059731828482186}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Desc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -757,7 +757,7 @@ GameObject:
   - component: {fileID: 137610154056261390}
   - component: {fileID: 230962183311291861}
   - component: {fileID: 748400972445965845}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -854,7 +854,7 @@ GameObject:
   - component: {fileID: 2525878957768160085}
   - component: {fileID: 1570948652482556542}
   - component: {fileID: 2996774516565298679}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -951,7 +951,7 @@ GameObject:
   - component: {fileID: 8818694724350762071}
   - component: {fileID: 6133578187272380769}
   - component: {fileID: 6241753527184604195}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,8 +13,10 @@ public class AN_Button : MonoBehaviour
     [Tooltip("The door for remote control")]
     public AN_DoorScript DoorObject;
     [Space]
-    [Tooltip("Any object for ramp/elevator baheviour")]
-    public Transform RampObject;
+    [Tooltip("First object for ramp/elevator behavior")]
+    public Transform RampObject1;
+    [Tooltip("Second object for ramp/elevator behavior (optional)")]
+    public Transform RampObject2;
     [Tooltip("Door can be opened")]
     public bool CanOpen = true;
     [Tooltip("Door can be closed")]
@@ -24,11 +26,11 @@ public class AN_Button : MonoBehaviour
     [Space]
     [Tooltip("True for rotation by X local rotation by valve")]
     public bool xRotation = true;
-    [Tooltip("True for vertical movenment by valve (if xRotation is false)")]
+    [Tooltip("True for vertical movement by valve (if xRotation is false)")]
     public bool yPosition = false;
     public float max = 90f, min = 0f, speed = 5f;
     bool valveBool = true;
-    float current, startYPosition;
+    float current, startYPosition1, startYPosition2;
 
     public AudioSource valvesound;
     public AudioClip ValveSound;
@@ -36,7 +38,7 @@ public class AN_Button : MonoBehaviour
     public AudioClip ValveBackwards;
     public AudioClip LeaverPull;
 
-    Quaternion startQuat, rampQuat;
+    Quaternion startQuat, rampQuat1, rampQuat2;
     Animator anim;
 
     // NearView()
@@ -47,9 +49,19 @@ public class AN_Button : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        startYPosition = RampObject.position.y;
         startQuat = transform.rotation;
-        rampQuat = RampObject.rotation;
+
+        if (RampObject1 != null)
+        {
+            startYPosition1 = RampObject1.position.y;
+            rampQuat1 = RampObject1.rotation;
+        }
+
+        if (RampObject2 != null)
+        {
+            startYPosition2 = RampObject2.position.y;
+            rampQuat2 = RampObject2.rotation;
+        }
     }
 
     void Update()
@@ -72,7 +84,7 @@ public class AN_Button : MonoBehaviour
                 }
                 else anim.SetTrigger("ButtonPress");
             }
-            else if (isValve && RampObject != null) // 3. valve
+            else if (isValve && (RampObject1 != null || RampObject2 != null)) // 3. valve
             {
                 if (Input.GetKey(KeyCode.E) && NearView())
                 {
@@ -160,8 +172,23 @@ public class AN_Button : MonoBehaviour
 
                 // using value on object
                 transform.rotation = startQuat * Quaternion.Euler(0f, 0f, current * ValveSpeed);
-                if (xRotation) RampObject.rotation = rampQuat * Quaternion.Euler(current, 0f, 0f);
-                else if (yPosition) RampObject.position = new Vector3(RampObject.position.x, startYPosition + current, RampObject.position.z);
+
+                if (xRotation)
+                {
+                    if (RampObject1 != null)
+                        RampObject1.rotation = rampQuat1 * Quaternion.Euler(current, 0f, 0f);
+
+                    if (RampObject2 != null)
+                        RampObject2.rotation = rampQuat2 * Quaternion.Euler(current, 0f, 0f);
+                }
+                else if (yPosition)
+                {
+                    if (RampObject1 != null)
+                        RampObject1.position = new Vector3(RampObject1.position.x, startYPosition1 + current, RampObject1.position.z);
+
+                    if (RampObject2 != null)
+                        RampObject2.position = new Vector3(RampObject2.position.x, startYPosition2 + current, RampObject2.position.z);
+                }
             }
         }
     }

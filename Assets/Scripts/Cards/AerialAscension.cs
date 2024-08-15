@@ -53,7 +53,7 @@ public class AerialAscension : MonoBehaviour, ICard
             if(player.readyToDoubleJump){
             Rigidbody rb = player.GetComponent<Rigidbody>();
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-            rb.AddForce(transform.up * 10f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 15f, ForceMode.Impulse);
             player.readyToDoubleJump = false;
             //Player.GetComponent<Hand>().AerialSound();
 

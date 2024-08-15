@@ -6,6 +6,8 @@ using TMPro;
 public class Hand : MonoBehaviour
 {
     public AudioClip fail_clip;
+
+    public AudioClip pick_up_clip;
     public AudioSource sourceCC;
     public AudioClip clip;
     public AudioSource sauce;
@@ -54,7 +56,7 @@ public class Hand : MonoBehaviour
         // Debug.Log("Hiciste");
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 2))
+        if (Physics.Raycast(ray, out hit, 3))
             // if (Physics.Raycast(ray, out hit, 2, LayerMask.GetMask("Card")))
             {
                 // Debug.Log("le pegaste a algo");
@@ -68,7 +70,7 @@ public class Hand : MonoBehaviour
                 {
                     // Debug.Log("Agarraste una carta");
                     cardsInHand.Add(objectHit);
-
+                    sauce.PlayOneShot(pick_up_clip);
                     hit.collider.gameObject.SetActive(false);
                     // CardShowcase(objectHit);
                     // Debug.Log("Added " + objectHit.tag + " to hand.");

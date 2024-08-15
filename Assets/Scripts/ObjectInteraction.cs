@@ -98,12 +98,13 @@ public class ObjectInteraction : MonoBehaviour
             if (talkicon != null)
             {
                 talkicon.SetActive(hit.collider.CompareTag("NPC") && !GlobalVariables.character_talking);
+                // Debug.Log(GlobalVariables.character_talking);
             }
 
             // Activar indicadorF si está viendo un objeto con el Tag "NPC"
             if (indicadorF != null)
             {
-                indicadorF.SetActive(hit.collider.CompareTag("NPC"));
+                indicadorF.SetActive(hit.collider.CompareTag("NPC") && !GlobalVariables.character_talking);
             }
 
             // Activar indicadorE si está viendo un objeto con el Tag "Card" o "Activable"

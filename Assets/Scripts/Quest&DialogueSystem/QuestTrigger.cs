@@ -5,6 +5,10 @@ using UnityEngine;
 public class QuestTrigger : MonoBehaviour
 {
     public GameObject target;
+
+    public GameObject object_to_activate;
+
+    public GameObject object_to_deactivate;
     public int trigger_id;
     public bool by_proximity = false;
     public bool by_touch = false;
@@ -27,6 +31,14 @@ public class QuestTrigger : MonoBehaviour
 
     public void Trigger()
     {
+        if (object_to_activate != null){
+            object_to_activate.SetActive(true);
+        }
+        if (object_to_deactivate != null){
+            object_to_deactivate.SetActive(false);
+        }
+        
+      
         // Assuming "target" has a method called "continue" that takes an int parameter.
         target.GetComponent<DialogueSystem>()._continue(trigger_id);
         

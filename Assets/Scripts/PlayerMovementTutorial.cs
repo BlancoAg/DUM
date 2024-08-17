@@ -81,11 +81,11 @@ public class PlayerMovementTutorial : MonoBehaviour
     private void Update()
     {
         if (GlobalVariables.character_small == false){
-            moveSpeed = 7.0f;
+            moveSpeed = 10.0f;
             jumpForce = 7.0f;
         }else
         {
-            moveSpeed = 1.5f;
+            moveSpeed = 2.5f;
             jumpForce = 3.0f;
         }
         if (!isClimbing && !inWater)

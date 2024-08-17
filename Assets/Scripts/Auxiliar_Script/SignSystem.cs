@@ -6,7 +6,6 @@ public class SignSystem : MonoBehaviour
     public string signText;  // Texto que se mostrará en el diálogo
     public GameObject dialogueBox;  // Caja de diálogo en la interfaz
     public Text dialogueText;  // Componente de texto dentro de la caja de diálogo
-
     private bool isLookingAtSign = false;
 
     // NearView()

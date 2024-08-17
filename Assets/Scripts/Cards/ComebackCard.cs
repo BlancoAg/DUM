@@ -31,7 +31,7 @@ public class ComebackCard : MonoBehaviour, ICard
         if (mark)
         {
             player.transform.position = savedPosition;
-            //sauce.PlayOneShot(clip);
+            sauce.PlayOneShot(clip);
             Destroy(GameObject.Find("ComeBackCardMark(Clone)"));
             mark = false;
         }

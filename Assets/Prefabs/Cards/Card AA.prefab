@@ -5680,7 +5680,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Aerial Ascension:
 
-    La fuerza de tu salto aumenta considerablemente.'
+    Es un pajaro? es un avion? NO es una marioneta
+    con Aereal Ascencion, usala para impulzarte por el aire, ideal para rescatar
+    gatos en apuros'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

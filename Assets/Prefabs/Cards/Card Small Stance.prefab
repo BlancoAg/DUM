@@ -4975,8 +4975,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Small Stance:\nReduce tu tama\xF1o o lo regresa a su forma original.\nNo
-    podras volver a tu tama\xF1ano original en lugares estrechos. "
+  m_text: "Small Stance:\nReduce tu tama\xF1o y o lo regresa a su forma original.
+    ademas eres mas ligero\nNo podras volver a tu tama\xF1ano original en lugares
+    estrechos. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

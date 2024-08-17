@@ -6,6 +6,8 @@ public class TeleportAfterHold : MonoBehaviour
     public AudioClip teleportSound; // El sonido que se reproducirá después de teletransportar
     public AudioSource audioSource; // El componente de AudioSource para reproducir el sonido
 
+    public GameObject Camera;
+
     private bool isHolding = false;
     private float holdTime = 0f;
     public float requiredHoldTime = 3f; // Tiempo necesario para mantener presionado el botón
@@ -32,6 +34,10 @@ public class TeleportAfterHold : MonoBehaviour
         {
             isHolding = false;
         }
+         if (Input.GetKey(KeyCode.Z)){
+            Camera.SetActive(false);
+            Camera.SetActive(true);
+         }
     }
 
     void TeleportPlayer()

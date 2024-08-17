@@ -16,7 +16,7 @@ public class QuestTrigger : MonoBehaviour
     public bool target_need_to_talk = false;
     public float area_detection;
 
-
+    public QuestTrigger Quest;
     // This method is called when another object enters the trigger area.
     private void OnTriggerEnter(Collider other)
     {

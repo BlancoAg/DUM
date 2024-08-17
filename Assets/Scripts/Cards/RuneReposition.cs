@@ -33,7 +33,7 @@ public class RuneReposition : MonoBehaviour, ICard
                 RaycastHit hit;
               if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, Mathf.Infinity, ~LayerMask.GetMask("Player")))
 {
-    // Código a ejecutar si el Raycast impacta algo que no tenga el tag 'Player'
+    // Código a ejecutar si el Raycast impacta algo que no tenga el tag 'Player'p
 }
 
                 {

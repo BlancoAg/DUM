@@ -4976,9 +4976,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Stone Stance: \nTe vuelves de piedra.\nLas corrientes de aire no te afectan,
-    te hundes en el agua y caes con fuerza mientras estes en el aire. destruyendo
-    superficies fragiles a tu paso"
+  m_text: 'Stone Stance: Aumenta drasticamente tu peso, eres mas dificil de desplazar
+    ademas de que arasas a tu paso cuando caes, destruyendo superficies quebradizas
+    al caer sobre ellas'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

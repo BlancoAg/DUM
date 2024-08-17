@@ -37,7 +37,12 @@ public class ObjectInteraction : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 2))
+            // Capa del Player que quieres ignorar
+            int layerMask = 1 << LayerMask.NameToLayer("Player");
+            // Invertir la máscara para que el Raycast ignore la capa del Player
+            layerMask = ~layerMask;
+
+            if (Physics.Raycast(ray, out hit, 2, layerMask))
             {
                 if (hit.collider != null && hit.collider.CompareTag("Activator"))
                 {
@@ -57,12 +62,17 @@ public class ObjectInteraction : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
+            // Capa del Player que quieres ignorar
+            int layerMask = 1 << LayerMask.NameToLayer("Player");
+            // Invertir la máscara para que el Raycast ignore la capa del Player
+            layerMask = ~layerMask;
+
             if (dialoguesystem.talking)
             {
                 dialoguesystem.skip();
             }
 
-            if (Physics.Raycast(ray, out hit, talk_distance))
+            if (Physics.Raycast(ray, out hit, talk_distance, layerMask))
             {
                 if (hit.collider != null && hit.collider.CompareTag("NPC"))
                 {
@@ -91,14 +101,18 @@ public class ObjectInteraction : MonoBehaviour
         Camera cameraComponent = GetComponentInChildren<Camera>();
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+        
+        // Capa del Player que quieres ignorar
+        int layerMask = 1 << LayerMask.NameToLayer("Player");
+        // Invertir la máscara para que el Raycast ignore la capa del Player
+        layerMask = ~layerMask;
 
-        if (Physics.Raycast(ray, out hit, 3))
+        if (Physics.Raycast(ray, out hit, 3, layerMask))
         {
             // Activar talkicon si se está viendo un NPC y no hay diálogo en curso
             if (talkicon != null)
             {
                 talkicon.SetActive(hit.collider.CompareTag("NPC") && !GlobalVariables.character_talking);
-                // Debug.Log(GlobalVariables.character_talking);
             }
 
             // Activar indicadorF si está viendo un objeto con el Tag "NPC"

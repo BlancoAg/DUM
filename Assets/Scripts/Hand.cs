@@ -7,6 +7,8 @@ public class Hand : MonoBehaviour
 {
     public AudioClip fail_clip;
 
+    public AudioClip read_description;
+
     public AudioClip pick_up_clip;
     public AudioSource sourceCC;
     public AudioClip clip;
@@ -56,7 +58,10 @@ public class Hand : MonoBehaviour
         // Debug.Log("Hiciste");
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 3))
+            int layerMask = 1 << LayerMask.NameToLayer("Player");
+            // Invertir la máscara para que el Raycast ignore la capa del Player
+            layerMask = ~layerMask;
+        if (Physics.Raycast(ray, out hit, 3,layerMask))
             // if (Physics.Raycast(ray, out hit, 2, LayerMask.GetMask("Card")))
             {
                 // Debug.Log("le pegaste a algo");
@@ -160,10 +165,16 @@ public class Hand : MonoBehaviour
             collection.SetActive(false);
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            cardDesc.SetActive(true);
-        }
+if (Input.GetKey(KeyCode.LeftShift))
+{
+    if (!cardDesc.activeSelf)
+    {
+        sourceCC.PlayOneShot(read_description);
+    }
+
+    cardDesc.SetActive(true);
+}
+
         else
         {
             cardDesc.SetActive(false);

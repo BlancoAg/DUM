@@ -686,10 +686,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Rune Reposition:
-
-    Apunta a una runa violacea para teletransportate
-    a su posicion. '
+  m_text: "Rune Reposition:\nApunta a una runa violacea para teletransportarte a
+    una ubicacion se\xF1alizada con una runa azul "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

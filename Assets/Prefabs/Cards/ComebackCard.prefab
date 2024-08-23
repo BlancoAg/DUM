@@ -67,7 +67,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Comeback Card:\nLa primera vez que se activa guarda tu posicion actual.
-    \nSI se vuelve activar te teletransportas a la posicion guardada previamente. "
+    \nSI se vuelve activar te teletransportas a la posicion guardada previamente. 
+    Si pulsas Alt al usarla se destruye la posicion anterior "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -315,8 +316,10 @@ MonoBehaviour:
   savedPosition: {x: 577.48505, y: 47.053356, z: 613.3972}
   mark: 0
   ComeBackCardMark: {fileID: 4313422131031966525, guid: 7e24f22171284334dbefe2ba361a9988, type: 3}
-  clip: {fileID: 8300000, guid: 4342ab652bd9f4f4884ca33e8b40a7aa, type: 3}
   sauce: {fileID: 0}
+  clip: {fileID: 8300000, guid: 4342ab652bd9f4f4884ca33e8b40a7aa, type: 3}
+  cancel: {fileID: 8300000, guid: 0478257fc382bda408b26bc75c2d60cc, type: 3}
+  NoneToDestroy: {fileID: 8300000, guid: cf90a15168318d2489799a9d7b317f8a, type: 3}
 --- !u!1 &6068415952989917071
 GameObject:
   m_ObjectHideFlags: 0

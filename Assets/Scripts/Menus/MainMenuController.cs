@@ -9,10 +9,17 @@ public class MainMenuController : MonoBehaviour
     public GameObject menu;
     public GameObject tutorial;
 
+    public bool testing;
+
     // Variable pública para el Rigidbody
     public Rigidbody targetRigidbody;
 
     // Método Play que activará todos los componentes del GameObject
+    private void Start() {
+        if(testing){
+            Play();
+        }
+    }
     public void Play()
     {
         // Llama al método para activar todos los componentes del GameObject

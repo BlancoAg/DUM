@@ -113,9 +113,11 @@ public class AscensorController : MonoBehaviour
 
     void MovePlatform()
     {
-        float distanceCovered = (Time.time - startTime) * LeverSpeed;
-        float fractionOfJourney = distanceCovered / journeyLength;
-        Platform.position = Vector3.Lerp(startPosition, targetPosition, fractionOfJourney);
+float distanceCovered = (Time.time - startTime) * LeverSpeed;
+float fractionOfJourney = distanceCovered / journeyLength;
+float smoothFraction = Mathf.SmoothStep(0f, 1f, fractionOfJourney);
+Platform.position = Vector3.Lerp(startPosition, targetPosition, smoothFraction);
+
 
         // Si el jugador está en la plataforma, moverlo con la plataforma
         if (isPlayerOnPlatform && playerTransform != null)

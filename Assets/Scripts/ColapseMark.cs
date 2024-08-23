@@ -14,7 +14,7 @@ public class ColapseMark : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.localScale = Vector3.Lerp(gameObject.transform.localScale , new Vector3 (0,0,0) , Time.deltaTime * speed);
+        // gameObject.transform.localScale = Vector3.Lerp(gameObject.transform.localScale , new Vector3 (0,0,0) , Time.deltaTime * speed);
         
     }
 

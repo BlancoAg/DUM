@@ -43,6 +43,11 @@ public class Hand : MonoBehaviour
 
     void Update()
     {   
+
+    if (!ready)
+    {
+        HandleCardSelection();
+    }
         if (Input.GetMouseButtonDown(0)){
             // Debug.Log("Boton Derecho");
         }
@@ -258,4 +263,27 @@ if (Input.GetKey(KeyCode.LeftShift))
 
 
     }
+    void HandleCardSelection()
+    {
+    // Lógica para seleccionar la carta basada en teclas del 1 al 0
+    for (int i = 0; i <= 9; i++)
+    {
+        if (Input.GetKeyDown((i + 1) % 10 + KeyCode.Alpha0))
+        {
+            SelectCardByKey(i);
+            break;
+        }
+    }
+}
+
+void SelectCardByKey(int index)
+{
+    if (index < cardsInHand.Count)
+    {
+        currentCardIndex = index;
+        // Aquí puedes añadir lógica para mostrar la carta seleccionada si es necesario
+        Debug.Log("Carta seleccionada: " + cardsInHand[currentCardIndex].name);
+    }
+}
+
 }    

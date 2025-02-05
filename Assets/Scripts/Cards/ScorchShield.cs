@@ -46,6 +46,7 @@ public class ScorchShield : MonoBehaviour, ICard
             if (player != null)
             {
                 player.shield_status(true);
+                GlobalVariables.on_fire = true;
             }
         }
         else if (isHeld && !Input.GetMouseButton(1))
@@ -54,6 +55,7 @@ public class ScorchShield : MonoBehaviour, ICard
             if (player != null)
             {
                 player.shield_status(false);
+                GlobalVariables.on_fire = false;
             }
             isHeld = false;
         }

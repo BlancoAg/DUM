@@ -16,6 +16,7 @@ TagManager:
   - sound
   - Ladder
   - Vaultable
+  - lilipad
   layers:
   - Default
   - TransparentFX
